@@ -11,8 +11,8 @@ LIBOS		= mOS
 TOOLSLIB	= $(TREEROOT)/tools/tools-lib
 INCLUDES	= -I$(PREFIX)/include -I../port/  -I$(TREEROOT)/sys/include -I$(TREEROOT)/sys/kern/superH -I$(TREEROOT)/benchmarks/include -I$(TREEROOT)/sys/libOS/port
 OPTFLAGS	= -O0
-CFLAGS		= $(TARGET-ARCH-FLAGS) -march=rv32i -mabi=ilp32 -Wall # Do not do since we are linking mOS for libc implementation:	-nostdlib -fno-builtin 
-ASFLAGS		= --march=rv32i --mabi=ilp32
+CFLAGS		= $(TARGET-ARCH-FLAGS) -march=rv32imfd -mabi=ilp32d -Wall
+ASFLAGS		= --march=rv32imfd --mabi=ilp32d
 LDFLAGS		= -Ttext $(LOADADDR) -L$(TOOLSLIB)/$(TARGET) -L$(TREEROOT)/sys/libOS/$(LIBOS) -Map $(PROGRAM).map
 LOADADDR	= 0x08004000
 
