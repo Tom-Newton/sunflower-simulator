@@ -1,10 +1,10 @@
-TREEROOT	= ../../../..
+TREEROOT	= ../../../../../..
 include $(TREEROOT)/conf/setup.conf
 
 TARGET		= riscv
 TARGET-ARCH	= riscv32-elf
 
-PROGRAM		= hello
+PROGRAM		= original
 
 PORT		= ../port
 LIBOS		= mOS
