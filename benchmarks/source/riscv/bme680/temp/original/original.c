@@ -19,7 +19,7 @@ int main(void)
 	float temp = calc_temperature(temp_adc, &dev);
 	LOGMARK(1);
 
-	printf("Converted temp = %f\n", temp);
+	printf_("Converted temp = %f\n", temp);
 
 	return 0;
 }
