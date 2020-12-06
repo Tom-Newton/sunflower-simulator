@@ -14,16 +14,7 @@ int main(void)
 	float temp = calc_temperature(543639);
 	LOGMARK(1);
 
-	// if (temp == 37.999873) {
-	// 	printf_("Correct");
-	// } else {
-	// 	printf_("Incorrect");
-	// }
-
-
-	// char buf[3];
-	// gcvt(temp, 3, buf);
-	// printf_("String obtained on concatenation: %s\n", buf);
+	printf("Converted temp = %f\n", temp);
 
 	return 0;
 }
