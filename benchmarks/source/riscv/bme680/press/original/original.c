@@ -13,8 +13,8 @@ int main(void)
 	dev.calib.par_t1 = 26372;
 	dev.calib.par_t2 = 26190;
 	dev.calib.par_t3 = 3;
-	
-	dev.calib.par_p1 = 36338; 
+
+	dev.calib.par_p1 = 36338;
 	dev.calib.par_p2 = 55104;
 	dev.calib.par_p3 = 88;
 	dev.calib.par_p4 = 7194;
@@ -31,19 +31,22 @@ int main(void)
 	LOGMARK(0);
 	float temp = calc_temperature(temp_adc, &dev);
 	float press = calc_pressure(press_adc, &dev);
-	// temp=22.000028 press=69999.935282
-	// 21.000093            49999.992044
 	LOGMARK(1);
-
-	if (roundf(temp) == 21) {
+	if (roundf(temp) == 33)
+	{
 		printf_("temp_correct\n");
-	} else {
+	}
+	else
+	{
 		printf_("temp_wrong\n");
 	}
 
-	if (roundf(press) == 26036) {
+	if (roundf(press) == 100304)
+	{
 		printf_("press_correct\n");
-	} else {
+	}
+	else
+	{
 		printf_("press_wrong\n");
 	}
 
