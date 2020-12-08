@@ -12,16 +12,28 @@ int main(void)
 	dev.calib.par_t1 = 26372;
 	dev.calib.par_t2 = 26190;
 	dev.calib.par_t3 = 3;
-	// TODO: Add the pressure calibration constants 
+	
+	dev.calib.par_p1 =36338; 
+	dev.calib.par_p2 = 55104;
+	dev.calib.par_p3 = 88;
+	dev.calib.par_p4 = 7194;
+	dev.calib.par_p5 = 65442;
+	dev.calib.par_p6 = 30;
+	dev.calib.par_p7 = 43;
+	dev.calib.par_p8 = 62766;
+	dev.calib.par_p9 = 62990;
+	dev.calib.par_p10 = 30;
 
-	uint32_t temp_adc = 543639;
-	uint32_t press_adc = 643639;
+	uint32_t temp_adc = 492409;
+	uint32_t press_adc = 672774;
 
 	LOGMARK(0);
-	calc_temperature(temp_adc, &dev);
+	float temp = calc_temperature(temp_adc, &dev);
 	float press = calc_pressure(press_adc, &dev);
+	// temp=22.000028 press=69999.935282
 	LOGMARK(1);
 
+	printf_("Converted temp = %f\n", temp);
 	printf_("Converted press = %f\n", press);
 
 	return 0;
