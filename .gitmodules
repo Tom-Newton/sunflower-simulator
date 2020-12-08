@@ -1,6 +1,6 @@
 [submodule "sunflower-toolchain"]
 	path = sunflower-toolchain
-	url = ../../physical-computation/sunflower-toolchain.git
+	url = git@github.com:Tom-Newton/sunflower-toolchain.git
 [submodule "benchmarks/source/riscv/bme680/BME680_driver"]
 	path = benchmarks/source/riscv/bme680/BME680_driver
 	url = git@github.com:Tom-Newton/BME680_driver.git
