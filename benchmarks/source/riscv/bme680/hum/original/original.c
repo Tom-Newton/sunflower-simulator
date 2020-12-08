@@ -22,22 +22,21 @@ int main(void)
 	dev.calib.par_h6 = 120;
 	dev.calib.par_h7 = 156;
 
-	uint32_t temp_adc = 469993;
-	uint32_t hum_adc = 21975;
+	uint32_t temp_adc = 527136;
+	uint32_t hum_adc = 18481;
 
 	LOGMARK(0);
 	float temp = calc_temperature(temp_adc, &dev);
 	float hum = calc_humidity(hum_adc, &dev);
-	// 469993.0     21975.0              15.000098             50.002233
 	LOGMARK(1);
 
-	if (roundf(temp) == 15) {
+	if (roundf(temp) == 33) {
 		printf_("temp_correct\n");
 	} else {
 		printf_("temp_wrong\n");
 	}
 
-	if (roundf(hum) == 50) {
+	if (roundf(hum) == 29) {
 		printf_("hum_correct\n");
 	} else {
 		printf_("hum_wrong\n");
