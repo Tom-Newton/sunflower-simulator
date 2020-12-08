@@ -1,20 +1,20 @@
 Nonterminals useless in grammar
 
-   ruimm
-   rsimm
+    ruimm
+    rsimm
 
 
 Terminals unused in grammar
 
-   T_BATTLEAK
-   T_DUMPPWR
-   T_DUMPTIME
-   T_POWERTOTAL
-   T_SETTAG
-   T_SHOWTAGS
-   T_TRA
-   T_BRAF
-   T_DIV0U
+    T_BATTLEAK
+    T_DUMPPWR
+    T_DUMPTIME
+    T_POWERTOTAL
+    T_SETTAG
+    T_SHOWTAGS
+    T_TRA
+    T_BRAF
+    T_DIV0U
 
 
 Rules useless in grammar
@@ -781,756 +781,881 @@ Grammar
 
 Terminals, with rules where they appear
 
-$end (0) 0
-'\n' (10) 180 181 182 183 184 185 186 187 188 189 190 191 192 193 194
-    195 196 197 198 199 200 201 202 203 204 205 206 207 208 209 211
-    213 214 215 216 217 218 219 220 221 222 223 224 225 226 238 239
-    240 241 242 243 244 245 246 247 248 249 250 251 252 253 254 255
-    256 257 258 259 260 261 262 263 264 265 266 267 268 269 270 271
-    272 273 274 275 276 277 278 279 280 281 282 283 284 285 286 287
-    288 289 290 291 292 293 294 295 296 297 298 299 300 301 302 306
-    307 308 309 310 311 312 313 314 315 316 317 318 319 320 321 322
-    323 324 325 326 327 328 329 330 331 332 333 334
-'#' (35) 344 348 349 369 421 449 450 452 498 500 501 503 504
-'(' (40) 349 415 416 417 418 419 420 422 423 425 426 427 428 429 430
-    431 432 433 434 435 436 437 450 501 504
-')' (41) 349 415 416 417 418 419 420 422 423 425 426 427 428 429 430
-    431 432 433 434 435 436 437 450 501 504
-'+' (43) 387 388 389 390 391 392 396 397 398 400 401 412 413 414 513
-    516 524
-',' (44) 210 342 343 344 345 346 347 348 349 361 362 363 364 365 368
-    369 370 371 372 373 375 376 377 378 381 382 383 384 385 386 387
-    388 389 390 391 392 393 394 395 396 397 398 400 401 402 403 404
-    405 406 407 408 409 410 411 412 413 414 415 416 417 418 419 420
-    421 422 423 424 425 426 427 428 429 430 431 432 433 434 435 436
-    437 439 440 441 442 443 444 445 447 448 449 450 461 464 474 475
-    476 477 478 479 480 481 482 483 484 485 486 487 488 489 490 491
-    492 493 494 495 496 499 500 501 502 503 504 505 521
-'-' (45) 409 410 411 480 481 482 483 484 485 489 490 491 512 515 525
-'<' (60) 508
-'>' (62) 508
-'@' (64) 349 379 380 387 388 389 390 391 392 396 397 398 400 401 403
-    404 405 406 407 408 409 410 411 412 413 414 415 416 417 418 419
-    420 422 423 425 426 427 428 429 430 431 432 433 434 435 436 437
-    450 451 480 481 482 483 484 485 489 490 491 497 501 504
-'{' (123) 210 509 519
-'}' (125) 210 509 519
-error (256)
-T_BATTALERTFRAC (258) 269
-T_BATTLEAK (259)
-T_BATTCF (260) 188
-T_BATTILEAK (261) 187
-T_BATTETALUT (262) 191
-T_BATTETALUTNENTRIES (263) 192
-T_BATTINOMINAL (264) 189
-T_BATTNODEATTACH (265) 184
-T_BATTRF (266) 190
-T_BATTSTATS (267) 185
-T_BATTVBATTLUT (268) 193
-T_BATTVBATTLUTNENTRIES (269) 194
-T_BATTVLOSTLUT (270) 195
-T_BATTVLOSTLUTNENTRIES (271) 196
-T_PCBT (272) 198
-T_CACHEINIT (273) 246
-T_CACHEOFF (274) 247
-T_CACHESTATS (275) 248
-T_CD (276) 226
-T_CLOCKINTR (277) 287
-T_COMMENT (278) 333
-T_CONT (279) 313
-T_DISABLEPIPELINE (280) 285
-T_DUMPALL (281) 241
-T_DUMPMEM (282) 284
-T_DUMPPIPE (283) 251
-T_DUMPDISTRIBUTION (284) 252
-T_DUMPPWR (285)
-T_DUMPREGS (286) 249
-T_DUMPSYSREGS (287) 250
-T_DUMPTIME (288)
-T_DUMPTLB (289) 264
-T_DYNINSTR (290) 254
-T_EBATTINTR (291) 268
-T_EFAULTS (292) 326
-T_ENABLEPIPELINE (293) 286
-T_FILE2NETSEG (294) 225
-T_FLTTHRESH (295) 325
-T_FORCEAVGPWR (296) 232
-T_HELP (297) 306
-T_IGNORENODEDEATHS (298) 213
-T_INITSEESTATE (299) 212
-T_HWSEEREG (300) 211
-T_REGISTERRVAR (301) 208
-T_INITRANDTABLE (302) 209
-T_DEFNDIST (303) 210
-T_RANDPRINT (304) 207
-T_LOAD (305) 294
-T_LOCSTATS (306) 317
-T_LISTRVARS (307) 318
-T_MALLOCDEBUG (308) 329
-T_MMAP (309) 243
-T_MODECA (310) 244
-T_MODEFF (311) 245
-T_NETCORREL (312) 276
-T_NETDEBUG (313) 321
-T_NETNEWSEG (314) 273
-T_NETNODENEWIFC (315) 277
-T_NETSEG2FILE (316) 224
-T_NETSEGDELETE (317) 278
-T_NETSEGFAILDURMAX (318) 272
-T_NETSEGFAILPROB (319) 274
-T_NETSEGFAILPROBFN (320) 280
-T_NETSEGNICATTACH (321) 275
-T_NETSEGPROPMODEL (322) 233
-T_NEWBATT (323) 186
-T_NEWNODE (324) 181 182 183
-T_NODEFAILDURMAX (325) 271
-T_NODEFAILPROB (326) 270
-T_NODEFAILPROBFN (327) 279
-T_NODETACH (328) 255
-T_NUMAREGION (329) 260
-T_NUMASTATS (330) 261
-T_NUMASTATSALL (331) 262
-T_NUMASETMAPID (332) 263
-T_ADDVALUETRACE (333) 256
-T_DELVALUETRACE (334) 257
-T_REGISTERSTABS (335) 258
-T_VALUESTATS (336) 259
-T_OFF (337) 320
-T_ON (338) 319
-T_PAUINFO (339) 330
-T_NANOPAUSE (340) 331
-T_PAUSE (341) 332
-T_PFUN (342) 327
-T_PIPEFLUSH (343) 308
-T_POWERSTATS (344) 316
-T_POWERTOTAL (345)
-T_PWD (346) 239
-T_PARSEOBJDUMP (347) 240
-T_QUIT (348) 180
-T_GETRANDOMSEED (349) 266
-T_SETRANDOMSEED (350) 267
-T_RATIO (351) 265
-T_RENUMBERNODES (352) 221
-T_RESETNODECTRS (353) 222
-T_RESETALLCTRS (354) 223
-T_RESETCPU (355) 253
-T_RETRYALG (356) 206
-T_RUN (357) 291
-T_SAVE (358) 310
-T_SENSORSDEBUG (359) 236
-T_SETBASENODEID (360) 220
-T_SETBATT (361) 197
-T_SETBATTFEEDPERIOD (362) 229
-T_SETDUMPPWRPERIOD (363) 234
-T_SETNETPERIOD (364) 230
-T_SETFAULTPERIOD (365) 231
-T_SETFREQ (366) 301
-T_SETIFCOUI (367) 328
-T_SETMEMBASE (368) 304
-T_SETNODE (369) 242
-T_SETPC (370) 295
-T_SETPHYSICSPERIOD (371) 228
-T_SETQUANTUM (372) 219
-T_SETSCALEALPHA (373) 214
-T_SETSCALEK (374) 215
-T_SETSCALEVT (375) 216
-T_SETSCHEDRANDOM (376) 217
-T_SETSCHEDROUNDROBIN (377) 218
-T_SETTAG (378)
-T_SETTIMERDELAY (379) 227
-T_SETVDD (380) 296
-T_SETMEMRLATENCY (381) 297
-T_SETMEMWLATENCY (382) 298
-T_SETFLASHRLATENCY (383) 299
-T_SETFLASHWLATENCY (384) 300
-T_SETNODEMASS (385) 302
-T_SETPROPULSIONCOEFFS (386) 303
-T_SHAREBUS (387) 314
-T_SHOWCLK (388) 315
-T_SHOWMEMBASE (389) 305
-T_SHOWPIPE (390) 309
-T_SHOWTAGS (391)
-T_SIGNALSRC (392) 238
-T_SIGNALSUBSCRIBE (393) 237
-T_SIZEMEM (394) 281
-T_SIZEPAU (395) 282
-T_SPLIT (396) 283
-T_SRECL (397) 311
-T_LOADMAPFILE (398) 312
-T_STEP (399) 292 293
-T_STOP (400) 288
-T_SFATAL (401) 289
-T_TRACE (402) 322
-T_THROTTLE (403) 323
-T_THROTTLEWIN (404) 324
-T_VERBOSE (405) 290
-T_VERSION (406) 235
-T_SETLOC (407) 205
-T_BPT (408) 199 200 201 202
-T_BPTLS (409) 203
-T_BPTDEL (410) 204
-T_GLOBALTIME (411) 199
-T_CYCLES (412) 200
-T_INSTRS (413) 201
-T_SENSORREADING (414) 202
-T_DOTALIGN (415) 335
-T_DOTORG (416) 340
-T_DOTDATA (417) 336
-T_DOTTEXT (418) 337
-T_DOTGLOBAL (419) 338
-T_DOTFILE (420) 339
-T_DOTLONG (421) 341
-T_DOTCOMM (422) 342
-T_R0 (423) 348 349 369 415 416 417 418 419 420 425 426 427 428 429
-    430 431 432 434 435 437 449 450 500 501 503 504 528
-T_R1 (424) 529
-T_R2 (425) 530
-T_R3 (426) 531
-T_R4 (427) 532
-T_R5 (428) 533
-T_R6 (429) 534
-T_R7 (430) 535
-T_R8 (431) 536
-T_R9 (432) 537
-T_R10 (433) 538
-T_R11 (434) 539
-T_R12 (435) 540
-T_R13 (436) 541
-T_R14 (437) 542
-T_R15 (438) 543
-T_GBR (439) 349 382 388 425 426 427 428 429 430 450 475 481 501 504
-T_VBR (440) 383 389 476 482
-T_MACH (441) 393 396 486 489
-T_MACL (442) 394 397 400 487 490
-T_PC (443) 422 423 437
-T_PR (444) 395 398 488 491
-T_TRA (445)
-T_SPC (446) 385 391 478 484
-T_SR (447) 381 387 474 480
-T_SSR (448) 384 390 477 483
-T_LABELDEFN (449) 3 4
-T_ADD (450) 343 344
-T_ADDC (451) 345
-T_ADDV (452) 346
-T_AND (453) 347 348
-T_ANDB (454) 349
-T_BF (455) 350
-T_BFS (456) 351
-T_BRA (457) 352 353
-T_BRAF (458)
-T_BSR (459) 354
-T_BSRF (460) 355
-T_BT (461) 356
-T_BTS (462) 357
-T_CLRMAC (463) 358
-T_CLRS (464) 359
-T_CLRT (465) 360
-T_CMPEQ (466) 361 369
-T_CMPGE (467) 362
-T_CMPGT (468) 363
-T_CMPHI (469) 364
-T_CMPHS (470) 365
-T_CMPPL (471) 366
-T_CMPPZ (472) 367
-T_CMPSTR (473) 368
-T_DIV0S (474) 370
-T_DIV0U (475)
-T_DIV1 (476) 371
-T_DMULSL (477) 372
-T_DMULUL (478) 373
-T_DT (479) 374
-T_EXTSB (480) 375
-T_EXTSW (481) 376
-T_EXTUB (482) 377
-T_EXTUW (483) 378
-T_JMP (484) 379
-T_JSR (485) 380
-T_LDC (486) 381 382 383 384 385 386
-T_LDCL (487) 387 388 389 390 391 392
-T_LDS (488) 393 394 395
-T_LDSL (489) 396 397 398
-T_LDTLB (490) 399
-T_MACW (491) 401
-T_MOV (492) 402 421
-T_MOVB (493) 403 406 409 412 415 418 425 428 431 434
-T_MOVL (494) 405 408 411 414 417 420 423 424 427 430 433 436
-T_MOVW (495) 404 407 410 413 416 419 422 426 429 432 435
-T_MOVA (496) 437
-T_MOVT (497) 438
-T_MULL (498) 439
-T_MULS (499) 440
-T_MULSW (500) 441
-T_MULU (501) 442
-T_MULUW (502) 443
-T_NEG (503) 444
-T_NEGC (504) 445
-T_NOP (505) 446
-T_NOT (506) 447
-T_OR (507) 448 449
-T_ORB (508) 450
-T_PREF (509) 451
-T_RFG (510) 452
-T_ROTCL (511) 453
-T_ROTCR (512) 454
-T_ROTL (513) 455
-T_ROTR (514) 456
-T_RTE (515) 457
-T_RTS (516) 458
-T_SETS (517) 459
-T_SETT (518) 460
-T_SHAD (519) 461
-T_SHAL (520) 462
-T_SHAR (521) 463
-T_SHLD (522) 464
-T_SHLL (523) 465
-T_SHLL2 (524) 466
-T_SHLL8 (525) 467
-T_SHLL16 (526) 468
-T_SHLR (527) 469
-T_SHLR2 (528) 470
-T_SHLR8 (529) 471
-T_SHLR16 (530) 472
-T_SLEEP (531) 473
-T_STC (532) 474 475 476 477 478 479
-T_STCL (533) 480 481 482 483 484 485
-T_STS (534) 486 487 488
-T_STSL (535) 489 490 491
-T_SUB (536) 492
-T_SUBC (537) 493
-T_SUBV (538) 494
-T_SWAPB (539) 495
-T_SWAPW (540) 496
-T_TASB (541) 497
-T_TRAPA (542) 498
-T_TST (543) 499 500
-T_TSTB (544) 501
-T_XOR (545) 502 503
-T_XORB (546) 504
-T_XTRCT (547) 505
-T_LABEL <uval> (548) 522
-T_STRING <str> (549) 183 206 207 208 209 210 211 212 224 225 226 240
-    241 256 257 258 260 279 280 283 289 294 310 311 312 327 328 339
-    342 508 509 510 511 512 513 514 515 516 523 524 525 527
-T_MAN <str> (550) 307
-"rnd" (551) 508 509
+    $end (0) 0
+    '\n' (10) 180 181 182 183 184 185 186 187 188 189 190 191 192 193 194 195 196 197 198 199 200 201 202 203 204 205 206 207 208 209 211 213 214 215 216 217 218 219 220 221 222 223 224 225 226 238 239 240 241 242 243 244 245 246 247 248 249 250 251 252 253 254 255 256 257 258 259 260 261 262 263 264 265 266 267 268 269 270 271 272 273 274 275 276 277 278 279 280 281 282 283 284 285 286 287 288 289 290 291 292 293 294 295 296 297 298 299 300 301 302 306 307 308 309 310 311 312 313 314 315 316 317 318 319 320 321 322 323 324 325 326 327 328 329 330 331 332 333 334
+    '#' (35) 344 348 349 369 421 449 450 452 498 500 501 503 504
+    '(' (40) 349 415 416 417 418 419 420 422 423 425 426 427 428 429 430 431 432 433 434 435 436 437 450 501 504
+    ')' (41) 349 415 416 417 418 419 420 422 423 425 426 427 428 429 430 431 432 433 434 435 436 437 450 501 504
+    '+' (43) 387 388 389 390 391 392 396 397 398 400 401 412 413 414 513 516 524
+    ',' (44) 210 342 343 344 345 346 347 348 349 361 362 363 364 365 368 369 370 371 372 373 375 376 377 378 381 382 383 384 385 386 387 388 389 390 391 392 393 394 395 396 397 398 400 401 402 403 404 405 406 407 408 409 410 411 412 413 414 415 416 417 418 419 420 421 422 423 424 425 426 427 428 429 430 431 432 433 434 435 436 437 439 440 441 442 443 444 445 447 448 449 450 461 464 474 475 476 477 478 479 480 481 482 483 484 485 486 487 488 489 490 491 492 493 494 495 496 499 500 501 502 503 504 505 521
+    '-' (45) 409 410 411 480 481 482 483 484 485 489 490 491 512 515 525
+    '<' (60) 508
+    '>' (62) 508
+    '@' (64) 349 379 380 387 388 389 390 391 392 396 397 398 400 401 403 404 405 406 407 408 409 410 411 412 413 414 415 416 417 418 419 420 422 423 425 426 427 428 429 430 431 432 433 434 435 436 437 450 451 480 481 482 483 484 485 489 490 491 497 501 504
+    '{' (123) 210 509 519
+    '}' (125) 210 509 519
+    error (256)
+    T_BATTALERTFRAC (258) 269
+    T_BATTLEAK (259)
+    T_BATTCF (260) 188
+    T_BATTILEAK (261) 187
+    T_BATTETALUT (262) 191
+    T_BATTETALUTNENTRIES (263) 192
+    T_BATTINOMINAL (264) 189
+    T_BATTNODEATTACH (265) 184
+    T_BATTRF (266) 190
+    T_BATTSTATS (267) 185
+    T_BATTVBATTLUT (268) 193
+    T_BATTVBATTLUTNENTRIES (269) 194
+    T_BATTVLOSTLUT (270) 195
+    T_BATTVLOSTLUTNENTRIES (271) 196
+    T_PCBT (272) 198
+    T_CACHEINIT (273) 246
+    T_CACHEOFF (274) 247
+    T_CACHESTATS (275) 248
+    T_CD (276) 226
+    T_CLOCKINTR (277) 287
+    T_COMMENT (278) 333
+    T_CONT (279) 313
+    T_DISABLEPIPELINE (280) 285
+    T_DUMPALL (281) 241
+    T_DUMPMEM (282) 284
+    T_DUMPPIPE (283) 251
+    T_DUMPDISTRIBUTION (284) 252
+    T_DUMPPWR (285)
+    T_DUMPREGS (286) 249
+    T_DUMPSYSREGS (287) 250
+    T_DUMPTIME (288)
+    T_DUMPTLB (289) 264
+    T_DYNINSTR (290) 254
+    T_EBATTINTR (291) 268
+    T_EFAULTS (292) 326
+    T_ENABLEPIPELINE (293) 286
+    T_FILE2NETSEG (294) 225
+    T_FLTTHRESH (295) 325
+    T_FORCEAVGPWR (296) 232
+    T_HELP (297) 306
+    T_IGNORENODEDEATHS (298) 213
+    T_INITSEESTATE (299) 212
+    T_HWSEEREG (300) 211
+    T_REGISTERRVAR (301) 208
+    T_INITRANDTABLE (302) 209
+    T_DEFNDIST (303) 210
+    T_RANDPRINT (304) 207
+    T_LOAD (305) 294
+    T_LOCSTATS (306) 317
+    T_LISTRVARS (307) 318
+    T_MALLOCDEBUG (308) 329
+    T_MMAP (309) 243
+    T_MODECA (310) 244
+    T_MODEFF (311) 245
+    T_NETCORREL (312) 276
+    T_NETDEBUG (313) 321
+    T_NETNEWSEG (314) 273
+    T_NETNODENEWIFC (315) 277
+    T_NETSEG2FILE (316) 224
+    T_NETSEGDELETE (317) 278
+    T_NETSEGFAILDURMAX (318) 272
+    T_NETSEGFAILPROB (319) 274
+    T_NETSEGFAILPROBFN (320) 280
+    T_NETSEGNICATTACH (321) 275
+    T_NETSEGPROPMODEL (322) 233
+    T_NEWBATT (323) 186
+    T_NEWNODE (324) 181 182 183
+    T_NODEFAILDURMAX (325) 271
+    T_NODEFAILPROB (326) 270
+    T_NODEFAILPROBFN (327) 279
+    T_NODETACH (328) 255
+    T_NUMAREGION (329) 260
+    T_NUMASTATS (330) 261
+    T_NUMASTATSALL (331) 262
+    T_NUMASETMAPID (332) 263
+    T_ADDVALUETRACE (333) 256
+    T_DELVALUETRACE (334) 257
+    T_REGISTERSTABS (335) 258
+    T_VALUESTATS (336) 259
+    T_OFF (337) 320
+    T_ON (338) 319
+    T_PAUINFO (339) 330
+    T_NANOPAUSE (340) 331
+    T_PAUSE (341) 332
+    T_PFUN (342) 327
+    T_PIPEFLUSH (343) 308
+    T_POWERSTATS (344) 316
+    T_POWERTOTAL (345)
+    T_PWD (346) 239
+    T_PARSEOBJDUMP (347) 240
+    T_QUIT (348) 180
+    T_GETRANDOMSEED (349) 266
+    T_SETRANDOMSEED (350) 267
+    T_RATIO (351) 265
+    T_RENUMBERNODES (352) 221
+    T_RESETNODECTRS (353) 222
+    T_RESETALLCTRS (354) 223
+    T_RESETCPU (355) 253
+    T_RETRYALG (356) 206
+    T_RUN (357) 291
+    T_SAVE (358) 310
+    T_SENSORSDEBUG (359) 236
+    T_SETBASENODEID (360) 220
+    T_SETBATT (361) 197
+    T_SETBATTFEEDPERIOD (362) 229
+    T_SETDUMPPWRPERIOD (363) 234
+    T_SETNETPERIOD (364) 230
+    T_SETFAULTPERIOD (365) 231
+    T_SETFREQ (366) 301
+    T_SETIFCOUI (367) 328
+    T_SETMEMBASE (368) 304
+    T_SETNODE (369) 242
+    T_SETPC (370) 295
+    T_SETPHYSICSPERIOD (371) 228
+    T_SETQUANTUM (372) 219
+    T_SETSCALEALPHA (373) 214
+    T_SETSCALEK (374) 215
+    T_SETSCALEVT (375) 216
+    T_SETSCHEDRANDOM (376) 217
+    T_SETSCHEDROUNDROBIN (377) 218
+    T_SETTAG (378)
+    T_SETTIMERDELAY (379) 227
+    T_SETVDD (380) 296
+    T_SETMEMRLATENCY (381) 297
+    T_SETMEMWLATENCY (382) 298
+    T_SETFLASHRLATENCY (383) 299
+    T_SETFLASHWLATENCY (384) 300
+    T_SETNODEMASS (385) 302
+    T_SETPROPULSIONCOEFFS (386) 303
+    T_SHAREBUS (387) 314
+    T_SHOWCLK (388) 315
+    T_SHOWMEMBASE (389) 305
+    T_SHOWPIPE (390) 309
+    T_SHOWTAGS (391)
+    T_SIGNALSRC (392) 238
+    T_SIGNALSUBSCRIBE (393) 237
+    T_SIZEMEM (394) 281
+    T_SIZEPAU (395) 282
+    T_SPLIT (396) 283
+    T_SRECL (397) 311
+    T_LOADMAPFILE (398) 312
+    T_STEP (399) 292 293
+    T_STOP (400) 288
+    T_SFATAL (401) 289
+    T_TRACE (402) 322
+    T_THROTTLE (403) 323
+    T_THROTTLEWIN (404) 324
+    T_VERBOSE (405) 290
+    T_VERSION (406) 235
+    T_SETLOC (407) 205
+    T_BPT (408) 199 200 201 202
+    T_BPTLS (409) 203
+    T_BPTDEL (410) 204
+    T_GLOBALTIME (411) 199
+    T_CYCLES (412) 200
+    T_INSTRS (413) 201
+    T_SENSORREADING (414) 202
+    T_DOTALIGN (415) 335
+    T_DOTORG (416) 340
+    T_DOTDATA (417) 336
+    T_DOTTEXT (418) 337
+    T_DOTGLOBAL (419) 338
+    T_DOTFILE (420) 339
+    T_DOTLONG (421) 341
+    T_DOTCOMM (422) 342
+    T_R0 (423) 348 349 369 415 416 417 418 419 420 425 426 427 428 429 430 431 432 434 435 437 449 450 500 501 503 504 528
+    T_R1 (424) 529
+    T_R2 (425) 530
+    T_R3 (426) 531
+    T_R4 (427) 532
+    T_R5 (428) 533
+    T_R6 (429) 534
+    T_R7 (430) 535
+    T_R8 (431) 536
+    T_R9 (432) 537
+    T_R10 (433) 538
+    T_R11 (434) 539
+    T_R12 (435) 540
+    T_R13 (436) 541
+    T_R14 (437) 542
+    T_R15 (438) 543
+    T_GBR (439) 349 382 388 425 426 427 428 429 430 450 475 481 501 504
+    T_VBR (440) 383 389 476 482
+    T_MACH (441) 393 396 486 489
+    T_MACL (442) 394 397 400 487 490
+    T_PC (443) 422 423 437
+    T_PR (444) 395 398 488 491
+    T_TRA (445)
+    T_SPC (446) 385 391 478 484
+    T_SR (447) 381 387 474 480
+    T_SSR (448) 384 390 477 483
+    T_LABELDEFN (449) 3 4
+    T_ADD (450) 343 344
+    T_ADDC (451) 345
+    T_ADDV (452) 346
+    T_AND (453) 347 348
+    T_ANDB (454) 349
+    T_BF (455) 350
+    T_BFS (456) 351
+    T_BRA (457) 352 353
+    T_BRAF (458)
+    T_BSR (459) 354
+    T_BSRF (460) 355
+    T_BT (461) 356
+    T_BTS (462) 357
+    T_CLRMAC (463) 358
+    T_CLRS (464) 359
+    T_CLRT (465) 360
+    T_CMPEQ (466) 361 369
+    T_CMPGE (467) 362
+    T_CMPGT (468) 363
+    T_CMPHI (469) 364
+    T_CMPHS (470) 365
+    T_CMPPL (471) 366
+    T_CMPPZ (472) 367
+    T_CMPSTR (473) 368
+    T_DIV0S (474) 370
+    T_DIV0U (475)
+    T_DIV1 (476) 371
+    T_DMULSL (477) 372
+    T_DMULUL (478) 373
+    T_DT (479) 374
+    T_EXTSB (480) 375
+    T_EXTSW (481) 376
+    T_EXTUB (482) 377
+    T_EXTUW (483) 378
+    T_JMP (484) 379
+    T_JSR (485) 380
+    T_LDC (486) 381 382 383 384 385 386
+    T_LDCL (487) 387 388 389 390 391 392
+    T_LDS (488) 393 394 395
+    T_LDSL (489) 396 397 398
+    T_LDTLB (490) 399
+    T_MACW (491) 401
+    T_MOV (492) 402 421
+    T_MOVB (493) 403 406 409 412 415 418 425 428 431 434
+    T_MOVL (494) 405 408 411 414 417 420 423 424 427 430 433 436
+    T_MOVW (495) 404 407 410 413 416 419 422 426 429 432 435
+    T_MOVA (496) 437
+    T_MOVT (497) 438
+    T_MULL (498) 439
+    T_MULS (499) 440
+    T_MULSW (500) 441
+    T_MULU (501) 442
+    T_MULUW (502) 443
+    T_NEG (503) 444
+    T_NEGC (504) 445
+    T_NOP (505) 446
+    T_NOT (506) 447
+    T_OR (507) 448 449
+    T_ORB (508) 450
+    T_PREF (509) 451
+    T_RFG (510) 452
+    T_ROTCL (511) 453
+    T_ROTCR (512) 454
+    T_ROTL (513) 455
+    T_ROTR (514) 456
+    T_RTE (515) 457
+    T_RTS (516) 458
+    T_SETS (517) 459
+    T_SETT (518) 460
+    T_SHAD (519) 461
+    T_SHAL (520) 462
+    T_SHAR (521) 463
+    T_SHLD (522) 464
+    T_SHLL (523) 465
+    T_SHLL2 (524) 466
+    T_SHLL8 (525) 467
+    T_SHLL16 (526) 468
+    T_SHLR (527) 469
+    T_SHLR2 (528) 470
+    T_SHLR8 (529) 471
+    T_SHLR16 (530) 472
+    T_SLEEP (531) 473
+    T_STC (532) 474 475 476 477 478 479
+    T_STCL (533) 480 481 482 483 484 485
+    T_STS (534) 486 487 488
+    T_STSL (535) 489 490 491
+    T_SUB (536) 492
+    T_SUBC (537) 493
+    T_SUBV (538) 494
+    T_SWAPB (539) 495
+    T_SWAPW (540) 496
+    T_TASB (541) 497
+    T_TRAPA (542) 498
+    T_TST (543) 499 500
+    T_TSTB (544) 501
+    T_XOR (545) 502 503
+    T_XORB (546) 504
+    T_XTRCT (547) 505
+    T_LABEL <uval> (548) 522
+    T_STRING <str> (549) 183 206 207 208 209 210 211 212 224 225 226 240 241 256 257 258 260 279 280 283 289 294 310 311 312 327 328 339 342 508 509 510 511 512 513 514 515 516 523 524 525 527
+    T_MAN <str> (550) 307
+    "rnd" (551) 508 509
 
 
 Nonterminals, with rules where they appear
 
-$accept (309)
-    on left: 0
-input (310)
-    on left: 1 2, on right: 0 2
-line (311)
-    on left: 3 4 5 6 7, on right: 2
-asm_ctl (312)
-    on left: 8 9 10 11 12 13 14 15 16 17, on right: 6
-expr (313)
-    on left: 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35
-    36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56
-    57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77
-    78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98
-    99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114
-    115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130
-    131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146
-    147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162
-    163 164 165 166 167 168 169 170 171 172 173 174 175 176 177 178
-    179, on right: 4 5
-sf_cmd (314)
-    on left: 180 181 182 183 184 185 186 187 188 189 190 191 192 193
-    194 195 196 197 198 199 200 201 202 203 204 205 206 207 208 209
-    210 211 212 213 214 215 216 217 218 219 220 221 222 223 224 225
-    226 227 228 229 230 231 232 233 234 235 236 237 238 239 240 241
-    242 243 244 245 246 247 248 249 250 251 252 253 254 255 256 257
-    258 259 260 261 262 263 264 265 266 267 268 269 270 271 272 273
-    274 275 276 277 278 279 280 281 282 283 284 285 286 287 288 289
-    290 291 292 293 294 295 296 297 298 299 300 301 302 303 304 305
-    306 307 308 309 310 311 312 313 314 315 316 317 318 319 320 321
-    322 323 324 325 326 327 328 329 330 331 332 333 334, on right:
-    7
-dotalign (315)
-    on left: 335, on right: 8
-dotdata (316)
-    on left: 336, on right: 9
-dottext (317)
-    on left: 337, on right: 10
-dotglobal (318)
-    on left: 338, on right: 13 16
-dotfile (319)
-    on left: 339, on right: 11 15
-dotorg (320)
-    on left: 340, on right: 12
-dotlong (321)
-    on left: 341, on right: 14
-dotcomm (322)
-    on left: 342, on right: 17
-add_instr (323)
-    on left: 343, on right: 18
-addi_instr (324)
-    on left: 344, on right: 19
-addc_instr (325)
-    on left: 345, on right: 20
-addv_instr (326)
-    on left: 346, on right: 21
-and_instr (327)
-    on left: 347, on right: 22
-andi_instr (328)
-    on left: 348, on right: 23
-andm_instr (329)
-    on left: 349, on right: 24
-bf_instr (330)
-    on left: 350, on right: 25
-bfs_instr (331)
-    on left: 351, on right: 26
-bra_instr (332)
-    on left: 352, on right: 27
-braf_instr (333)
-    on left: 353, on right: 28
-bsr_instr (334)
-    on left: 354, on right: 29
-bsrf_instr (335)
-    on left: 355, on right: 30
-bt_instr (336)
-    on left: 356, on right: 31
-bts_instr (337)
-    on left: 357, on right: 32
-clrmac_instr (338)
-    on left: 358, on right: 33
-clrs_instr (339)
-    on left: 359, on right: 34
-clrt_instr (340)
-    on left: 360, on right: 35
-cmpeq_instr (341)
-    on left: 361, on right: 36
-cmpge_instr (342)
-    on left: 362, on right: 37
-cmpgt_instr (343)
-    on left: 363, on right: 38
-cmphi_instr (344)
-    on left: 364, on right: 39
-cmphs_instr (345)
-    on left: 365, on right: 40
-cmppl_instr (346)
-    on left: 366, on right: 41
-cmppz_instr (347)
-    on left: 367, on right: 42
-cmpstr_instr (348)
-    on left: 368, on right: 43
-cmpim_instr (349)
-    on left: 369, on right: 44
-div0s_instr (350)
-    on left: 370, on right: 45
-div1_instr (351)
-    on left: 371, on right: 46
-dmuls_instr (352)
-    on left: 372, on right: 47
-dmulu_instr (353)
-    on left: 373, on right: 48
-dt_instr (354)
-    on left: 374, on right: 49
-extsb_instr (355)
-    on left: 375, on right: 50
-extsw_instr (356)
-    on left: 376, on right: 51
-extub_instr (357)
-    on left: 377, on right: 52
-extuw_instr (358)
-    on left: 378, on right: 53
-jmp_instr (359)
-    on left: 379, on right: 54
-jsr_instr (360)
-    on left: 380, on right: 55
-ldcsr_instr (361)
-    on left: 381, on right: 57
-ldcgbr_instr (362)
-    on left: 382, on right: 58
-ldcvbr_instr (363)
-    on left: 383, on right: 59
-ldcssr_instr (364)
-    on left: 384, on right: 60
-ldcspc_instr (365)
-    on left: 385, on right: 61
-ldcr_bank_instr (366)
-    on left: 386, on right: 56
-ldcmsr_instr (367)
-    on left: 387, on right: 62
-ldcmgbr_instr (368)
-    on left: 388, on right: 63
-ldcmvbr_instr (369)
-    on left: 389, on right: 64
-ldcmssr_instr (370)
-    on left: 390, on right: 65
-ldcmspc_instr (371)
-    on left: 391, on right: 66
-ldcmr_bank_instr (372)
-    on left: 392, on right: 67
-ldsmach_instr (373)
-    on left: 393, on right: 68
-ldsmacl_instr (374)
-    on left: 394, on right: 69
-ldspr_instr (375)
-    on left: 395, on right: 70
-ldsmmach_instr (376)
-    on left: 396, on right: 71
-ldsmmacl_instr (377)
-    on left: 397, on right: 72
-ldsmpr_instr (378)
-    on left: 398, on right: 73
-ldtlb_instr (379)
-    on left: 399, on right: 74
-macl_instr (380)
-    on left: 400, on right: 75
-macw_instr (381)
-    on left: 401, on right: 76
-mov_instr (382)
-    on left: 402, on right: 77
-movbs_instr (383)
-    on left: 403, on right: 78
-movws_instr (384)
-    on left: 404, on right: 79
-movls_instr (385)
-    on left: 405, on right: 80
-movbl_instr (386)
-    on left: 406, on right: 81
-movwl_instr (387)
-    on left: 407, on right: 82
-movll_instr (388)
-    on left: 408, on right: 83
-movbm_instr (389)
-    on left: 409, on right: 84
-movwm_instr (390)
-    on left: 410, on right: 85
-movlm_instr (391)
-    on left: 411, on right: 86
-movbp_instr (392)
-    on left: 412, on right: 87
-movwp_instr (393)
-    on left: 413, on right: 88
-movlp_instr (394)
-    on left: 414, on right: 89
-movbs0_instr (395)
-    on left: 415, on right: 90
-movws0_instr (396)
-    on left: 416, on right: 91
-movls0_instr (397)
-    on left: 417, on right: 92
-movbl0_instr (398)
-    on left: 418, on right: 93
-movwl0_instr (399)
-    on left: 419, on right: 94
-movll0_instr (400)
-    on left: 420, on right: 95
-movi_instr (401)
-    on left: 421, on right: 96
-movwi_instr (402)
-    on left: 422, on right: 97
-movli_instr (403)
-    on left: 423 424, on right: 98
-movblg_instr (404)
-    on left: 425, on right: 99
-movwlg_instr (405)
-    on left: 426, on right: 100
-movllg_instr (406)
-    on left: 427, on right: 101
-movbsg_instr (407)
-    on left: 428, on right: 102
-movwsg_instr (408)
-    on left: 429, on right: 103
-movlsg_instr (409)
-    on left: 430, on right: 104
-movbs4_instr (410)
-    on left: 431, on right: 105
-movws4_instr (411)
-    on left: 432, on right: 106
-movls4_instr (412)
-    on left: 433, on right: 107
-movbl4_instr (413)
-    on left: 434, on right: 108
-movwl4_instr (414)
-    on left: 435, on right: 109
-movll4_instr (415)
-    on left: 436, on right: 110
-mova_instr (416)
-    on left: 437, on right: 111
-movt_instr (417)
-    on left: 438, on right: 112
-mull_instr (418)
-    on left: 439, on right: 113
-muls_instr (419)
-    on left: 440, on right: 114
-mulsw_instr (420)
-    on left: 441, on right: 115
-mulu_instr (421)
-    on left: 442, on right: 116
-muluw_instr (422)
-    on left: 443, on right: 117
-neg_instr (423)
-    on left: 444, on right: 118
-negc_instr (424)
-    on left: 445, on right: 119
-nop_instr (425)
-    on left: 446, on right: 120
-not_instr (426)
-    on left: 447, on right: 121
-or_instr (427)
-    on left: 448, on right: 122
-ori_instr (428)
-    on left: 449, on right: 123
-orm_instr (429)
-    on left: 450, on right: 124
-pref_instr (430)
-    on left: 451, on right: 125
-rfg_instr (431)
-    on left: 452, on right: 126
-rotcl_instr (432)
-    on left: 453, on right: 127
-rotcr_instr (433)
-    on left: 454, on right: 128
-rotl_instr (434)
-    on left: 455, on right: 129
-rotr_instr (435)
-    on left: 456, on right: 130
-rte_instr (436)
-    on left: 457, on right: 131
-rts_instr (437)
-    on left: 458, on right: 132
-sets_instr (438)
-    on left: 459, on right: 133
-sett_instr (439)
-    on left: 460, on right: 134
-shad_instr (440)
-    on left: 461, on right: 135
-shal_instr (441)
-    on left: 462, on right: 136
-shar_instr (442)
-    on left: 463, on right: 137
-shld_instr (443)
-    on left: 464, on right: 138
-shll_instr (444)
-    on left: 465, on right: 139
-shll2_instr (445)
-    on left: 466, on right: 140
-shll8_instr (446)
-    on left: 467, on right: 141
-shll16_instr (447)
-    on left: 468, on right: 142
-shlr_instr (448)
-    on left: 469, on right: 143
-shlr2_instr (449)
-    on left: 470, on right: 144
-shlr8_instr (450)
-    on left: 471, on right: 145
-shlr16_instr (451)
-    on left: 472, on right: 146
-sleep_instr (452)
-    on left: 473, on right: 147
-stcsr_instr (453)
-    on left: 474, on right: 149
-stcgbr_instr (454)
-    on left: 475, on right: 150
-stcvbr_instr (455)
-    on left: 476, on right: 151
-stcssr_instr (456)
-    on left: 477, on right: 152
-stcspc_instr (457)
-    on left: 478, on right: 153
-stcr_bank_instr (458)
-    on left: 479, on right: 148
-stcmsr_instr (459)
-    on left: 480, on right: 155
-stcmgbr_instr (460)
-    on left: 481, on right: 156
-stcmvbr_instr (461)
-    on left: 482, on right: 157
-stcmssr_instr (462)
-    on left: 483, on right: 158
-stcmspc_instr (463)
-    on left: 484, on right: 159
-stcmr_bank_instr (464)
-    on left: 485, on right: 154
-stsmach_instr (465)
-    on left: 486, on right: 160
-stsmacl_instr (466)
-    on left: 487, on right: 161
-stspr_instr (467)
-    on left: 488, on right: 162
-stsmmach_instr (468)
-    on left: 489, on right: 163
-stsmmacl_instr (469)
-    on left: 490, on right: 164
-stsmpr_instr (470)
-    on left: 491, on right: 165
-sub_instr (471)
-    on left: 492, on right: 166
-subc_instr (472)
-    on left: 493, on right: 167
-subv_instr (473)
-    on left: 494, on right: 168
-swapb_instr (474)
-    on left: 495, on right: 169
-swapw_instr (475)
-    on left: 496, on right: 170
-tas_instr (476)
-    on left: 497, on right: 171
-trapa_instr (477)
-    on left: 498, on right: 172
-tst_instr (478)
-    on left: 499, on right: 173
-tsti_instr (479)
-    on left: 500, on right: 174
-tstb_instr (480)
-    on left: 501, on right: 175
-xor_instr (481)
-    on left: 502, on right: 176
-xori_instr (482)
-    on left: 503, on right: 177
-xorm_instr (483)
-    on left: 504, on right: 178
-xtrct_instr (484)
-    on left: 505, on right: 179
-rnd <rval> (485)
-    on left: 506 507, on right: 518
-rnd_const <rval> (486)
-    on left: 508, on right: 506
-rnd_var <rval> (487)
-    on left: 509, on right: 507
-uimm <uval> (488)
-    on left: 510, on right: 183 184 185 186 191 192 193 194 195 196
-    197 199 200 201 202 204 206 208 211 213 219 220 224 225 233 237
-    238 242 243 246 255 256 257 260 263 267 268 271 272 273 274 275
-    276 277 278 281 282 283 284 287 293 295 297 298 299 300 304 310
-    313 314 322 323 324 325 326 328 331 332 335 340
-simm <sval> (489)
-    on left: 511 512 513, on right: 260 344 348 349 369 421 449 450
-    452 498 500 501 503 504
-dimm <dval> (490)
-    on left: 514 515 516, on right: 186 187 188 189 190 191 193 195
-    202 205 207 208 209 212 214 215 216 227 228 229 230 231 232 233
-    234 238 269 270 273 274 276 277 296 301 302 303 508 509 517 520
-    521
-rdimm <rval> (491)
-    on left: 517 518, on right: 182 183
-dimmlist <dlist> (492)
-    on left: 519, on right: 210
-dimmlistbody <dlist> (493)
-    on left: 520 521, on right: 519 521
-disp <sval> (494)
-    on left: 522 523 524 525, on right: 338 341 342 350 351 352 354
-    356 357 422 423 424 425 426 427 428 429 430 431 432 433 434 435
-    436 437
-optstring <str> (495)
-    on left: 526 527, on right: 181 182 183 238 291
-reg <uval> (496)
-    on left: 528 529 530 531 532 533 534 535 536 537 538 539 540 541
-    542 543, on right: 343 344 345 346 347 353 355 361 362 363 364
-    365 366 367 368 370 371 372 373 374 375 376 377 378 379 380 381
-    382 383 384 385 386 387 388 389 390 391 392 393 394 395 396 397
-    398 400 401 402 403 404 405 406 407 408 409 410 411 412 413 414
-    415 416 417 418 419 420 421 422 423 424 431 432 433 434 435 436
-    438 439 440 441 442 443 444 445 447 448 451 453 454 455 456 461
-    462 463 464 465 466 467 468 469 470 471 472 474 475 476 477 478
-    479 480 481 482 483 484 485 486 487 488 489 490 491 492 493 494
-    495 496 497 499 502 505
+    $accept (309)
+        on left: 0
+    input (310)
+        on left: 1 2
+        on right: 0 2
+    line (311)
+        on left: 3 4 5 6 7
+        on right: 2
+    asm_ctl (312)
+        on left: 8 9 10 11 12 13 14 15 16 17
+        on right: 6
+    expr (313)
+        on left: 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 170 171 172 173 174 175 176 177 178 179
+        on right: 4 5
+    sf_cmd (314)
+        on left: 180 181 182 183 184 185 186 187 188 189 190 191 192 193 194 195 196 197 198 199 200 201 202 203 204 205 206 207 208 209 210 211 212 213 214 215 216 217 218 219 220 221 222 223 224 225 226 227 228 229 230 231 232 233 234 235 236 237 238 239 240 241 242 243 244 245 246 247 248 249 250 251 252 253 254 255 256 257 258 259 260 261 262 263 264 265 266 267 268 269 270 271 272 273 274 275 276 277 278 279 280 281 282 283 284 285 286 287 288 289 290 291 292 293 294 295 296 297 298 299 300 301 302 303 304 305 306 307 308 309 310 311 312 313 314 315 316 317 318 319 320 321 322 323 324 325 326 327 328 329 330 331 332 333 334
+        on right: 7
+    dotalign (315)
+        on left: 335
+        on right: 8
+    dotdata (316)
+        on left: 336
+        on right: 9
+    dottext (317)
+        on left: 337
+        on right: 10
+    dotglobal (318)
+        on left: 338
+        on right: 13 16
+    dotfile (319)
+        on left: 339
+        on right: 11 15
+    dotorg (320)
+        on left: 340
+        on right: 12
+    dotlong (321)
+        on left: 341
+        on right: 14
+    dotcomm (322)
+        on left: 342
+        on right: 17
+    add_instr (323)
+        on left: 343
+        on right: 18
+    addi_instr (324)
+        on left: 344
+        on right: 19
+    addc_instr (325)
+        on left: 345
+        on right: 20
+    addv_instr (326)
+        on left: 346
+        on right: 21
+    and_instr (327)
+        on left: 347
+        on right: 22
+    andi_instr (328)
+        on left: 348
+        on right: 23
+    andm_instr (329)
+        on left: 349
+        on right: 24
+    bf_instr (330)
+        on left: 350
+        on right: 25
+    bfs_instr (331)
+        on left: 351
+        on right: 26
+    bra_instr (332)
+        on left: 352
+        on right: 27
+    braf_instr (333)
+        on left: 353
+        on right: 28
+    bsr_instr (334)
+        on left: 354
+        on right: 29
+    bsrf_instr (335)
+        on left: 355
+        on right: 30
+    bt_instr (336)
+        on left: 356
+        on right: 31
+    bts_instr (337)
+        on left: 357
+        on right: 32
+    clrmac_instr (338)
+        on left: 358
+        on right: 33
+    clrs_instr (339)
+        on left: 359
+        on right: 34
+    clrt_instr (340)
+        on left: 360
+        on right: 35
+    cmpeq_instr (341)
+        on left: 361
+        on right: 36
+    cmpge_instr (342)
+        on left: 362
+        on right: 37
+    cmpgt_instr (343)
+        on left: 363
+        on right: 38
+    cmphi_instr (344)
+        on left: 364
+        on right: 39
+    cmphs_instr (345)
+        on left: 365
+        on right: 40
+    cmppl_instr (346)
+        on left: 366
+        on right: 41
+    cmppz_instr (347)
+        on left: 367
+        on right: 42
+    cmpstr_instr (348)
+        on left: 368
+        on right: 43
+    cmpim_instr (349)
+        on left: 369
+        on right: 44
+    div0s_instr (350)
+        on left: 370
+        on right: 45
+    div1_instr (351)
+        on left: 371
+        on right: 46
+    dmuls_instr (352)
+        on left: 372
+        on right: 47
+    dmulu_instr (353)
+        on left: 373
+        on right: 48
+    dt_instr (354)
+        on left: 374
+        on right: 49
+    extsb_instr (355)
+        on left: 375
+        on right: 50
+    extsw_instr (356)
+        on left: 376
+        on right: 51
+    extub_instr (357)
+        on left: 377
+        on right: 52
+    extuw_instr (358)
+        on left: 378
+        on right: 53
+    jmp_instr (359)
+        on left: 379
+        on right: 54
+    jsr_instr (360)
+        on left: 380
+        on right: 55
+    ldcsr_instr (361)
+        on left: 381
+        on right: 57
+    ldcgbr_instr (362)
+        on left: 382
+        on right: 58
+    ldcvbr_instr (363)
+        on left: 383
+        on right: 59
+    ldcssr_instr (364)
+        on left: 384
+        on right: 60
+    ldcspc_instr (365)
+        on left: 385
+        on right: 61
+    ldcr_bank_instr (366)
+        on left: 386
+        on right: 56
+    ldcmsr_instr (367)
+        on left: 387
+        on right: 62
+    ldcmgbr_instr (368)
+        on left: 388
+        on right: 63
+    ldcmvbr_instr (369)
+        on left: 389
+        on right: 64
+    ldcmssr_instr (370)
+        on left: 390
+        on right: 65
+    ldcmspc_instr (371)
+        on left: 391
+        on right: 66
+    ldcmr_bank_instr (372)
+        on left: 392
+        on right: 67
+    ldsmach_instr (373)
+        on left: 393
+        on right: 68
+    ldsmacl_instr (374)
+        on left: 394
+        on right: 69
+    ldspr_instr (375)
+        on left: 395
+        on right: 70
+    ldsmmach_instr (376)
+        on left: 396
+        on right: 71
+    ldsmmacl_instr (377)
+        on left: 397
+        on right: 72
+    ldsmpr_instr (378)
+        on left: 398
+        on right: 73
+    ldtlb_instr (379)
+        on left: 399
+        on right: 74
+    macl_instr (380)
+        on left: 400
+        on right: 75
+    macw_instr (381)
+        on left: 401
+        on right: 76
+    mov_instr (382)
+        on left: 402
+        on right: 77
+    movbs_instr (383)
+        on left: 403
+        on right: 78
+    movws_instr (384)
+        on left: 404
+        on right: 79
+    movls_instr (385)
+        on left: 405
+        on right: 80
+    movbl_instr (386)
+        on left: 406
+        on right: 81
+    movwl_instr (387)
+        on left: 407
+        on right: 82
+    movll_instr (388)
+        on left: 408
+        on right: 83
+    movbm_instr (389)
+        on left: 409
+        on right: 84
+    movwm_instr (390)
+        on left: 410
+        on right: 85
+    movlm_instr (391)
+        on left: 411
+        on right: 86
+    movbp_instr (392)
+        on left: 412
+        on right: 87
+    movwp_instr (393)
+        on left: 413
+        on right: 88
+    movlp_instr (394)
+        on left: 414
+        on right: 89
+    movbs0_instr (395)
+        on left: 415
+        on right: 90
+    movws0_instr (396)
+        on left: 416
+        on right: 91
+    movls0_instr (397)
+        on left: 417
+        on right: 92
+    movbl0_instr (398)
+        on left: 418
+        on right: 93
+    movwl0_instr (399)
+        on left: 419
+        on right: 94
+    movll0_instr (400)
+        on left: 420
+        on right: 95
+    movi_instr (401)
+        on left: 421
+        on right: 96
+    movwi_instr (402)
+        on left: 422
+        on right: 97
+    movli_instr (403)
+        on left: 423 424
+        on right: 98
+    movblg_instr (404)
+        on left: 425
+        on right: 99
+    movwlg_instr (405)
+        on left: 426
+        on right: 100
+    movllg_instr (406)
+        on left: 427
+        on right: 101
+    movbsg_instr (407)
+        on left: 428
+        on right: 102
+    movwsg_instr (408)
+        on left: 429
+        on right: 103
+    movlsg_instr (409)
+        on left: 430
+        on right: 104
+    movbs4_instr (410)
+        on left: 431
+        on right: 105
+    movws4_instr (411)
+        on left: 432
+        on right: 106
+    movls4_instr (412)
+        on left: 433
+        on right: 107
+    movbl4_instr (413)
+        on left: 434
+        on right: 108
+    movwl4_instr (414)
+        on left: 435
+        on right: 109
+    movll4_instr (415)
+        on left: 436
+        on right: 110
+    mova_instr (416)
+        on left: 437
+        on right: 111
+    movt_instr (417)
+        on left: 438
+        on right: 112
+    mull_instr (418)
+        on left: 439
+        on right: 113
+    muls_instr (419)
+        on left: 440
+        on right: 114
+    mulsw_instr (420)
+        on left: 441
+        on right: 115
+    mulu_instr (421)
+        on left: 442
+        on right: 116
+    muluw_instr (422)
+        on left: 443
+        on right: 117
+    neg_instr (423)
+        on left: 444
+        on right: 118
+    negc_instr (424)
+        on left: 445
+        on right: 119
+    nop_instr (425)
+        on left: 446
+        on right: 120
+    not_instr (426)
+        on left: 447
+        on right: 121
+    or_instr (427)
+        on left: 448
+        on right: 122
+    ori_instr (428)
+        on left: 449
+        on right: 123
+    orm_instr (429)
+        on left: 450
+        on right: 124
+    pref_instr (430)
+        on left: 451
+        on right: 125
+    rfg_instr (431)
+        on left: 452
+        on right: 126
+    rotcl_instr (432)
+        on left: 453
+        on right: 127
+    rotcr_instr (433)
+        on left: 454
+        on right: 128
+    rotl_instr (434)
+        on left: 455
+        on right: 129
+    rotr_instr (435)
+        on left: 456
+        on right: 130
+    rte_instr (436)
+        on left: 457
+        on right: 131
+    rts_instr (437)
+        on left: 458
+        on right: 132
+    sets_instr (438)
+        on left: 459
+        on right: 133
+    sett_instr (439)
+        on left: 460
+        on right: 134
+    shad_instr (440)
+        on left: 461
+        on right: 135
+    shal_instr (441)
+        on left: 462
+        on right: 136
+    shar_instr (442)
+        on left: 463
+        on right: 137
+    shld_instr (443)
+        on left: 464
+        on right: 138
+    shll_instr (444)
+        on left: 465
+        on right: 139
+    shll2_instr (445)
+        on left: 466
+        on right: 140
+    shll8_instr (446)
+        on left: 467
+        on right: 141
+    shll16_instr (447)
+        on left: 468
+        on right: 142
+    shlr_instr (448)
+        on left: 469
+        on right: 143
+    shlr2_instr (449)
+        on left: 470
+        on right: 144
+    shlr8_instr (450)
+        on left: 471
+        on right: 145
+    shlr16_instr (451)
+        on left: 472
+        on right: 146
+    sleep_instr (452)
+        on left: 473
+        on right: 147
+    stcsr_instr (453)
+        on left: 474
+        on right: 149
+    stcgbr_instr (454)
+        on left: 475
+        on right: 150
+    stcvbr_instr (455)
+        on left: 476
+        on right: 151
+    stcssr_instr (456)
+        on left: 477
+        on right: 152
+    stcspc_instr (457)
+        on left: 478
+        on right: 153
+    stcr_bank_instr (458)
+        on left: 479
+        on right: 148
+    stcmsr_instr (459)
+        on left: 480
+        on right: 155
+    stcmgbr_instr (460)
+        on left: 481
+        on right: 156
+    stcmvbr_instr (461)
+        on left: 482
+        on right: 157
+    stcmssr_instr (462)
+        on left: 483
+        on right: 158
+    stcmspc_instr (463)
+        on left: 484
+        on right: 159
+    stcmr_bank_instr (464)
+        on left: 485
+        on right: 154
+    stsmach_instr (465)
+        on left: 486
+        on right: 160
+    stsmacl_instr (466)
+        on left: 487
+        on right: 161
+    stspr_instr (467)
+        on left: 488
+        on right: 162
+    stsmmach_instr (468)
+        on left: 489
+        on right: 163
+    stsmmacl_instr (469)
+        on left: 490
+        on right: 164
+    stsmpr_instr (470)
+        on left: 491
+        on right: 165
+    sub_instr (471)
+        on left: 492
+        on right: 166
+    subc_instr (472)
+        on left: 493
+        on right: 167
+    subv_instr (473)
+        on left: 494
+        on right: 168
+    swapb_instr (474)
+        on left: 495
+        on right: 169
+    swapw_instr (475)
+        on left: 496
+        on right: 170
+    tas_instr (476)
+        on left: 497
+        on right: 171
+    trapa_instr (477)
+        on left: 498
+        on right: 172
+    tst_instr (478)
+        on left: 499
+        on right: 173
+    tsti_instr (479)
+        on left: 500
+        on right: 174
+    tstb_instr (480)
+        on left: 501
+        on right: 175
+    xor_instr (481)
+        on left: 502
+        on right: 176
+    xori_instr (482)
+        on left: 503
+        on right: 177
+    xorm_instr (483)
+        on left: 504
+        on right: 178
+    xtrct_instr (484)
+        on left: 505
+        on right: 179
+    rnd <rval> (485)
+        on left: 506 507
+        on right: 518
+    rnd_const <rval> (486)
+        on left: 508
+        on right: 506
+    rnd_var <rval> (487)
+        on left: 509
+        on right: 507
+    uimm <uval> (488)
+        on left: 510
+        on right: 183 184 185 186 191 192 193 194 195 196 197 199 200 201 202 204 206 208 211 213 219 220 224 225 233 237 238 242 243 246 255 256 257 260 263 267 268 271 272 273 274 275 276 277 278 281 282 283 284 287 293 295 297 298 299 300 304 310 313 314 322 323 324 325 326 328 331 332 335 340
+    simm <sval> (489)
+        on left: 511 512 513
+        on right: 260 344 348 349 369 421 449 450 452 498 500 501 503 504
+    dimm <dval> (490)
+        on left: 514 515 516
+        on right: 186 187 188 189 190 191 193 195 202 205 207 208 209 212 214 215 216 227 228 229 230 231 232 233 234 238 269 270 273 274 276 277 296 301 302 303 508 509 517 520 521
+    rdimm <rval> (491)
+        on left: 517 518
+        on right: 182 183
+    dimmlist <dlist> (492)
+        on left: 519
+        on right: 210
+    dimmlistbody <dlist> (493)
+        on left: 520 521
+        on right: 519 521
+    disp <sval> (494)
+        on left: 522 523 524 525
+        on right: 338 341 342 350 351 352 354 356 357 422 423 424 425 426 427 428 429 430 431 432 433 434 435 436 437
+    optstring <str> (495)
+        on left: 526 527
+        on right: 181 182 183 238 291
+    reg <uval> (496)
+        on left: 528 529 530 531 532 533 534 535 536 537 538 539 540 541 542 543
+        on right: 343 344 345 346 347 353 355 361 362 363 364 365 366 367 368 370 371 372 373 374 375 376 377 378 379 380 381 382 383 384 385 386 387 388 389 390 391 392 393 394 395 396 397 398 400 401 402 403 404 405 406 407 408 409 410 411 412 413 414 415 416 417 418 419 420 421 422 423 424 431 432 433 434 435 436 438 439 440 441 442 443 444 445 447 448 451 453 454 455 456 461 462 463 464 465 466 467 468 469 470 471 472 474 475 476 477 478 479 480 481 482 483 484 485 486 487 488 489 490 491 492 493 494 495 496 497 499 502 505
 
 
 State 0

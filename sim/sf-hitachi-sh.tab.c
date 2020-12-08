@@ -1,8 +1,8 @@
-/* A Bison parser, made by GNU Bison 3.3.2.  */
+/* A Bison parser, made by GNU Bison 3.5.1.  */
 
 /* Bison implementation for Yacc-like parsers in C
 
-   Copyright (C) 1984, 1989-1990, 2000-2015, 2018-2019 Free Software Foundation,
+   Copyright (C) 1984, 1989-1990, 2000-2015, 2018-2020 Free Software Foundation,
    Inc.
 
    This program is free software: you can redistribute it and/or modify
@@ -48,7 +48,7 @@
 #define YYBISON 1
 
 /* Bison version.  */
-#define YYBISON_VERSION "3.3.2"
+#define YYBISON_VERSION "3.5.1"
 
 /* Skeleton name.  */
 #define YYSKELETON_NAME "yacc.c"
@@ -69,12 +69,11 @@
 #define yyerror         sf_superh_error
 #define yydebug         sf_superh_debug
 #define yynerrs         sf_superh_nerrs
-
 #define yylval          sf_superh_lval
 #define yychar          sf_superh_char
 
 /* First part of user prologue.  */
-#line 38 "sf-hitachi-sh.y" /* yacc.c:337  */
+#line 38 "sf-hitachi-sh.y"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -92,7 +91,17 @@
  */
 #define	YYSTACK_USE_ALLOCA	0
 
-#line 96 "sf-hitachi-sh.tab.c" /* yacc.c:337  */
+#line 95 "sf-hitachi-sh.tab.c"
+
+# ifndef YY_CAST
+#  ifdef __cplusplus
+#   define YY_CAST(Type, Val) static_cast<Type> (Val)
+#   define YY_REINTERPRET_CAST(Type, Val) reinterpret_cast<Type> (Val)
+#  else
+#   define YY_CAST(Type, Val) ((Type) (Val))
+#   define YY_REINTERPRET_CAST(Type, Val) ((Type) (Val))
+#  endif
+# endif
 # ifndef YY_NULLPTR
 #  if defined __cplusplus
 #   if 201103L <= __cplusplus
@@ -425,10 +434,9 @@ extern int sf_superh_debug;
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
-
 union YYSTYPE
 {
-#line 72 "sf-hitachi-sh.y" /* yacc.c:352  */
+#line 72 "sf-hitachi-sh.y"
 
 	double		dval;
 	ulong		uval;
@@ -437,9 +445,9 @@ union YYSTYPE
 	Rval		*rval;
 	DoubleList	*dlist;
 
-#line 441 "sf-hitachi-sh.tab.c" /* yacc.c:352  */
-};
+#line 449 "sf-hitachi-sh.tab.c"
 
+};
 typedef union YYSTYPE YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define YYSTYPE_IS_DECLARED 1
@@ -458,28 +466,75 @@ int sf_superh_parse (void);
 # undef short
 #endif
 
-#ifdef YYTYPE_UINT8
-typedef YYTYPE_UINT8 yytype_uint8;
-#else
-typedef unsigned char yytype_uint8;
+/* On compilers that do not define __PTRDIFF_MAX__ etc., make sure
+   <limits.h> and (if available) <stdint.h> are included
+   so that the code can choose integer types of a good width.  */
+
+#ifndef __PTRDIFF_MAX__
+# include <limits.h> /* INFRINGES ON USER NAME SPACE */
+# if defined __STDC_VERSION__ && 199901 <= __STDC_VERSION__
+#  include <stdint.h> /* INFRINGES ON USER NAME SPACE */
+#  define YY_STDINT_H
+# endif
 #endif
 
-#ifdef YYTYPE_INT8
-typedef YYTYPE_INT8 yytype_int8;
+/* Narrow types that promote to a signed type and that can represent a
+   signed or unsigned integer of at least N bits.  In tables they can
+   save space and decrease cache pressure.  Promoting to a signed type
+   helps avoid bugs in integer arithmetic.  */
+
+#ifdef __INT_LEAST8_MAX__
+typedef __INT_LEAST8_TYPE__ yytype_int8;
+#elif defined YY_STDINT_H
+typedef int_least8_t yytype_int8;
 #else
 typedef signed char yytype_int8;
 #endif
 
-#ifdef YYTYPE_UINT16
-typedef YYTYPE_UINT16 yytype_uint16;
-#else
-typedef unsigned short yytype_uint16;
-#endif
-
-#ifdef YYTYPE_INT16
-typedef YYTYPE_INT16 yytype_int16;
+#ifdef __INT_LEAST16_MAX__
+typedef __INT_LEAST16_TYPE__ yytype_int16;
+#elif defined YY_STDINT_H
+typedef int_least16_t yytype_int16;
 #else
 typedef short yytype_int16;
+#endif
+
+#if defined __UINT_LEAST8_MAX__ && __UINT_LEAST8_MAX__ <= __INT_MAX__
+typedef __UINT_LEAST8_TYPE__ yytype_uint8;
+#elif (!defined __UINT_LEAST8_MAX__ && defined YY_STDINT_H \
+       && UINT_LEAST8_MAX <= INT_MAX)
+typedef uint_least8_t yytype_uint8;
+#elif !defined __UINT_LEAST8_MAX__ && UCHAR_MAX <= INT_MAX
+typedef unsigned char yytype_uint8;
+#else
+typedef short yytype_uint8;
+#endif
+
+#if defined __UINT_LEAST16_MAX__ && __UINT_LEAST16_MAX__ <= __INT_MAX__
+typedef __UINT_LEAST16_TYPE__ yytype_uint16;
+#elif (!defined __UINT_LEAST16_MAX__ && defined YY_STDINT_H \
+       && UINT_LEAST16_MAX <= INT_MAX)
+typedef uint_least16_t yytype_uint16;
+#elif !defined __UINT_LEAST16_MAX__ && USHRT_MAX <= INT_MAX
+typedef unsigned short yytype_uint16;
+#else
+typedef int yytype_uint16;
+#endif
+
+#ifndef YYPTRDIFF_T
+# if defined __PTRDIFF_TYPE__ && defined __PTRDIFF_MAX__
+#  define YYPTRDIFF_T __PTRDIFF_TYPE__
+#  define YYPTRDIFF_MAXIMUM __PTRDIFF_MAX__
+# elif defined PTRDIFF_MAX
+#  ifndef ptrdiff_t
+#   include <stddef.h> /* INFRINGES ON USER NAME SPACE */
+#  endif
+#  define YYPTRDIFF_T ptrdiff_t
+#  define YYPTRDIFF_MAXIMUM PTRDIFF_MAX
+# else
+#  define YYPTRDIFF_T long
+#  define YYPTRDIFF_MAXIMUM LONG_MAX
+# endif
 #endif
 
 #ifndef YYSIZE_T
@@ -487,7 +542,7 @@ typedef short yytype_int16;
 #  define YYSIZE_T __SIZE_TYPE__
 # elif defined size_t
 #  define YYSIZE_T size_t
-# elif ! defined YYSIZE_T
+# elif defined __STDC_VERSION__ && 199901 <= __STDC_VERSION__
 #  include <stddef.h> /* INFRINGES ON USER NAME SPACE */
 #  define YYSIZE_T size_t
 # else
@@ -495,7 +550,19 @@ typedef short yytype_int16;
 # endif
 #endif
 
-#define YYSIZE_MAXIMUM ((YYSIZE_T) -1)
+#define YYSIZE_MAXIMUM                                  \
+  YY_CAST (YYPTRDIFF_T,                                 \
+           (YYPTRDIFF_MAXIMUM < YY_CAST (YYSIZE_T, -1)  \
+            ? YYPTRDIFF_MAXIMUM                         \
+            : YY_CAST (YYSIZE_T, -1)))
+
+#define YYSIZEOF(X) YY_CAST (YYPTRDIFF_T, sizeof (X))
+
+/* Stored state numbers (used for stacks). */
+typedef yytype_int16 yy_state_t;
+
+/* State numbers in computations.  */
+typedef int yy_state_fast_t;
 
 #ifndef YY_
 # if defined YYENABLE_NLS && YYENABLE_NLS
@@ -509,22 +576,20 @@ typedef short yytype_int16;
 # endif
 #endif
 
-#ifndef YY_ATTRIBUTE
-# if (defined __GNUC__                                               \
-      && (2 < __GNUC__ || (__GNUC__ == 2 && 96 <= __GNUC_MINOR__)))  \
-     || defined __SUNPRO_C && 0x5110 <= __SUNPRO_C
-#  define YY_ATTRIBUTE(Spec) __attribute__(Spec)
+#ifndef YY_ATTRIBUTE_PURE
+# if defined __GNUC__ && 2 < __GNUC__ + (96 <= __GNUC_MINOR__)
+#  define YY_ATTRIBUTE_PURE __attribute__ ((__pure__))
 # else
-#  define YY_ATTRIBUTE(Spec) /* empty */
+#  define YY_ATTRIBUTE_PURE
 # endif
 #endif
 
-#ifndef YY_ATTRIBUTE_PURE
-# define YY_ATTRIBUTE_PURE   YY_ATTRIBUTE ((__pure__))
-#endif
-
 #ifndef YY_ATTRIBUTE_UNUSED
-# define YY_ATTRIBUTE_UNUSED YY_ATTRIBUTE ((__unused__))
+# if defined __GNUC__ && 2 < __GNUC__ + (7 <= __GNUC_MINOR__)
+#  define YY_ATTRIBUTE_UNUSED __attribute__ ((__unused__))
+# else
+#  define YY_ATTRIBUTE_UNUSED
+# endif
 #endif
 
 /* Suppress unused-variable warnings by "using" E.  */
@@ -536,11 +601,11 @@ typedef short yytype_int16;
 
 #if defined __GNUC__ && ! defined __ICC && 407 <= __GNUC__ * 100 + __GNUC_MINOR__
 /* Suppress an incorrect diagnostic about yylval being uninitialized.  */
-# define YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN \
-    _Pragma ("GCC diagnostic push") \
-    _Pragma ("GCC diagnostic ignored \"-Wuninitialized\"")\
+# define YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN                            \
+    _Pragma ("GCC diagnostic push")                                     \
+    _Pragma ("GCC diagnostic ignored \"-Wuninitialized\"")              \
     _Pragma ("GCC diagnostic ignored \"-Wmaybe-uninitialized\"")
-# define YY_IGNORE_MAYBE_UNINITIALIZED_END \
+# define YY_IGNORE_MAYBE_UNINITIALIZED_END      \
     _Pragma ("GCC diagnostic pop")
 #else
 # define YY_INITIAL_VALUE(Value) Value
@@ -553,6 +618,20 @@ typedef short yytype_int16;
 # define YY_INITIAL_VALUE(Value) /* Nothing. */
 #endif
 
+#if defined __cplusplus && defined __GNUC__ && ! defined __ICC && 6 <= __GNUC__
+# define YY_IGNORE_USELESS_CAST_BEGIN                          \
+    _Pragma ("GCC diagnostic push")                            \
+    _Pragma ("GCC diagnostic ignored \"-Wuseless-cast\"")
+# define YY_IGNORE_USELESS_CAST_END            \
+    _Pragma ("GCC diagnostic pop")
+#endif
+#ifndef YY_IGNORE_USELESS_CAST_BEGIN
+# define YY_IGNORE_USELESS_CAST_BEGIN
+# define YY_IGNORE_USELESS_CAST_END
+#endif
+
+
+#define YY_ASSERT(E) ((void) (0 && (E)))
 
 #if ! defined yyoverflow || YYERROR_VERBOSE
 
@@ -629,17 +708,17 @@ void free (void *); /* INFRINGES ON USER NAME SPACE */
 /* A type that is properly aligned for any stack member.  */
 union yyalloc
 {
-  yytype_int16 yyss_alloc;
+  yy_state_t yyss_alloc;
   YYSTYPE yyvs_alloc;
 };
 
 /* The size of the maximum gap between one aligned stack and the next.  */
-# define YYSTACK_GAP_MAXIMUM (sizeof (union yyalloc) - 1)
+# define YYSTACK_GAP_MAXIMUM (YYSIZEOF (union yyalloc) - 1)
 
 /* The size of an array large to enough to hold all stacks, each with
    N elements.  */
 # define YYSTACK_BYTES(N) \
-     ((N) * (sizeof (yytype_int16) + sizeof (YYSTYPE)) \
+     ((N) * (YYSIZEOF (yy_state_t) + YYSIZEOF (YYSTYPE)) \
       + YYSTACK_GAP_MAXIMUM)
 
 # define YYCOPY_NEEDED 1
@@ -652,11 +731,11 @@ union yyalloc
 # define YYSTACK_RELOCATE(Stack_alloc, Stack)                           \
     do                                                                  \
       {                                                                 \
-        YYSIZE_T yynewbytes;                                            \
+        YYPTRDIFF_T yynewbytes;                                         \
         YYCOPY (&yyptr->Stack_alloc, Stack, yysize);                    \
         Stack = &yyptr->Stack_alloc;                                    \
-        yynewbytes = yystacksize * sizeof (*Stack) + YYSTACK_GAP_MAXIMUM; \
-        yyptr += yynewbytes / sizeof (*yyptr);                          \
+        yynewbytes = yystacksize * YYSIZEOF (*Stack) + YYSTACK_GAP_MAXIMUM; \
+        yyptr += yynewbytes / YYSIZEOF (*yyptr);                        \
       }                                                                 \
     while (0)
 
@@ -668,12 +747,12 @@ union yyalloc
 # ifndef YYCOPY
 #  if defined __GNUC__ && 1 < __GNUC__
 #   define YYCOPY(Dst, Src, Count) \
-      __builtin_memcpy (Dst, Src, (Count) * sizeof (*(Src)))
+      __builtin_memcpy (Dst, Src, YY_CAST (YYSIZE_T, (Count)) * sizeof (*(Src)))
 #  else
 #   define YYCOPY(Dst, Src, Count)              \
       do                                        \
         {                                       \
-          YYSIZE_T yyi;                         \
+          YYPTRDIFF_T yyi;                      \
           for (yyi = 0; yyi < (Count); yyi++)   \
             (Dst)[yyi] = (Src)[yyi];            \
         }                                       \
@@ -699,14 +778,15 @@ union yyalloc
 #define YYUNDEFTOK  2
 #define YYMAXUTOK   551
 
+
 /* YYTRANSLATE(TOKEN-NUM) -- Symbol number corresponding to TOKEN-NUM
    as returned by yylex, with out-of-bounds checking.  */
 #define YYTRANSLATE(YYX)                                                \
-  ((unsigned) (YYX) <= YYMAXUTOK ? yytranslate[YYX] : YYUNDEFTOK)
+  (0 <= (YYX) && (YYX) <= YYMAXUTOK ? yytranslate[YYX] : YYUNDEFTOK)
 
 /* YYTRANSLATE[TOKEN-NUM] -- Symbol number corresponding to TOKEN-NUM
    as returned by yylex.  */
-static const yytype_uint16 yytranslate[] =
+static const yytype_int16 yytranslate[] =
 {
        0,     2,     2,     2,     2,     2,     2,     2,     2,     2,
      296,     2,     2,     2,     2,     2,     2,     2,     2,     2,
@@ -768,7 +848,7 @@ static const yytype_uint16 yytranslate[] =
 
 #if YYDEBUG
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
-static const yytype_uint16 yyrline[] =
+static const yytype_int16 yyrline[] =
 {
        0,   453,   453,   454,   457,   458,   459,   460,   461,   464,
      465,   466,   467,   468,   469,   470,   471,   472,   473,   476,
@@ -939,7 +1019,7 @@ static const char *const yytname[] =
 # ifdef YYPRINT
 /* YYTOKNUM[NUM] -- (External) token number corresponding to the
    (internal) symbol number NUM (which must be that of a token).  */
-static const yytype_uint16 yytoknum[] =
+static const yytype_int16 yytoknum[] =
 {
        0,   256,   257,   258,   259,   260,   261,   262,   263,   264,
      265,   266,   267,   268,   269,   270,   271,   272,   273,   274,
@@ -975,14 +1055,14 @@ static const yytype_uint16 yytoknum[] =
 };
 # endif
 
-#define YYPACT_NINF -780
+#define YYPACT_NINF (-780)
 
-#define yypact_value_is_default(Yystate) \
-  (!!((Yystate) == (-780)))
+#define yypact_value_is_default(Yyn) \
+  ((Yyn) == YYPACT_NINF)
 
-#define YYTABLE_NINF -1
+#define YYTABLE_NINF (-1)
 
-#define yytable_value_is_error(Yytable_value) \
+#define yytable_value_is_error(Yyn) \
   0
 
   /* YYPACT[STATE-NUM] -- Index in YYTABLE of the portion describing
@@ -1136,7 +1216,7 @@ static const yytype_int16 yypact[] =
   /* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
      Performed when YYTABLE does not specify something else to do.  Zero
      means the default is an error.  */
-static const yytype_uint16 yydefact[] =
+static const yytype_int16 yydefact[] =
 {
        2,     0,     1,     0,     0,     0,     0,     0,     0,     0,
        0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
@@ -1333,7 +1413,7 @@ static const yytype_int16 yydefgoto[] =
   /* YYTABLE[YYPACT[STATE-NUM]] -- What to do in state STATE-NUM.  If
      positive, shift that token.  If negative, reduce the rule whose
      number is the opposite.  If YYTABLE_NINF, syntax error.  */
-static const yytype_uint16 yytable[] =
+static const yytype_int16 yytable[] =
 {
      435,   436,   437,   961,  1018,   441,   432,   443,   532,   776,
      449,   438,   593,   594,  1020,   451,   433,   434,   777,  1026,
@@ -1915,7 +1995,7 @@ static const yytype_int16 yycheck[] =
 
   /* YYSTOS[STATE-NUM] -- The (internal number of the) accessing
      symbol of state STATE-NUM.  */
-static const yytype_uint16 yystos[] =
+static const yytype_int16 yystos[] =
 {
        0,   310,     0,     3,     5,     6,     7,     8,     9,    10,
       11,    12,    13,    14,    15,    16,    17,    18,    19,    20,
@@ -2062,7 +2142,7 @@ static const yytype_uint16 yystos[] =
 };
 
   /* YYR1[YYN] -- Symbol number of symbol that rule YYN derives.  */
-static const yytype_uint16 yyr1[] =
+static const yytype_int16 yyr1[] =
 {
        0,   309,   310,   310,   311,   311,   311,   311,   311,   312,
      312,   312,   312,   312,   312,   312,   312,   312,   312,   313,
@@ -2122,7 +2202,7 @@ static const yytype_uint16 yyr1[] =
 };
 
   /* YYR2[YYN] -- Number of symbols on the right hand side of rule YYN.  */
-static const yytype_uint8 yyr2[] =
+static const yytype_int8 yyr2[] =
 {
        0,     2,     0,     2,     1,     2,     1,     1,     1,     1,
        1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
@@ -2264,7 +2344,9 @@ yy_symbol_value_print (FILE *yyo, int yytype, YYSTYPE const * const yyvaluep)
   if (yytype < YYNTOKENS)
     YYPRINT (yyo, yytoknum[yytype], *yyvaluep);
 # endif
+  YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN
   YYUSE (yytype);
+  YY_IGNORE_MAYBE_UNINITIALIZED_END
 }
 
 
@@ -2288,7 +2370,7 @@ yy_symbol_print (FILE *yyo, int yytype, YYSTYPE const * const yyvaluep)
 `------------------------------------------------------------------*/
 
 static void
-yy_stack_print (yytype_int16 *yybottom, yytype_int16 *yytop)
+yy_stack_print (yy_state_t *yybottom, yy_state_t *yytop)
 {
   YYFPRINTF (stderr, "Stack now");
   for (; yybottom <= yytop; yybottom++)
@@ -2311,19 +2393,19 @@ do {                                                            \
 `------------------------------------------------*/
 
 static void
-yy_reduce_print (yytype_int16 *yyssp, YYSTYPE *yyvsp, int yyrule)
+yy_reduce_print (yy_state_t *yyssp, YYSTYPE *yyvsp, int yyrule)
 {
-  unsigned long yylno = yyrline[yyrule];
+  int yylno = yyrline[yyrule];
   int yynrhs = yyr2[yyrule];
   int yyi;
-  YYFPRINTF (stderr, "Reducing stack by rule %d (line %lu):\n",
+  YYFPRINTF (stderr, "Reducing stack by rule %d (line %d):\n",
              yyrule - 1, yylno);
   /* The symbols being reduced.  */
   for (yyi = 0; yyi < yynrhs; yyi++)
     {
       YYFPRINTF (stderr, "   $%d = ", yyi + 1);
       yy_symbol_print (stderr,
-                       yystos[yyssp[yyi + 1 - yynrhs]],
+                       yystos[+yyssp[yyi + 1 - yynrhs]],
                        &yyvsp[(yyi + 1) - (yynrhs)]
                                               );
       YYFPRINTF (stderr, "\n");
@@ -2368,13 +2450,13 @@ int yydebug;
 
 # ifndef yystrlen
 #  if defined __GLIBC__ && defined _STRING_H
-#   define yystrlen strlen
+#   define yystrlen(S) (YY_CAST (YYPTRDIFF_T, strlen (S)))
 #  else
 /* Return the length of YYSTR.  */
-static YYSIZE_T
+static YYPTRDIFF_T
 yystrlen (const char *yystr)
 {
-  YYSIZE_T yylen;
+  YYPTRDIFF_T yylen;
   for (yylen = 0; yystr[yylen]; yylen++)
     continue;
   return yylen;
@@ -2410,12 +2492,12 @@ yystpcpy (char *yydest, const char *yysrc)
    backslash-backslash).  YYSTR is taken from yytname.  If YYRES is
    null, do not copy; instead, return the length of what the result
    would have been.  */
-static YYSIZE_T
+static YYPTRDIFF_T
 yytnamerr (char *yyres, const char *yystr)
 {
   if (*yystr == '"')
     {
-      YYSIZE_T yyn = 0;
+      YYPTRDIFF_T yyn = 0;
       char const *yyp = yystr;
 
       for (;;)
@@ -2446,10 +2528,10 @@ yytnamerr (char *yyres, const char *yystr)
     do_not_strip_quotes: ;
     }
 
-  if (! yyres)
+  if (yyres)
+    return yystpcpy (yyres, yystr) - yyres;
+  else
     return yystrlen (yystr);
-
-  return (YYSIZE_T) (yystpcpy (yyres, yystr) - yyres);
 }
 # endif
 
@@ -2462,19 +2544,19 @@ yytnamerr (char *yyres, const char *yystr)
    *YYMSG_ALLOC to the required number of bytes.  Return 2 if the
    required number of bytes is too large to store.  */
 static int
-yysyntax_error (YYSIZE_T *yymsg_alloc, char **yymsg,
-                yytype_int16 *yyssp, int yytoken)
+yysyntax_error (YYPTRDIFF_T *yymsg_alloc, char **yymsg,
+                yy_state_t *yyssp, int yytoken)
 {
-  YYSIZE_T yysize0 = yytnamerr (YY_NULLPTR, yytname[yytoken]);
-  YYSIZE_T yysize = yysize0;
   enum { YYERROR_VERBOSE_ARGS_MAXIMUM = 5 };
   /* Internationalized format string. */
   const char *yyformat = YY_NULLPTR;
-  /* Arguments of yyformat. */
+  /* Arguments of yyformat: reported tokens (one for the "unexpected",
+     one per "expected"). */
   char const *yyarg[YYERROR_VERBOSE_ARGS_MAXIMUM];
-  /* Number of reported tokens (one for the "unexpected", one per
-     "expected"). */
+  /* Actual size of YYARG. */
   int yycount = 0;
+  /* Cumulated lengths of YYARG.  */
+  YYPTRDIFF_T yysize = 0;
 
   /* There are many possibilities here to consider:
      - If this state is a consistent state with a default action, then
@@ -2501,7 +2583,9 @@ yysyntax_error (YYSIZE_T *yymsg_alloc, char **yymsg,
   */
   if (yytoken != YYEMPTY)
     {
-      int yyn = yypact[*yyssp];
+      int yyn = yypact[+*yyssp];
+      YYPTRDIFF_T yysize0 = yytnamerr (YY_NULLPTR, yytname[yytoken]);
+      yysize = yysize0;
       yyarg[yycount++] = yytname[yytoken];
       if (!yypact_value_is_default (yyn))
         {
@@ -2526,7 +2610,8 @@ yysyntax_error (YYSIZE_T *yymsg_alloc, char **yymsg,
                   }
                 yyarg[yycount++] = yytname[yyx];
                 {
-                  YYSIZE_T yysize1 = yysize + yytnamerr (YY_NULLPTR, yytname[yyx]);
+                  YYPTRDIFF_T yysize1
+                    = yysize + yytnamerr (YY_NULLPTR, yytname[yyx]);
                   if (yysize <= yysize1 && yysize1 <= YYSTACK_ALLOC_MAXIMUM)
                     yysize = yysize1;
                   else
@@ -2553,7 +2638,9 @@ yysyntax_error (YYSIZE_T *yymsg_alloc, char **yymsg,
     }
 
   {
-    YYSIZE_T yysize1 = yysize + yystrlen (yyformat);
+    /* Don't count the "%s"s in the final size, but reserve room for
+       the terminator.  */
+    YYPTRDIFF_T yysize1 = yysize + (yystrlen (yyformat) - 2 * yycount) + 1;
     if (yysize <= yysize1 && yysize1 <= YYSTACK_ALLOC_MAXIMUM)
       yysize = yysize1;
     else
@@ -2583,8 +2670,8 @@ yysyntax_error (YYSIZE_T *yymsg_alloc, char **yymsg,
         }
       else
         {
-          yyp++;
-          yyformat++;
+          ++yyp;
+          ++yyformat;
         }
   }
   return 0;
@@ -2627,7 +2714,7 @@ int yynerrs;
 int
 yyparse (void)
 {
-    int yystate;
+    yy_state_fast_t yystate;
     /* Number of tokens to shift before error messages enabled.  */
     int yyerrstatus;
 
@@ -2639,16 +2726,16 @@ yyparse (void)
        to reallocate them elsewhere.  */
 
     /* The state stack.  */
-    yytype_int16 yyssa[YYINITDEPTH];
-    yytype_int16 *yyss;
-    yytype_int16 *yyssp;
+    yy_state_t yyssa[YYINITDEPTH];
+    yy_state_t *yyss;
+    yy_state_t *yyssp;
 
     /* The semantic value stack.  */
     YYSTYPE yyvsa[YYINITDEPTH];
     YYSTYPE *yyvs;
     YYSTYPE *yyvsp;
 
-    YYSIZE_T yystacksize;
+    YYPTRDIFF_T yystacksize;
 
   int yyn;
   int yyresult;
@@ -2662,7 +2749,7 @@ yyparse (void)
   /* Buffer for error messages, and its allocated size.  */
   char yymsgbuf[128];
   char *yymsg = yymsgbuf;
-  YYSIZE_T yymsg_alloc = sizeof yymsgbuf;
+  YYPTRDIFF_T yymsg_alloc = sizeof yymsgbuf;
 #endif
 
 #define YYPOPSTACK(N)   (yyvsp -= (N), yyssp -= (N))
@@ -2694,10 +2781,14 @@ yynewstate:
 
 
 /*--------------------------------------------------------------------.
-| yynewstate -- set current state (the top of the stack) to yystate.  |
+| yysetstate -- set current state (the top of the stack) to yystate.  |
 `--------------------------------------------------------------------*/
 yysetstate:
-  *yyssp = (yytype_int16) yystate;
+  YYDPRINTF ((stderr, "Entering state %d\n", yystate));
+  YY_ASSERT (0 <= yystate && yystate < YYNSTATES);
+  YY_IGNORE_USELESS_CAST_BEGIN
+  *yyssp = YY_CAST (yy_state_t, yystate);
+  YY_IGNORE_USELESS_CAST_END
 
   if (yyss + yystacksize - 1 <= yyssp)
 #if !defined yyoverflow && !defined YYSTACK_RELOCATE
@@ -2705,23 +2796,23 @@ yysetstate:
 #else
     {
       /* Get the current used size of the three stacks, in elements.  */
-      YYSIZE_T yysize = (YYSIZE_T) (yyssp - yyss + 1);
+      YYPTRDIFF_T yysize = yyssp - yyss + 1;
 
 # if defined yyoverflow
       {
         /* Give user a chance to reallocate the stack.  Use copies of
            these so that the &'s don't force the real ones into
            memory.  */
+        yy_state_t *yyss1 = yyss;
         YYSTYPE *yyvs1 = yyvs;
-        yytype_int16 *yyss1 = yyss;
 
         /* Each stack pointer address is followed by the size of the
            data in use in that stack, in bytes.  This used to be a
            conditional around just the two extra args, but that might
            be undefined if yyoverflow is a macro.  */
         yyoverflow (YY_("memory exhausted"),
-                    &yyss1, yysize * sizeof (*yyssp),
-                    &yyvs1, yysize * sizeof (*yyvsp),
+                    &yyss1, yysize * YYSIZEOF (*yyssp),
+                    &yyvs1, yysize * YYSIZEOF (*yyvsp),
                     &yystacksize);
         yyss = yyss1;
         yyvs = yyvs1;
@@ -2735,9 +2826,10 @@ yysetstate:
         yystacksize = YYMAXDEPTH;
 
       {
-        yytype_int16 *yyss1 = yyss;
+        yy_state_t *yyss1 = yyss;
         union yyalloc *yyptr =
-          (union yyalloc *) YYSTACK_ALLOC (YYSTACK_BYTES (yystacksize));
+          YY_CAST (union yyalloc *,
+                   YYSTACK_ALLOC (YY_CAST (YYSIZE_T, YYSTACK_BYTES (yystacksize))));
         if (! yyptr)
           goto yyexhaustedlab;
         YYSTACK_RELOCATE (yyss_alloc, yyss);
@@ -2751,15 +2843,15 @@ yysetstate:
       yyssp = yyss + yysize - 1;
       yyvsp = yyvs + yysize - 1;
 
-      YYDPRINTF ((stderr, "Stack size increased to %lu\n",
-                  (unsigned long) yystacksize));
+      YY_IGNORE_USELESS_CAST_BEGIN
+      YYDPRINTF ((stderr, "Stack size increased to %ld\n",
+                  YY_CAST (long, yystacksize)));
+      YY_IGNORE_USELESS_CAST_END
 
       if (yyss + yystacksize - 1 <= yyssp)
         YYABORT;
     }
 #endif /* !defined yyoverflow && !defined YYSTACK_RELOCATE */
-
-  YYDPRINTF ((stderr, "Entering state %d\n", yystate));
 
   if (yystate == YYFINAL)
     YYACCEPT;
@@ -2820,15 +2912,13 @@ yybackup:
 
   /* Shift the lookahead token.  */
   YY_SYMBOL_PRINT ("Shifting", yytoken, &yylval, &yylloc);
-
-  /* Discard the shifted token.  */
-  yychar = YYEMPTY;
-
   yystate = yyn;
   YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN
   *++yyvsp = yylval;
   YY_IGNORE_MAYBE_UNINITIALIZED_END
 
+  /* Discard the shifted token.  */
+  yychar = YYEMPTY;
   goto yynewstate;
 
 
@@ -2863,20 +2953,20 @@ yyreduce:
   YY_REDUCE_PRINT (yyn);
   switch (yyn)
     {
-        case 181:
-#line 642 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+  case 181:
+#line 642 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				mexit(yyengine, "Exiting as per user's request.", 0);
 			}
 		}
-#line 2875 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 2965 "sf-hitachi-sh.tab.c"
     break;
 
   case 182:
-#line 654 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 654 "sf-hitachi-sh.y"
+                {
 			/*
 			 *	Only give the architecture type:
 			 */
@@ -2885,12 +2975,12 @@ yyreduce:
 				m_newnode(yyengine, (yyvsp[-1].str), 0, 0, 0, NULL, 0, 0);
 			}
 		}
-#line 2889 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 2979 "sf-hitachi-sh.tab.c"
     break;
 
   case 183:
-#line 664 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 664 "sf-hitachi-sh.y"
+                {
 			/*
 			 *	Give the architecture type and the (fixed) x/y/z location
 			 */
@@ -2899,12 +2989,12 @@ yyreduce:
 				m_newnode(yyengine, (yyvsp[-4].str), (yyvsp[-3].rval)->dval, (yyvsp[-3].rval)->dval, (yyvsp[-3].rval)->dval, NULL, 0, 0);
 			}
 		}
-#line 2903 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 2993 "sf-hitachi-sh.tab.c"
     break;
 
   case 184:
-#line 674 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 674 "sf-hitachi-sh.y"
+                {
 			/*
 			 *	Give the architecture type and the (initial) x/y/z location, and the
 			 *	trajectory file, loop flag, and trajectory rate (the number of picoseconds
@@ -2931,45 +3021,45 @@ yyreduce:
 				//	of state as an rvar
 			}
 		}
-#line 2935 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3025 "sf-hitachi-sh.tab.c"
     break;
 
   case 185:
-#line 702 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 702 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				batt_nodeattach(yyengine, yyengine->cp, (yyvsp[-1].uval));
 			}
 		}
-#line 2946 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3036 "sf-hitachi-sh.tab.c"
     break;
 
   case 186:
-#line 709 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 709 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				batt_printstats(yyengine, yyengine->cp, (yyvsp[-1].uval));
 			}
 		}
-#line 2957 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3047 "sf-hitachi-sh.tab.c"
     break;
 
   case 187:
-#line 716 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 716 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				batt_newbatt(yyengine, (yyvsp[-2].uval), (yyvsp[-1].dval));
 			}
 		}
-#line 2968 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3058 "sf-hitachi-sh.tab.c"
     break;
 
   case 188:
-#line 723 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 723 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				if (SF_DEBUG) mprint(yyengine, NULL, siminfo, 
@@ -2978,12 +3068,12 @@ yyreduce:
 				yyengine->batts[yyengine->curbatt].ileak = (yyvsp[-1].dval);
 			}
 		}
-#line 2982 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3072 "sf-hitachi-sh.tab.c"
     break;
 
   case 189:
-#line 733 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 733 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				if (SF_DEBUG) mprint(yyengine, NULL, siminfo, 
@@ -2992,12 +3082,12 @@ yyreduce:
 				yyengine->batts[yyengine->curbatt].Cf = (yyvsp[-1].dval);
 			}
 		}
-#line 2996 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3086 "sf-hitachi-sh.tab.c"
     break;
 
   case 190:
-#line 743 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 743 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				if (SF_DEBUG) mprint(yyengine, NULL, siminfo, 
@@ -3006,12 +3096,12 @@ yyreduce:
 				yyengine->batts[yyengine->curbatt].Inominal = (yyvsp[-1].dval);
 			}
 		}
-#line 3010 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3100 "sf-hitachi-sh.tab.c"
     break;
 
   case 191:
-#line 753 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 753 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				if (SF_DEBUG) mprint(yyengine, NULL, siminfo, 
@@ -3020,12 +3110,12 @@ yyreduce:
 				yyengine->batts[yyengine->curbatt].Rf = (yyvsp[-1].dval);
 			}
 		}
-#line 3024 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3114 "sf-hitachi-sh.tab.c"
     break;
 
   case 192:
-#line 763 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 763 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				if ((yyvsp[-2].uval) < yyengine->batts[yyengine->curbatt].etaLUTnentries)
@@ -3038,12 +3128,12 @@ yyreduce:
 				}
 			}
 		}
-#line 3042 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3132 "sf-hitachi-sh.tab.c"
     break;
 
   case 193:
-#line 777 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 777 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				double *tmp = (double *)mrealloc(yyengine, yyengine->batts[yyengine->curbatt].etaLUT,
@@ -3060,12 +3150,12 @@ yyreduce:
 				}
 			}
 		}
-#line 3064 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3154 "sf-hitachi-sh.tab.c"
     break;
 
   case 194:
-#line 795 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 795 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				if ((yyvsp[-2].uval) < yyengine->batts[yyengine->curbatt].VbattLUTnentries)
@@ -3078,12 +3168,12 @@ yyreduce:
 				}
 			}
 		}
-#line 3082 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3172 "sf-hitachi-sh.tab.c"
     break;
 
   case 195:
-#line 809 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 809 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				double *tmp = (double *)mrealloc(yyengine, yyengine->batts[yyengine->curbatt].VbattLUT,
@@ -3100,12 +3190,12 @@ yyreduce:
 				}
 			}
 		}
-#line 3104 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3194 "sf-hitachi-sh.tab.c"
     break;
 
   case 196:
-#line 827 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 827 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				if ((yyvsp[-2].uval) < yyengine->batts[yyengine->curbatt].VlostLUTnentries)
@@ -3118,12 +3208,12 @@ yyreduce:
 				}
 			}
 		}
-#line 3122 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3212 "sf-hitachi-sh.tab.c"
     break;
 
   case 197:
-#line 841 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 841 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				double *tmp = (double *)mrealloc(yyengine, yyengine->batts[yyengine->curbatt].VlostLUT,
@@ -3140,12 +3230,12 @@ yyreduce:
 				}
 			}
 		}
-#line 3144 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3234 "sf-hitachi-sh.tab.c"
     break;
 
   case 198:
-#line 859 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 859 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				if ((yyvsp[-1].uval) >= yyengine->nbatts)
@@ -3158,157 +3248,157 @@ yyreduce:
 				}
 			}
 		}
-#line 3162 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3252 "sf-hitachi-sh.tab.c"
     break;
 
   case 199:
-#line 873 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 873 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				m_pcbacktrace(yyengine, yyengine->cp);
 			}
 		}
-#line 3173 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3263 "sf-hitachi-sh.tab.c"
     break;
 
   case 200:
-#line 880 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 880 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				m_setbptglobaltime(yyengine, (yyvsp[-1].uval));
 			}
 		}
-#line 3184 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3274 "sf-hitachi-sh.tab.c"
     break;
 
   case 201:
-#line 887 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 887 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				m_setbptcycles(yyengine, yyengine->cp, (yyvsp[-1].uval));
 			}
 		}
-#line 3195 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3285 "sf-hitachi-sh.tab.c"
     break;
 
   case 202:
-#line 894 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 894 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				m_setbptinstrs(yyengine, yyengine->cp, (yyvsp[-1].uval));
 			}
 		}
-#line 3206 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3296 "sf-hitachi-sh.tab.c"
     break;
 
   case 203:
-#line 901 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 901 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				m_setbptsensorreading(yyengine, yyengine->cp, (yyvsp[-2].uval), (yyvsp[-1].dval));
 			}
 		}
-#line 3217 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3307 "sf-hitachi-sh.tab.c"
     break;
 
   case 204:
-#line 908 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 908 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				m_bptls(yyengine);
 			}
 		}
-#line 3228 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3318 "sf-hitachi-sh.tab.c"
     break;
 
   case 205:
-#line 915 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 915 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				m_bptdel(yyengine, (yyvsp[-1].uval));
 			}
 		}
-#line 3239 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3329 "sf-hitachi-sh.tab.c"
     break;
 
   case 206:
-#line 922 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 922 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				m_setloc(yyengine, yyengine->cp, (yyvsp[-3].dval), (yyvsp[-2].dval), (yyvsp[-1].dval));
 			}
 		}
-#line 3250 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3340 "sf-hitachi-sh.tab.c"
     break;
 
   case 207:
-#line 929 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 929 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				network_setretryalg(yyengine, yyengine->cp, (yyvsp[-2].uval), (yyvsp[-1].str));
 			}
 		}
-#line 3261 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3351 "sf-hitachi-sh.tab.c"
     break;
 
   case 208:
-#line 936 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 936 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				m_randprint(yyengine, (yyvsp[-7].str), (yyvsp[-6].dval), (yyvsp[-5].dval), (yyvsp[-4].dval), (yyvsp[-3].dval), (yyvsp[-2].dval), (yyvsp[-1].dval));
 			}
 		}
-#line 3272 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3362 "sf-hitachi-sh.tab.c"
     break;
 
   case 209:
-#line 943 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 943 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				//m_registerrvar(yyengine->cp, $2, $3, $4, $5, $6, $7,
 				//		$8, $9, $10, $11, $12, $13, $14);
 			}
 		}
-#line 3284 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3374 "sf-hitachi-sh.tab.c"
     break;
 
   case 210:
-#line 951 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 951 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				m_initrandtable(yyengine, (yyvsp[-9].str), (yyvsp[-8].str), (yyvsp[-7].dval), (yyvsp[-6].dval), (yyvsp[-5].dval), (yyvsp[-4].dval), (yyvsp[-3].dval), (yyvsp[-2].dval), (yyvsp[-1].dval));
 			}
 		}
-#line 3295 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3385 "sf-hitachi-sh.tab.c"
     break;
 
   case 211:
-#line 958 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 958 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				//m_defndist($2, $4, $6);
 
 			}
 		}
-#line 3307 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3397 "sf-hitachi-sh.tab.c"
     break;
 
   case 212:
-#line 966 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 966 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				if (yyengine->cp->machinetype == MACHINE_SUPERH)
@@ -3325,12 +3415,12 @@ yyreduce:
 				}
 			}
 		}
-#line 3329 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3419 "sf-hitachi-sh.tab.c"
     break;
 
   case 213:
-#line 984 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 984 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				if (yyengine->cp->machinetype == MACHINE_SUPERH)
@@ -3347,123 +3437,123 @@ yyreduce:
 				}
 			}
 		}
-#line 3351 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3441 "sf-hitachi-sh.tab.c"
     break;
 
   case 214:
-#line 1002 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1002 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				yyengine->ignoredeaths = (yyvsp[-1].uval);
 			}
 		}
-#line 3362 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3452 "sf-hitachi-sh.tab.c"
     break;
 
   case 215:
-#line 1009 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1009 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->voltscale_alpha = (yyvsp[-1].dval);
 			}
 		}
-#line 3373 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3463 "sf-hitachi-sh.tab.c"
     break;
 
   case 216:
-#line 1016 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1016 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->voltscale_K = (yyvsp[-1].dval);
 			}
 		}
-#line 3384 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3474 "sf-hitachi-sh.tab.c"
     break;
 
   case 217:
-#line 1023 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1023 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->voltscale_Vt = (yyvsp[-1].dval);
 			}
 		}
-#line 3395 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3485 "sf-hitachi-sh.tab.c"
     break;
 
   case 218:
-#line 1030 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1030 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				yyengine->schedtype = SchedRandom;
 			}
 		}
-#line 3406 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3496 "sf-hitachi-sh.tab.c"
     break;
 
   case 219:
-#line 1037 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1037 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				yyengine->schedtype = SchedRoundRobin;
 			}
 		}
-#line 3417 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3507 "sf-hitachi-sh.tab.c"
     break;
 
   case 220:
-#line 1044 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1044 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				yyengine->quantum = (yyvsp[-1].uval);
 			}
 		}
-#line 3428 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3518 "sf-hitachi-sh.tab.c"
     break;
 
   case 221:
-#line 1051 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1051 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				yyengine->baseid = (yyvsp[-1].uval);
 			}
 		}
-#line 3439 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3529 "sf-hitachi-sh.tab.c"
     break;
 
   case 222:
-#line 1058 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1058 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				m_renumbernodes(yyengine);
 			}
 		}
-#line 3450 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3540 "sf-hitachi-sh.tab.c"
     break;
 
   case 223:
-#line 1065 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1065 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->trip_ustart = musercputimeusecs();
 				yyengine->cp->trip_startclk = yyengine->cp->ICLK;
 			}
 		}
-#line 3462 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3552 "sf-hitachi-sh.tab.c"
     break;
 
   case 224:
-#line 1073 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1073 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				int i;
@@ -3475,34 +3565,34 @@ yyreduce:
 				}
 			}
 		}
-#line 3479 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3569 "sf-hitachi-sh.tab.c"
     break;
 
   case 225:
-#line 1086 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1086 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				network_netseg2file(yyengine, (yyvsp[-2].uval), (yyvsp[-1].str));
 			}
 		}
-#line 3490 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3580 "sf-hitachi-sh.tab.c"
     break;
 
   case 226:
-#line 1093 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1093 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				network_file2netseg(yyengine, (yyvsp[-2].str), (yyvsp[-1].uval));
 			}
 		}
-#line 3501 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3591 "sf-hitachi-sh.tab.c"
     break;
 
   case 227:
-#line 1100 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1100 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				int	n = mchdir((yyvsp[-1].str));
@@ -3513,134 +3603,134 @@ yyreduce:
 				}
 			}
 		}
-#line 3517 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3607 "sf-hitachi-sh.tab.c"
     break;
 
   case 228:
-#line 1112 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1112 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->settimerintrdelay(yyengine, yyengine->cp, (yyvsp[0].dval));
 			}
 		}
-#line 3528 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3618 "sf-hitachi-sh.tab.c"
     break;
 
   case 229:
-#line 1119 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1119 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				yyengine->phyperiodpsec = (yyvsp[0].dval);
 			}
 		}
-#line 3539 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3629 "sf-hitachi-sh.tab.c"
     break;
 
   case 230:
-#line 1126 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1126 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				yyengine->battperiodpsec = (yyvsp[0].dval);
 			}
 		}
-#line 3550 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3640 "sf-hitachi-sh.tab.c"
     break;
 
   case 231:
-#line 1133 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1133 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				yyengine->netperiodpsec = (yyvsp[0].dval);
 			}
 		}
-#line 3561 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3651 "sf-hitachi-sh.tab.c"
     break;
 
   case 232:
-#line 1140 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1140 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				yyengine->fperiodpsec = (yyvsp[0].dval);
 			}
 		}
-#line 3572 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3662 "sf-hitachi-sh.tab.c"
     break;
 
   case 233:
-#line 1148 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1148 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->force_avgpwr = (yyvsp[-1].dval);
 				yyengine->cp->force_sleeppwr = (yyvsp[0].dval);
 			}
 		}
-#line 3584 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3674 "sf-hitachi-sh.tab.c"
     break;
 
   case 234:
-#line 1156 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1156 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				network_netsegpropmodel(yyengine, (yyvsp[-2].uval), (yyvsp[-1].uval), (yyvsp[0].dval));
 			}
 		}
-#line 3595 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3685 "sf-hitachi-sh.tab.c"
     break;
 
   case 235:
-#line 1163 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1163 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				yyengine->dumpperiodpsec = (yyvsp[0].dval);
 			}
 		}
-#line 3606 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3696 "sf-hitachi-sh.tab.c"
     break;
 
   case 236:
-#line 1170 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1170 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				m_version(yyengine);
 			}
 		}
-#line 3617 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3707 "sf-hitachi-sh.tab.c"
     break;
 
   case 237:
-#line 1177 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1177 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				physics_sensorsdbg(yyengine);
 			}
 		}
-#line 3628 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3718 "sf-hitachi-sh.tab.c"
     break;
 
   case 238:
-#line 1185 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1185 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				physics_sigsubscr(yyengine, yyengine->cp, (yyvsp[-1].uval), (yyvsp[0].uval));
 			}
 		}
-#line 3639 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3729 "sf-hitachi-sh.tab.c"
     break;
 
   case 239:
-#line 1196 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1196 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				physics_newsigsrc(yyengine, (yyvsp[-33].uval), (yyvsp[-32].str), (yyvsp[-31].dval), (yyvsp[-30].dval), (yyvsp[-29].dval), (yyvsp[-28].dval), (yyvsp[-27].dval), (yyvsp[-26].dval), (yyvsp[-25].dval),
@@ -3649,46 +3739,46 @@ yyreduce:
 					(yyvsp[-4].uval), (yyvsp[-3].dval), (yyvsp[-2].uval), (yyvsp[-1].uval));
 			}
 		}
-#line 3653 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3743 "sf-hitachi-sh.tab.c"
     break;
 
   case 240:
-#line 1206 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1206 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				mprint(yyengine, NULL, siminfo,
 					"Current directory: %s\n", mgetpwd());
 			}
 		}
-#line 3665 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3755 "sf-hitachi-sh.tab.c"
     break;
 
   case 241:
-#line 1214 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1214 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				m_parseobjdump(yyengine, yyengine->cp, (yyvsp[-1].str));
 			}
 		}
-#line 3676 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3766 "sf-hitachi-sh.tab.c"
     break;
 
   case 242:
-#line 1221 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1221 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				m_dumpall(yyengine, (yyvsp[-3].str), M_OWRITE, (yyvsp[-2].str), (yyvsp[-1].str));
 			}
 		}
-#line 3687 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3777 "sf-hitachi-sh.tab.c"
     break;
 
   case 243:
-#line 1228 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1228 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				if ((yyvsp[-1].uval) >= yyengine->nnodes)
@@ -3701,12 +3791,12 @@ yyreduce:
 				}
 			}
 		}
-#line 3705 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3795 "sf-hitachi-sh.tab.c"
     break;
 
   case 244:
-#line 1242 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1242 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				if (((yyvsp[-2].uval) > yyengine->nnodes) || ((yyvsp[-1].uval) > yyengine->nnodes))
@@ -3721,122 +3811,122 @@ yyreduce:
 				}
 			}
 		}
-#line 3725 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3815 "sf-hitachi-sh.tab.c"
     break;
 
   case 245:
-#line 1258 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1258 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->step = yyengine->cp->cyclestep;
 			}
 		}
-#line 3736 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3826 "sf-hitachi-sh.tab.c"
     break;
 
   case 246:
-#line 1265 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1265 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->step = yyengine->cp->faststep;
 			}
 		}
-#line 3747 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3837 "sf-hitachi-sh.tab.c"
     break;
 
   case 247:
-#line 1272 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1272 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->cache_init(yyengine, yyengine->cp, (yyvsp[-3].uval), (yyvsp[-2].uval), (yyvsp[-1].uval));
 			}
 		}
-#line 3758 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3848 "sf-hitachi-sh.tab.c"
     break;
 
   case 248:
-#line 1279 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1279 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->cache_deactivate(yyengine, yyengine->cp);
 			}
 		}
-#line 3769 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3859 "sf-hitachi-sh.tab.c"
     break;
 
   case 249:
-#line 1286 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1286 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->cache_printstats(yyengine, yyengine->cp);
 			}
 		}
-#line 3780 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3870 "sf-hitachi-sh.tab.c"
     break;
 
   case 250:
-#line 1293 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1293 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->dumpregs(yyengine, yyengine->cp);
 			}
 		}
-#line 3791 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3881 "sf-hitachi-sh.tab.c"
     break;
 
   case 251:
-#line 1300 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1300 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->dumpsysregs(yyengine, yyengine->cp);
 			}
 		}
-#line 3802 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3892 "sf-hitachi-sh.tab.c"
     break;
 
   case 252:
-#line 1307 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1307 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->dumppipe(yyengine, yyengine->cp);
 			}
 		}
-#line 3813 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3903 "sf-hitachi-sh.tab.c"
     break;
 
   case 253:
-#line 1314 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1314 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->dumpdistribution(yyengine, yyengine->cp);
 			}
 		}
-#line 3824 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3914 "sf-hitachi-sh.tab.c"
     break;
 
   case 254:
-#line 1321 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1321 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->resetcpu(yyengine, yyengine->cp);
 			}
 		}
-#line 3835 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3925 "sf-hitachi-sh.tab.c"
     break;
 
   case 255:
-#line 1328 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1328 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				mprint(yyengine, yyengine->cp, nodeinfo,
@@ -3844,122 +3934,122 @@ yyreduce:
 					yyengine->cp->dyncnt, yyengine->cp->nfetched);	
 			}
 		}
-#line 3848 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3938 "sf-hitachi-sh.tab.c"
     break;
 
   case 256:
-#line 1337 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1337 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				yyengine->nodetach = (yyvsp[-1].uval);
 			}
 		}
-#line 3859 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3949 "sf-hitachi-sh.tab.c"
     break;
 
   case 257:
-#line 1344 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1344 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				m_addvaluetrace(yyengine, yyengine->cp, (yyvsp[-7].str), (yyvsp[-6].uval), (yyvsp[-5].uval), (yyvsp[-4].uval), (yyvsp[-3].uval), (yyvsp[-2].uval), (yyvsp[-1].uval));
 			}
 		}
-#line 3870 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3960 "sf-hitachi-sh.tab.c"
     break;
 
   case 258:
-#line 1351 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1351 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				m_delvaluetrace(yyengine, yyengine->cp, (yyvsp[-7].str), (yyvsp[-6].uval), (yyvsp[-5].uval), (yyvsp[-4].uval), (yyvsp[-3].uval), (yyvsp[-2].uval), (yyvsp[-1].uval));
 			}
 		}
-#line 3881 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3971 "sf-hitachi-sh.tab.c"
     break;
 
   case 259:
-#line 1358 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1358 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				m_readstabs(yyengine, yyengine->cp, (yyvsp[-1].str));
 			}
 		}
-#line 3892 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3982 "sf-hitachi-sh.tab.c"
     break;
 
   case 260:
-#line 1365 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1365 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				m_valuestats(yyengine, yyengine->cp);
 			}
 		}
-#line 3903 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 3993 "sf-hitachi-sh.tab.c"
     break;
 
   case 261:
-#line 1372 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1372 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				m_numaregion(yyengine, (yyvsp[-10].str), (yyvsp[-9].uval), (yyvsp[-8].uval), (yyvsp[-7].sval), (yyvsp[-6].sval), (yyvsp[-5].sval), (yyvsp[-4].sval), (yyvsp[-3].uval), (yyvsp[-2].uval), (yyvsp[-1].uval));
 			}
 		}
-#line 3914 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4004 "sf-hitachi-sh.tab.c"
     break;
 
   case 262:
-#line 1379 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1379 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				m_numastats(yyengine, yyengine->cp);
 			}
 		}
-#line 3925 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4015 "sf-hitachi-sh.tab.c"
     break;
 
   case 263:
-#line 1386 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1386 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				m_numastatsall(yyengine);
 			}
 		}
-#line 3936 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4026 "sf-hitachi-sh.tab.c"
     break;
 
   case 264:
-#line 1393 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1393 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				m_numasetmapid(yyengine, (yyvsp[-2].uval), (yyvsp[-1].uval));
 			}
 		}
-#line 3947 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4037 "sf-hitachi-sh.tab.c"
     break;
 
   case 265:
-#line 1400 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1400 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->dumptlb(yyengine, yyengine->cp);
 			}
 		}
-#line 3958 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4048 "sf-hitachi-sh.tab.c"
     break;
 
   case 266:
-#line 1407 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1407 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				if (yyengine->cp->ICLK > 0)
@@ -3974,24 +4064,24 @@ yyreduce:
 				}
 			}
 		}
-#line 3978 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4068 "sf-hitachi-sh.tab.c"
     break;
 
   case 267:
-#line 1423 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1423 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				mprint(yyengine, NULL, siminfo,
 					"Simulation random seed = %ld\n", yyengine->randseed);
 			}
 		}
-#line 3990 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4080 "sf-hitachi-sh.tab.c"
     break;
 
   case 268:
-#line 1431 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1431 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				mprint(yyengine, NULL, siminfo,
@@ -3999,56 +4089,56 @@ yyreduce:
 				yyengine->randseed = mrandominit(yyengine, (yyvsp[-1].uval));
 			}
 		}
-#line 4003 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4093 "sf-hitachi-sh.tab.c"
     break;
 
   case 269:
-#line 1440 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1440 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->ENABLE_BATT_LOW_INTR = (yyvsp[-1].uval);
 			}
 		}
-#line 4014 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4104 "sf-hitachi-sh.tab.c"
     break;
 
   case 270:
-#line 1447 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1447 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->battery_alert_frac = (yyvsp[-1].dval);
 			}
 		}
-#line 4025 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4115 "sf-hitachi-sh.tab.c"
     break;
 
   case 271:
-#line 1454 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1454 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->fail_prob = (yyvsp[-1].dval);
 			}
 		}
-#line 4036 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4126 "sf-hitachi-sh.tab.c"
     break;
 
   case 272:
-#line 1461 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1461 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->failure_duration_max = (yyvsp[-1].uval);
 			}
 		}
-#line 4047 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4137 "sf-hitachi-sh.tab.c"
     break;
 
   case 273:
-#line 1468 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1468 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				if ((yyvsp[-2].uval) >= MAX_NETSEGMENTS)
@@ -4061,24 +4151,24 @@ yyreduce:
 				}
 			}
 		}
-#line 4065 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4155 "sf-hitachi-sh.tab.c"
     break;
 
   case 274:
-#line 1483 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1483 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				network_netnewseg(yyengine, (yyvsp[-13].uval), (yyvsp[-12].uval), (yyvsp[-11].uval), (yyvsp[-10].uval), (yyvsp[-9].uval), (yyvsp[-8].uval),
 					(yyvsp[-7].dval), (yyvsp[-6].dval), (yyvsp[-5].dval), (yyvsp[-4].uval), (yyvsp[-3].dval), (yyvsp[-2].dval), (yyvsp[-1].dval));
 			}
 		}
-#line 4077 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4167 "sf-hitachi-sh.tab.c"
     break;
 
   case 275:
-#line 1491 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1491 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				if ((yyvsp[-2].uval) >= yyengine->nnetsegs)
@@ -4091,23 +4181,23 @@ yyreduce:
 				}
 			}
 		}
-#line 4095 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4185 "sf-hitachi-sh.tab.c"
     break;
 
   case 276:
-#line 1505 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1505 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				network_netsegnicattach(yyengine, yyengine->cp, (yyvsp[-2].uval), (yyvsp[-1].uval));
 			}
 		}
-#line 4106 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4196 "sf-hitachi-sh.tab.c"
     break;
 
   case 277:
-#line 1512 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1512 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				if ((yyvsp[-3].uval) >= MAX_NETSEGMENTS)
@@ -4124,167 +4214,167 @@ yyreduce:
 				}
 			}
 		}
-#line 4128 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4218 "sf-hitachi-sh.tab.c"
     break;
 
   case 278:
-#line 1530 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1530 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				network_netnodenewifc(yyengine, yyengine->cp, (yyvsp[-11].uval), (yyvsp[-10].dval), (yyvsp[-9].dval), (yyvsp[-8].dval),
 					(yyvsp[-7].dval), (yyvsp[-6].uval), (yyvsp[-5].dval), (yyvsp[-4].dval), (yyvsp[-3].dval), (yyvsp[-2].uval), (yyvsp[-1].uval));
 			}
 		}
-#line 4140 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4230 "sf-hitachi-sh.tab.c"
     break;
 
   case 279:
-#line 1538 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1538 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				network_netsegdelete(yyengine, (yyvsp[-1].uval));
 			}
 		}
-#line 4151 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4241 "sf-hitachi-sh.tab.c"
     break;
 
   case 280:
-#line 1545 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1545 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				merror(yyengine, "Command \"NODEFAILPROBFN\" unimplemented.");
 			}
 		}
-#line 4162 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4252 "sf-hitachi-sh.tab.c"
     break;
 
   case 281:
-#line 1552 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1552 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				merror(yyengine, "Command \"NETSEGFAILPROBFN\" unimplemented.");
 			}
 		}
-#line 4173 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4263 "sf-hitachi-sh.tab.c"
     break;
 
   case 282:
-#line 1559 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1559 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				m_sizemem(yyengine, yyengine->cp, (yyvsp[-1].uval));
 			}
 		}
-#line 4184 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4274 "sf-hitachi-sh.tab.c"
     break;
 
   case 283:
-#line 1566 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1566 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				pau_init(yyengine, yyengine->cp, (yyvsp[-1].uval));
 			}
 		}
-#line 4195 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4285 "sf-hitachi-sh.tab.c"
     break;
 
   case 284:
-#line 1573 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1573 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->split(yyengine, yyengine->cp, (yyvsp[-4].uval), (yyvsp[-3].uval), (yyvsp[-2].uval), (yyvsp[-1].str));
 			}
 		}
-#line 4206 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4296 "sf-hitachi-sh.tab.c"
     break;
 
   case 285:
-#line 1580 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1580 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				m_dumpmem(yyengine, yyengine->cp, (yyvsp[-2].uval), (yyvsp[-1].uval));
 			}
 		}
-#line 4217 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4307 "sf-hitachi-sh.tab.c"
     break;
 
   case 286:
-#line 1587 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1587 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->pipelined = 0;
 			}
 		}
-#line 4228 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4318 "sf-hitachi-sh.tab.c"
     break;
 
   case 287:
-#line 1594 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1594 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->pipelined = 1;
 			}
 		}
-#line 4239 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4329 "sf-hitachi-sh.tab.c"
     break;
 
   case 288:
-#line 1601 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1601 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->superH->ENABLE_CLK_INTR = (yyvsp[-1].uval);
 			}
 		}
-#line 4250 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4340 "sf-hitachi-sh.tab.c"
     break;
 
   case 289:
-#line 1608 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1608 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->runnable = 0;
 			}
 		}
-#line 4261 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4351 "sf-hitachi-sh.tab.c"
     break;
 
   case 290:
-#line 1615 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1615 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				sfatal(yyengine, yyengine->cp, (yyvsp[-1].str));
 			}
 		}
-#line 4272 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4362 "sf-hitachi-sh.tab.c"
     break;
 
   case 291:
-#line 1622 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1622 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				yyengine->verbose ^= 1;
 			}
 		}
-#line 4283 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4373 "sf-hitachi-sh.tab.c"
     break;
 
   case 292:
-#line 1629 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1629 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				m_run(yyengine, yyengine->cp, (yyvsp[-1].str));
@@ -4293,136 +4383,136 @@ yyreduce:
 			/*	The 'string' is dynamically allocated, in lex.c		*/
 			free((yyvsp[-1].str));
 		}
-#line 4297 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4387 "sf-hitachi-sh.tab.c"
     break;
 
   case 293:
-#line 1639 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1639 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->step(yyengine, yyengine->cp, 0);
 			}
 		}
-#line 4308 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4398 "sf-hitachi-sh.tab.c"
     break;
 
   case 294:
-#line 1646 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1646 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				go(yyengine, yyengine->cp, (yyvsp[-1].uval));
 			}
 		}
-#line 4319 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4409 "sf-hitachi-sh.tab.c"
     break;
 
   case 295:
-#line 1653 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1653 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				loadcmds(yyengine, (yyvsp[-1].str));
 			}
 		}
-#line 4330 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4420 "sf-hitachi-sh.tab.c"
     break;
 
   case 296:
-#line 1660 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {	
+#line 1660 "sf-hitachi-sh.y"
+                {	
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->PC = (yyvsp[-1].uval);
 			}
 		}
-#line 4341 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4431 "sf-hitachi-sh.tab.c"
     break;
 
   case 297:
-#line 1667 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1667 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				/*	Scale frequency accordingly for provided Vdd	*/
 				power_scaledelay(yyengine, yyengine->cp, (yyvsp[-1].dval));
 			}
 		}
-#line 4353 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4443 "sf-hitachi-sh.tab.c"
     break;
 
   case 298:
-#line 1675 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1675 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->mem_r_latency = (yyvsp[-1].uval);
 			}
 		}
-#line 4364 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4454 "sf-hitachi-sh.tab.c"
     break;
 
   case 299:
-#line 1682 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1682 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->mem_w_latency = (yyvsp[-1].uval);
 			}
 		}
-#line 4375 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4465 "sf-hitachi-sh.tab.c"
     break;
 
   case 300:
-#line 1689 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1689 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->flash_r_latency = (yyvsp[-1].uval);
 			}
 		}
-#line 4386 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4476 "sf-hitachi-sh.tab.c"
     break;
 
   case 301:
-#line 1696 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1696 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->flash_w_latency = (yyvsp[-1].uval);
 			}
 		}
-#line 4397 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4487 "sf-hitachi-sh.tab.c"
     break;
 
   case 302:
-#line 1703 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1703 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				/*	Scale Vdd accordingly for provided frequency	*/
 				power_scalevdd(yyengine, yyengine->cp, (yyvsp[-1].dval));
 			}
 		}
-#line 4409 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4499 "sf-hitachi-sh.tab.c"
     break;
 
   case 303:
-#line 1711 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1711 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				/*	Set node mass	*/
 				massSetNodeMass(yyengine, yyengine->cp, (yyvsp[-1].dval));
 			}
 		}
-#line 4421 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4511 "sf-hitachi-sh.tab.c"
     break;
 
   case 304:
-#line 1719 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1719 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				/*	Scale Vdd accordingly for provided frequency	*/
@@ -4432,127 +4522,127 @@ yyreduce:
 											(yyvsp[-5].dval),	(yyvsp[-4].dval),	(yyvsp[-3].dval),	(yyvsp[-2].dval),	(yyvsp[-1].dval),	(yyvsp[0].dval));
 			}
 		}
-#line 4436 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4526 "sf-hitachi-sh.tab.c"
     break;
 
   case 305:
-#line 1730 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1730 "sf-hitachi-sh.y"
+                {
 			yyengine->cp->MEMBASE = (yyvsp[0].uval);
 		}
-#line 4444 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4534 "sf-hitachi-sh.tab.c"
     break;
 
   case 306:
-#line 1734 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1734 "sf-hitachi-sh.y"
+                {
 			mprint(yyengine, NULL, siminfo, "Memory base address is %d.",yyengine->cp->MEMBASE);
 		}
-#line 4452 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4542 "sf-hitachi-sh.tab.c"
     break;
 
   case 307:
-#line 1738 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1738 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				help(yyengine);
 			}
 		}
-#line 4463 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4553 "sf-hitachi-sh.tab.c"
     break;
 
   case 308:
-#line 1745 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1745 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				man(yyengine, (yyvsp[-1].str));
 			}
 		}
-#line 4474 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4564 "sf-hitachi-sh.tab.c"
     break;
 
   case 309:
-#line 1752 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1752 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->flushpipe(yyengine->cp);
 			}
 		}
-#line 4485 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4575 "sf-hitachi-sh.tab.c"
     break;
 
   case 310:
-#line 1759 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1759 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->pipeshow = !yyengine->cp->pipeshow;
 			}
 		}
-#line 4496 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4586 "sf-hitachi-sh.tab.c"
     break;
 
   case 311:
-#line 1766 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1766 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				savemem(yyengine, yyengine->cp, (yyvsp[-3].uval), (yyvsp[-2].uval), (yyvsp[-1].str));
 			}
 		}
-#line 4507 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4597 "sf-hitachi-sh.tab.c"
     break;
 
   case 312:
-#line 1773 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1773 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				load_srec(yyengine, yyengine->cp, (yyvsp[-1].str));
 			}
 		}
-#line 4518 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4608 "sf-hitachi-sh.tab.c"
     break;
 
   case 313:
-#line 1780 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1780 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				load_mapfile(yyengine, yyengine->cp, (yyvsp[-1].str));
 			}
 		}
-#line 4529 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4619 "sf-hitachi-sh.tab.c"
     break;
 
   case 314:
-#line 1787 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1787 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				cont(yyengine, yyengine->cp, (yyvsp[-1].uval));
 			}
 		}
-#line 4540 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4630 "sf-hitachi-sh.tab.c"
     break;
 
   case 315:
-#line 1794 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1794 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				m_sharebus(yyengine, yyengine->cp, (yyvsp[-1].uval));
 			}
 		}
-#line 4551 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4641 "sf-hitachi-sh.tab.c"
     break;
 
   case 316:
-#line 1801 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1801 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				mprint(yyengine, NULL, siminfo,
@@ -4561,78 +4651,78 @@ yyreduce:
 					yyengine->cp->CYCLETIME);
 			}
 		}
-#line 4565 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4655 "sf-hitachi-sh.tab.c"
     break;
 
   case 317:
-#line 1811 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1811 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				power_printstats(yyengine, yyengine->cp);
 			}
 		}
-#line 4576 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4666 "sf-hitachi-sh.tab.c"
     break;
 
   case 318:
-#line 1818 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1818 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				m_locstats(yyengine, yyengine->cp);
 			}
 		}
-#line 4587 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4677 "sf-hitachi-sh.tab.c"
     break;
 
   case 319:
-#line 1825 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1825 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				m_listrvars(yyengine);
 			}
 		}
-#line 4598 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4688 "sf-hitachi-sh.tab.c"
     break;
 
   case 320:
-#line 1833 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1833 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				m_on(yyengine, yyengine->cp);
 			}
 		}
-#line 4609 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4699 "sf-hitachi-sh.tab.c"
     break;
 
   case 321:
-#line 1840 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1840 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				m_off(yyengine, yyengine->cp);
 			}
 		}
-#line 4620 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4710 "sf-hitachi-sh.tab.c"
     break;
 
   case 322:
-#line 1847 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1847 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				network_netdebug(yyengine, yyengine->cp);
 			}
 		}
-#line 4631 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4721 "sf-hitachi-sh.tab.c"
     break;
 
   case 323:
-#line 1854 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1854 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				mprint(yyengine, NULL, siminfo, 
@@ -4640,67 +4730,67 @@ yyreduce:
 				yyengine->cp->trace = (yyvsp[-1].uval);
 			}
 		}
-#line 4644 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4734 "sf-hitachi-sh.tab.c"
     break;
 
   case 324:
-#line 1863 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1863 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				yyengine->throttlensec = (yyvsp[-1].uval);
 			}
 		}
-#line 4655 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4745 "sf-hitachi-sh.tab.c"
     break;
 
   case 325:
-#line 1870 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1870 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				yyengine->throttlewin = (yyvsp[-1].uval);
 			}
 		}
-#line 4666 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4756 "sf-hitachi-sh.tab.c"
     break;
 
   case 326:
-#line 1877 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1877 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->faultthreshold = (yyvsp[-1].uval);
 			}
 		}
-#line 4677 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4767 "sf-hitachi-sh.tab.c"
     break;
 
   case 327:
-#line 1884 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1884 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->ENABLE_TOO_MANY_FAULTS = (yyvsp[-1].uval);
 			}
 		}
-#line 4688 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4778 "sf-hitachi-sh.tab.c"
     break;
 
   case 328:
-#line 1891 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1891 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				fault_setnodepfun(yyengine, yyengine->cp, (yyvsp[-1].str));
 			}
 		}
-#line 4699 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4789 "sf-hitachi-sh.tab.c"
     break;
 
   case 329:
-#line 1898 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1898 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				if ((yyvsp[-2].uval) < yyengine->cp->superH->NIC_NUM_IFCS)
@@ -4714,34 +4804,34 @@ yyreduce:
 				}
 			}
 		}
-#line 4718 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4808 "sf-hitachi-sh.tab.c"
     break;
 
   case 330:
-#line 1913 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1913 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				mmblocksdisplay(yyengine);
 			}
 		}
-#line 4729 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4819 "sf-hitachi-sh.tab.c"
     break;
 
   case 331:
-#line 1920 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1920 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				pau_printstats(yyengine, yyengine->cp);
 			}
 		}
-#line 4740 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4830 "sf-hitachi-sh.tab.c"
     break;
 
   case 332:
-#line 1927 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1927 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				// TODO: we should account for the cost of the m_on and m_off
@@ -4751,12 +4841,12 @@ yyreduce:
 				m_on(yyengine, yyengine->cp);
 			}
 		}
-#line 4755 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4845 "sf-hitachi-sh.tab.c"
     break;
 
   case 333:
-#line 1938 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1938 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				// TODO: we should account for the cost of the m_on and m_off
@@ -4766,23 +4856,23 @@ yyreduce:
 				m_on(yyengine, yyengine->cp);
 			}
 		}
-#line 4770 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4860 "sf-hitachi-sh.tab.c"
     break;
 
   case 334:
-#line 1949 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1949 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				/*	For now, nothing fun is done with comments	*/
 			}
 		}
-#line 4781 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4871 "sf-hitachi-sh.tab.c"
     break;
 
   case 335:
-#line 1956 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1956 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				/*								*/
@@ -4792,12 +4882,12 @@ yyreduce:
 				/*								*/
 			}
 		}
-#line 4796 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4886 "sf-hitachi-sh.tab.c"
     break;
 
   case 336:
-#line 1970 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1970 "sf-hitachi-sh.y"
+                {
 			/*							*/
 			/*	Whether yyengine->scanning or not, forcefully align PC 	*/
 			/*							*/
@@ -4820,47 +4910,47 @@ yyreduce:
 				merror(yyengine, ".align for arbitrary alignment not implemented !!!");
 			}
 		}
-#line 4824 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4914 "sf-hitachi-sh.tab.c"
     break;
 
   case 337:
-#line 1997 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 1997 "sf-hitachi-sh.y"
+                {
 		}
-#line 4831 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4921 "sf-hitachi-sh.tab.c"
     break;
 
   case 338:
-#line 2003 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 2003 "sf-hitachi-sh.y"
+                {
 		}
-#line 4838 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4928 "sf-hitachi-sh.tab.c"
     break;
 
   case 339:
-#line 2009 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 2009 "sf-hitachi-sh.y"
+                {
 		}
-#line 4845 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4935 "sf-hitachi-sh.tab.c"
     break;
 
   case 340:
-#line 2015 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 2015 "sf-hitachi-sh.y"
+                {
 		}
-#line 4852 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4942 "sf-hitachi-sh.tab.c"
     break;
 
   case 341:
-#line 2020 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 2020 "sf-hitachi-sh.y"
+                {
 		}
-#line 4859 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4949 "sf-hitachi-sh.tab.c"
     break;
 
   case 342:
-#line 2025 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 2025 "sf-hitachi-sh.y"
+                {
 			/*								*/
 			/*	disp is _relative_ to the current pc, so convert it	*/
 			/*	to absolute address before laying down the value, by	*/
@@ -4883,12 +4973,12 @@ yyreduce:
 				yyengine->cp->PC += 4;
 			}
 		}
-#line 4887 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 4977 "sf-hitachi-sh.tab.c"
     break;
 
   case 343:
-#line 2050 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 2050 "sf-hitachi-sh.y"
+                {
 			/*						*/
 			/*	My understanding is that the .comm is	*/
 			/*	a global var definition. The address 	*/
@@ -4908,12 +4998,12 @@ yyreduce:
 				}	
 			}
 		}
-#line 4912 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 5002 "sf-hitachi-sh.tab.c"
     break;
 
   case 344:
-#line 2073 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 2073 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -4951,12 +5041,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 4955 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 5045 "sf-hitachi-sh.tab.c"
     break;
 
   case 345:
-#line 2114 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 2114 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -4993,12 +5083,12 @@ yyreduce:
 				
 			}
 		}
-#line 4997 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 5087 "sf-hitachi-sh.tab.c"
     break;
 
   case 346:
-#line 2154 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 2154 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -5035,12 +5125,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 5039 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 5129 "sf-hitachi-sh.tab.c"
     break;
 
   case 347:
-#line 2194 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 2194 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -5077,12 +5167,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 5081 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 5171 "sf-hitachi-sh.tab.c"
     break;
 
   case 348:
-#line 2234 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 2234 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -5119,12 +5209,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 5123 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 5213 "sf-hitachi-sh.tab.c"
     break;
 
   case 349:
-#line 2274 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 2274 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -5159,12 +5249,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 5163 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 5253 "sf-hitachi-sh.tab.c"
     break;
 
   case 350:
-#line 2312 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 2312 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -5199,12 +5289,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 5203 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 5293 "sf-hitachi-sh.tab.c"
     break;
 
   case 351:
-#line 2350 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 2350 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -5236,12 +5326,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 5240 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 5330 "sf-hitachi-sh.tab.c"
     break;
 
   case 352:
-#line 2385 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 2385 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -5273,12 +5363,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 5277 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 5367 "sf-hitachi-sh.tab.c"
     break;
 
   case 353:
-#line 2420 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 2420 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -5310,12 +5400,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 5314 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 5404 "sf-hitachi-sh.tab.c"
     break;
 
   case 354:
-#line 2455 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 2455 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -5343,12 +5433,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 5347 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 5437 "sf-hitachi-sh.tab.c"
     break;
 
   case 355:
-#line 2486 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 2486 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -5375,12 +5465,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 5379 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 5469 "sf-hitachi-sh.tab.c"
     break;
 
   case 356:
-#line 2516 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 2516 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -5408,12 +5498,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 5412 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 5502 "sf-hitachi-sh.tab.c"
     break;
 
   case 357:
-#line 2547 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 2547 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -5445,12 +5535,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 5449 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 5539 "sf-hitachi-sh.tab.c"
     break;
 
   case 358:
-#line 2582 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 2582 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -5482,12 +5572,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 5486 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 5576 "sf-hitachi-sh.tab.c"
     break;
 
   case 359:
-#line 2617 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 2617 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -5513,12 +5603,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 5517 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 5607 "sf-hitachi-sh.tab.c"
     break;
 
   case 360:
-#line 2646 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 2646 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -5544,12 +5634,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 5548 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 5638 "sf-hitachi-sh.tab.c"
     break;
 
   case 361:
-#line 2675 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 2675 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -5575,12 +5665,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 5579 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 5669 "sf-hitachi-sh.tab.c"
     break;
 
   case 362:
-#line 2704 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 2704 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -5609,12 +5699,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 5613 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 5703 "sf-hitachi-sh.tab.c"
     break;
 
   case 363:
-#line 2736 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 2736 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -5643,12 +5733,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 5647 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 5737 "sf-hitachi-sh.tab.c"
     break;
 
   case 364:
-#line 2768 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 2768 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -5677,12 +5767,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 5681 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 5771 "sf-hitachi-sh.tab.c"
     break;
 
   case 365:
-#line 2800 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 2800 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -5711,12 +5801,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 5715 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 5805 "sf-hitachi-sh.tab.c"
     break;
 
   case 366:
-#line 2832 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 2832 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -5745,12 +5835,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 5749 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 5839 "sf-hitachi-sh.tab.c"
     break;
 
   case 367:
-#line 2864 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 2864 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -5777,12 +5867,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 5781 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 5871 "sf-hitachi-sh.tab.c"
     break;
 
   case 368:
-#line 2894 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 2894 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -5810,12 +5900,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 5814 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 5904 "sf-hitachi-sh.tab.c"
     break;
 
   case 369:
-#line 2925 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 2925 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -5844,12 +5934,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 5848 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 5938 "sf-hitachi-sh.tab.c"
     break;
 
   case 370:
-#line 2957 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 2957 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -5876,12 +5966,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 5880 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 5970 "sf-hitachi-sh.tab.c"
     break;
 
   case 371:
-#line 2987 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 2987 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -5910,12 +6000,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 5914 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 6004 "sf-hitachi-sh.tab.c"
     break;
 
   case 372:
-#line 3019 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 3019 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -5944,12 +6034,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 5948 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 6038 "sf-hitachi-sh.tab.c"
     break;
 
   case 373:
-#line 3051 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 3051 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -5978,12 +6068,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 5982 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 6072 "sf-hitachi-sh.tab.c"
     break;
 
   case 374:
-#line 3083 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 3083 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -6012,12 +6102,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 6016 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 6106 "sf-hitachi-sh.tab.c"
     break;
 
   case 375:
-#line 3115 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 3115 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -6045,12 +6135,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 6049 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 6139 "sf-hitachi-sh.tab.c"
     break;
 
   case 376:
-#line 3146 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 3146 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -6079,12 +6169,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 6083 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 6173 "sf-hitachi-sh.tab.c"
     break;
 
   case 377:
-#line 3178 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 3178 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -6113,12 +6203,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 6117 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 6207 "sf-hitachi-sh.tab.c"
     break;
 
   case 378:
-#line 3210 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 3210 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -6147,12 +6237,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 6151 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 6241 "sf-hitachi-sh.tab.c"
     break;
 
   case 379:
-#line 3242 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 3242 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -6181,12 +6271,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 6185 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 6275 "sf-hitachi-sh.tab.c"
     break;
 
   case 380:
-#line 3274 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 3274 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -6224,12 +6314,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 6228 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 6318 "sf-hitachi-sh.tab.c"
     break;
 
   case 381:
-#line 3315 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 3315 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -6257,12 +6347,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 6261 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 6351 "sf-hitachi-sh.tab.c"
     break;
 
   case 382:
-#line 3346 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 3346 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -6290,12 +6380,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 6294 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 6384 "sf-hitachi-sh.tab.c"
     break;
 
   case 383:
-#line 3377 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 3377 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -6323,12 +6413,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 6327 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 6417 "sf-hitachi-sh.tab.c"
     break;
 
   case 384:
-#line 3408 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 3408 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -6356,12 +6446,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 6360 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 6450 "sf-hitachi-sh.tab.c"
     break;
 
   case 385:
-#line 3439 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 3439 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -6389,12 +6479,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 6393 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 6483 "sf-hitachi-sh.tab.c"
     break;
 
   case 386:
-#line 3470 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 3470 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -6422,12 +6512,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 6426 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 6516 "sf-hitachi-sh.tab.c"
     break;
 
   case 387:
-#line 3501 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 3501 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -6457,12 +6547,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 6461 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 6551 "sf-hitachi-sh.tab.c"
     break;
 
   case 388:
-#line 3534 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 3534 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -6490,12 +6580,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 6494 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 6584 "sf-hitachi-sh.tab.c"
     break;
 
   case 389:
-#line 3565 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 3565 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -6518,12 +6608,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 6522 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 6612 "sf-hitachi-sh.tab.c"
     break;
 
   case 390:
-#line 3591 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 3591 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -6551,12 +6641,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 6555 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 6645 "sf-hitachi-sh.tab.c"
     break;
 
   case 391:
-#line 3622 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 3622 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -6584,12 +6674,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 6588 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 6678 "sf-hitachi-sh.tab.c"
     break;
 
   case 392:
-#line 3653 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 3653 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -6617,12 +6707,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 6621 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 6711 "sf-hitachi-sh.tab.c"
     break;
 
   case 393:
-#line 3684 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 3684 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -6652,12 +6742,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 6656 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 6746 "sf-hitachi-sh.tab.c"
     break;
 
   case 394:
-#line 3717 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 3717 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -6685,12 +6775,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 6689 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 6779 "sf-hitachi-sh.tab.c"
     break;
 
   case 395:
-#line 3748 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 3748 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -6718,12 +6808,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 6722 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 6812 "sf-hitachi-sh.tab.c"
     break;
 
   case 396:
-#line 3779 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 3779 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -6751,12 +6841,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 6755 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 6845 "sf-hitachi-sh.tab.c"
     break;
 
   case 397:
-#line 3810 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 3810 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -6779,12 +6869,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 6783 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 6873 "sf-hitachi-sh.tab.c"
     break;
 
   case 398:
-#line 3836 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 3836 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -6812,12 +6902,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 6816 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 6906 "sf-hitachi-sh.tab.c"
     break;
 
   case 399:
-#line 3867 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 3867 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -6845,12 +6935,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 6849 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 6939 "sf-hitachi-sh.tab.c"
     break;
 
   case 400:
-#line 3898 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 3898 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -6876,12 +6966,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 6880 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 6970 "sf-hitachi-sh.tab.c"
     break;
 
   case 401:
-#line 3927 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 3927 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -6910,12 +7000,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 6914 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 7004 "sf-hitachi-sh.tab.c"
     break;
 
   case 402:
-#line 3959 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 3959 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -6944,12 +7034,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 6948 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 7038 "sf-hitachi-sh.tab.c"
     break;
 
   case 403:
-#line 3991 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 3991 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -6978,12 +7068,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 6982 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 7072 "sf-hitachi-sh.tab.c"
     break;
 
   case 404:
-#line 4023 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 4023 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -7012,12 +7102,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 7016 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 7106 "sf-hitachi-sh.tab.c"
     break;
 
   case 405:
-#line 4055 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 4055 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -7046,12 +7136,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 7050 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 7140 "sf-hitachi-sh.tab.c"
     break;
 
   case 406:
-#line 4087 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 4087 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -7080,12 +7170,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 7084 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 7174 "sf-hitachi-sh.tab.c"
     break;
 
   case 407:
-#line 4119 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 4119 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -7114,12 +7204,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 7118 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 7208 "sf-hitachi-sh.tab.c"
     break;
 
   case 408:
-#line 4151 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 4151 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -7148,12 +7238,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 7152 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 7242 "sf-hitachi-sh.tab.c"
     break;
 
   case 409:
-#line 4183 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 4183 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -7182,12 +7272,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 7186 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 7276 "sf-hitachi-sh.tab.c"
     break;
 
   case 410:
-#line 4215 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 4215 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -7216,12 +7306,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 7220 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 7310 "sf-hitachi-sh.tab.c"
     break;
 
   case 411:
-#line 4247 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 4247 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -7250,12 +7340,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 7254 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 7344 "sf-hitachi-sh.tab.c"
     break;
 
   case 412:
-#line 4279 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 4279 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -7284,12 +7374,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 7288 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 7378 "sf-hitachi-sh.tab.c"
     break;
 
   case 413:
-#line 4311 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 4311 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -7318,12 +7408,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 7322 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 7412 "sf-hitachi-sh.tab.c"
     break;
 
   case 414:
-#line 4343 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 4343 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -7352,12 +7442,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 7356 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 7446 "sf-hitachi-sh.tab.c"
     break;
 
   case 415:
-#line 4375 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 4375 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -7386,12 +7476,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 7390 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 7480 "sf-hitachi-sh.tab.c"
     break;
 
   case 416:
-#line 4407 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 4407 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -7420,12 +7510,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 7424 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 7514 "sf-hitachi-sh.tab.c"
     break;
 
   case 417:
-#line 4439 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 4439 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -7454,12 +7544,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 7458 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 7548 "sf-hitachi-sh.tab.c"
     break;
 
   case 418:
-#line 4471 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 4471 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -7488,12 +7578,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 7492 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 7582 "sf-hitachi-sh.tab.c"
     break;
 
   case 419:
-#line 4503 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 4503 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -7522,12 +7612,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 7526 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 7616 "sf-hitachi-sh.tab.c"
     break;
 
   case 420:
-#line 4535 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 4535 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -7557,12 +7647,12 @@ yyreduce:
 			}
 
 		}
-#line 7561 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 7651 "sf-hitachi-sh.tab.c"
     break;
 
   case 421:
-#line 4568 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 4568 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -7591,12 +7681,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 7595 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 7685 "sf-hitachi-sh.tab.c"
     break;
 
   case 422:
-#line 4600 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 4600 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -7624,12 +7714,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 7628 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 7718 "sf-hitachi-sh.tab.c"
     break;
 
   case 423:
-#line 4631 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 4631 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -7662,12 +7752,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 7666 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 7756 "sf-hitachi-sh.tab.c"
     break;
 
   case 424:
-#line 4669 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 4669 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -7700,12 +7790,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 7704 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 7794 "sf-hitachi-sh.tab.c"
     break;
 
   case 425:
-#line 4704 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 4704 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -7738,12 +7828,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 7742 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 7832 "sf-hitachi-sh.tab.c"
     break;
 
   case 426:
-#line 4740 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 4740 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -7775,12 +7865,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 7779 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 7869 "sf-hitachi-sh.tab.c"
     break;
 
   case 427:
-#line 4775 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 4775 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -7812,12 +7902,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 7816 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 7906 "sf-hitachi-sh.tab.c"
     break;
 
   case 428:
-#line 4810 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 4810 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -7849,12 +7939,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 7853 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 7943 "sf-hitachi-sh.tab.c"
     break;
 
   case 429:
-#line 4845 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 4845 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -7886,12 +7976,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 7890 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 7980 "sf-hitachi-sh.tab.c"
     break;
 
   case 430:
-#line 4880 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 4880 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -7923,12 +8013,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 7927 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 8017 "sf-hitachi-sh.tab.c"
     break;
 
   case 431:
-#line 4915 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 4915 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -7960,12 +8050,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 7964 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 8054 "sf-hitachi-sh.tab.c"
     break;
 
   case 432:
-#line 4950 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 4950 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -7998,12 +8088,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 8002 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 8092 "sf-hitachi-sh.tab.c"
     break;
 
   case 433:
-#line 4986 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 4986 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -8036,12 +8126,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 8040 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 8130 "sf-hitachi-sh.tab.c"
     break;
 
   case 434:
-#line 5022 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 5022 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -8075,12 +8165,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 8079 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 8169 "sf-hitachi-sh.tab.c"
     break;
 
   case 435:
-#line 5059 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 5059 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -8113,12 +8203,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 8117 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 8207 "sf-hitachi-sh.tab.c"
     break;
 
   case 436:
-#line 5095 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 5095 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -8151,12 +8241,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 8155 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 8245 "sf-hitachi-sh.tab.c"
     break;
 
   case 437:
-#line 5131 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 5131 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -8190,12 +8280,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 8194 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 8284 "sf-hitachi-sh.tab.c"
     break;
 
   case 438:
-#line 5168 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 5168 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -8227,12 +8317,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 8231 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 8321 "sf-hitachi-sh.tab.c"
     break;
 
   case 439:
-#line 5203 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 5203 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -8260,12 +8350,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 8264 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 8354 "sf-hitachi-sh.tab.c"
     break;
 
   case 440:
-#line 5234 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 5234 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -8294,12 +8384,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 8298 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 8388 "sf-hitachi-sh.tab.c"
     break;
 
   case 441:
-#line 5266 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 5266 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -8328,12 +8418,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 8332 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 8422 "sf-hitachi-sh.tab.c"
     break;
 
   case 442:
-#line 5298 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 5298 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -8362,12 +8452,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 8366 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 8456 "sf-hitachi-sh.tab.c"
     break;
 
   case 443:
-#line 5330 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 5330 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -8396,12 +8486,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 8400 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 8490 "sf-hitachi-sh.tab.c"
     break;
 
   case 444:
-#line 5362 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 5362 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -8430,12 +8520,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 8434 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 8524 "sf-hitachi-sh.tab.c"
     break;
 
   case 445:
-#line 5394 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 5394 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -8464,12 +8554,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 8468 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 8558 "sf-hitachi-sh.tab.c"
     break;
 
   case 446:
-#line 5426 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 5426 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -8498,12 +8588,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 8502 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 8592 "sf-hitachi-sh.tab.c"
     break;
 
   case 447:
-#line 5458 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 5458 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -8529,12 +8619,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 8533 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 8623 "sf-hitachi-sh.tab.c"
     break;
 
   case 448:
-#line 5487 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 5487 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -8563,12 +8653,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 8567 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 8657 "sf-hitachi-sh.tab.c"
     break;
 
   case 449:
-#line 5519 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 5519 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -8597,12 +8687,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 8601 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 8691 "sf-hitachi-sh.tab.c"
     break;
 
   case 450:
-#line 5551 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 5551 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -8629,12 +8719,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 8633 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 8723 "sf-hitachi-sh.tab.c"
     break;
 
   case 451:
-#line 5581 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 5581 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -8661,12 +8751,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 8665 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 8755 "sf-hitachi-sh.tab.c"
     break;
 
   case 452:
-#line 5611 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 5611 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -8694,12 +8784,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 8698 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 8788 "sf-hitachi-sh.tab.c"
     break;
 
   case 453:
-#line 5642 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 5642 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -8726,12 +8816,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 8730 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 8820 "sf-hitachi-sh.tab.c"
     break;
 
   case 454:
-#line 5671 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 5671 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -8759,12 +8849,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 8763 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 8853 "sf-hitachi-sh.tab.c"
     break;
 
   case 455:
-#line 5702 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 5702 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -8792,12 +8882,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 8796 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 8886 "sf-hitachi-sh.tab.c"
     break;
 
   case 456:
-#line 5733 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 5733 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -8825,12 +8915,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 8829 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 8919 "sf-hitachi-sh.tab.c"
     break;
 
   case 457:
-#line 5764 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 5764 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -8858,12 +8948,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 8862 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 8952 "sf-hitachi-sh.tab.c"
     break;
 
   case 458:
-#line 5795 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 5795 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -8889,12 +8979,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 8893 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 8983 "sf-hitachi-sh.tab.c"
     break;
 
   case 459:
-#line 5824 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 5824 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -8920,12 +9010,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 8924 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 9014 "sf-hitachi-sh.tab.c"
     break;
 
   case 460:
-#line 5853 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 5853 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -8951,12 +9041,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 8955 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 9045 "sf-hitachi-sh.tab.c"
     break;
 
   case 461:
-#line 5882 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 5882 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -8982,12 +9072,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 8986 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 9076 "sf-hitachi-sh.tab.c"
     break;
 
   case 462:
-#line 5911 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 5911 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -9016,12 +9106,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 9020 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 9110 "sf-hitachi-sh.tab.c"
     break;
 
   case 463:
-#line 5943 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 5943 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -9049,12 +9139,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 9053 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 9143 "sf-hitachi-sh.tab.c"
     break;
 
   case 464:
-#line 5974 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 5974 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -9082,12 +9172,12 @@ yyreduce:
 				yyengine->cp->PC += 2;	
 			}
 		}
-#line 9086 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 9176 "sf-hitachi-sh.tab.c"
     break;
 
   case 465:
-#line 6005 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 6005 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -9116,12 +9206,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 9120 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 9210 "sf-hitachi-sh.tab.c"
     break;
 
   case 466:
-#line 6037 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 6037 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -9149,12 +9239,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 9153 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 9243 "sf-hitachi-sh.tab.c"
     break;
 
   case 467:
-#line 6068 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 6068 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -9182,12 +9272,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 9186 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 9276 "sf-hitachi-sh.tab.c"
     break;
 
   case 468:
-#line 6099 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 6099 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -9215,12 +9305,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 9219 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 9309 "sf-hitachi-sh.tab.c"
     break;
 
   case 469:
-#line 6130 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 6130 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -9248,12 +9338,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 9252 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 9342 "sf-hitachi-sh.tab.c"
     break;
 
   case 470:
-#line 6161 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 6161 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -9281,12 +9371,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 9285 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 9375 "sf-hitachi-sh.tab.c"
     break;
 
   case 471:
-#line 6192 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 6192 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -9314,12 +9404,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 9318 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 9408 "sf-hitachi-sh.tab.c"
     break;
 
   case 472:
-#line 6223 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 6223 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -9347,12 +9437,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 9351 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 9441 "sf-hitachi-sh.tab.c"
     break;
 
   case 473:
-#line 6254 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 6254 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -9380,12 +9470,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 9384 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 9474 "sf-hitachi-sh.tab.c"
     break;
 
   case 474:
-#line 6285 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 6285 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -9411,12 +9501,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 9415 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 9505 "sf-hitachi-sh.tab.c"
     break;
 
   case 475:
-#line 6314 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 6314 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -9444,12 +9534,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 9448 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 9538 "sf-hitachi-sh.tab.c"
     break;
 
   case 476:
-#line 6345 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 6345 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -9477,12 +9567,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 9481 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 9571 "sf-hitachi-sh.tab.c"
     break;
 
   case 477:
-#line 6376 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 6376 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -9510,12 +9600,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 9514 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 9604 "sf-hitachi-sh.tab.c"
     break;
 
   case 478:
-#line 6407 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 6407 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -9543,12 +9633,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 9547 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 9637 "sf-hitachi-sh.tab.c"
     break;
 
   case 479:
-#line 6438 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 6438 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -9576,12 +9666,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 9580 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 9670 "sf-hitachi-sh.tab.c"
     break;
 
   case 480:
-#line 6469 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 6469 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -9611,12 +9701,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 9615 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 9705 "sf-hitachi-sh.tab.c"
     break;
 
   case 481:
-#line 6502 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 6502 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -9644,12 +9734,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 9648 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 9738 "sf-hitachi-sh.tab.c"
     break;
 
   case 482:
-#line 6533 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 6533 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -9677,12 +9767,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 9681 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 9771 "sf-hitachi-sh.tab.c"
     break;
 
   case 483:
-#line 6564 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 6564 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -9710,12 +9800,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 9714 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 9804 "sf-hitachi-sh.tab.c"
     break;
 
   case 484:
-#line 6595 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 6595 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -9743,12 +9833,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 9747 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 9837 "sf-hitachi-sh.tab.c"
     break;
 
   case 485:
-#line 6626 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 6626 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -9776,12 +9866,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 9780 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 9870 "sf-hitachi-sh.tab.c"
     break;
 
   case 486:
-#line 6657 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 6657 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -9811,12 +9901,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 9815 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 9905 "sf-hitachi-sh.tab.c"
     break;
 
   case 487:
-#line 6690 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 6690 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -9844,12 +9934,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 9848 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 9938 "sf-hitachi-sh.tab.c"
     break;
 
   case 488:
-#line 6721 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 6721 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -9877,12 +9967,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 9881 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 9971 "sf-hitachi-sh.tab.c"
     break;
 
   case 489:
-#line 6752 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 6752 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -9910,12 +10000,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 9914 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 10004 "sf-hitachi-sh.tab.c"
     break;
 
   case 490:
-#line 6783 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 6783 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -9943,12 +10033,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 9947 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 10037 "sf-hitachi-sh.tab.c"
     break;
 
   case 491:
-#line 6814 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 6814 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -9976,12 +10066,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 9980 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 10070 "sf-hitachi-sh.tab.c"
     break;
 
   case 492:
-#line 6845 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 6845 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -10009,12 +10099,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 10013 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 10103 "sf-hitachi-sh.tab.c"
     break;
 
   case 493:
-#line 6876 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 6876 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -10043,12 +10133,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 10047 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 10137 "sf-hitachi-sh.tab.c"
     break;
 
   case 494:
-#line 6908 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 6908 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -10077,12 +10167,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 10081 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 10171 "sf-hitachi-sh.tab.c"
     break;
 
   case 495:
-#line 6940 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 6940 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -10111,12 +10201,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 10115 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 10205 "sf-hitachi-sh.tab.c"
     break;
 
   case 496:
-#line 6972 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 6972 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -10145,12 +10235,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 10149 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 10239 "sf-hitachi-sh.tab.c"
     break;
 
   case 497:
-#line 7004 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 7004 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -10179,12 +10269,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 10183 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 10273 "sf-hitachi-sh.tab.c"
     break;
 
   case 498:
-#line 7036 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 7036 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -10212,12 +10302,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 10216 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 10306 "sf-hitachi-sh.tab.c"
     break;
 
   case 499:
-#line 7067 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 7067 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -10244,12 +10334,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 10248 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 10338 "sf-hitachi-sh.tab.c"
     break;
 
   case 500:
-#line 7097 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 7097 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -10278,12 +10368,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 10282 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 10372 "sf-hitachi-sh.tab.c"
     break;
 
   case 501:
-#line 7129 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 7129 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -10310,12 +10400,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 10314 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 10404 "sf-hitachi-sh.tab.c"
     break;
 
   case 502:
-#line 7159 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 7159 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -10342,12 +10432,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 10346 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 10436 "sf-hitachi-sh.tab.c"
     break;
 
   case 503:
-#line 7189 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 7189 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -10376,12 +10466,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 10380 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 10470 "sf-hitachi-sh.tab.c"
     break;
 
   case 504:
-#line 7221 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 7221 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -10408,12 +10498,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 10412 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 10502 "sf-hitachi-sh.tab.c"
     break;
 
   case 505:
-#line 7251 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 7251 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -10440,12 +10530,12 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 10444 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 10534 "sf-hitachi-sh.tab.c"
     break;
 
   case 506:
-#line 7281 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 7281 "sf-hitachi-sh.y"
+                {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 2;
@@ -10474,23 +10564,23 @@ yyreduce:
 				yyengine->cp->PC += 2;
 			}
 		}
-#line 10478 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 10568 "sf-hitachi-sh.tab.c"
     break;
 
   case 509:
-#line 7330 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 7330 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				//$$->value = m_randgen(yyengine->cp, $3, $4, $5, $6, $7);
 			}
 		}
-#line 10489 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 10579 "sf-hitachi-sh.tab.c"
     break;
 
   case 510:
-#line 7339 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 7339 "sf-hitachi-sh.y"
+                {
 			if (!yyengine->scanning)
 			{
 				//$$->value = m_randgen(yyengine->cp, $3, $4, $5, $6, $7);
@@ -10502,12 +10592,12 @@ yyreduce:
 				(yyval.rval)->rv.p4 = (yyvsp[-1].dval);
 			}
 		}
-#line 10506 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 10596 "sf-hitachi-sh.tab.c"
     break;
 
   case 511:
-#line 7934 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 7934 "sf-hitachi-sh.y"
+                {
 			char tmp;
 			char *ep = &tmp;
 
@@ -10518,12 +10608,12 @@ yyreduce:
 				merror(yyengine, "Invalid unsigned immediate data %s.", (yyvsp[0].str));
 			}
 		}
-#line 10522 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 10612 "sf-hitachi-sh.tab.c"
     break;
 
   case 512:
-#line 7948 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 7948 "sf-hitachi-sh.y"
+                {
 			char tmp;
 			char *ep = &tmp;
 
@@ -10534,12 +10624,12 @@ yyreduce:
 				merror(yyengine, "Invalid signed immediate data %s.", (yyvsp[0].str));
 			}
 		}
-#line 10538 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 10628 "sf-hitachi-sh.tab.c"
     break;
 
   case 513:
-#line 7960 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 7960 "sf-hitachi-sh.y"
+                {
 			char tmp;
 			char *ep = &tmp;
 
@@ -10550,12 +10640,12 @@ yyreduce:
 				merror(yyengine, "Invalid signed immediate data %s.", (yyvsp[0].str));
 			}
 		}
-#line 10554 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 10644 "sf-hitachi-sh.tab.c"
     break;
 
   case 514:
-#line 7972 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 7972 "sf-hitachi-sh.y"
+                {
 			char tmp;
 			char *ep = &tmp;
 
@@ -10566,12 +10656,12 @@ yyreduce:
 				merror(yyengine, "Invalid signed immediate data %s.", (yyvsp[0].str));
 			}
 		}
-#line 10570 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 10660 "sf-hitachi-sh.tab.c"
     break;
 
   case 515:
-#line 7986 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 7986 "sf-hitachi-sh.y"
+                {
 			char tmp;
 			char *ep = &tmp;
 
@@ -10582,12 +10672,12 @@ yyreduce:
 				merror(yyengine, "Invalid double immediate data %s.", (yyvsp[0].str));
 			}
 		}
-#line 10586 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 10676 "sf-hitachi-sh.tab.c"
     break;
 
   case 516:
-#line 7998 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 7998 "sf-hitachi-sh.y"
+                {
 			char tmp;
 			char *ep = &tmp;
 
@@ -10598,12 +10688,12 @@ yyreduce:
 				merror(yyengine, "Invalid double immediate data %s.", (yyvsp[0].str));
 			}
 		}
-#line 10602 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 10692 "sf-hitachi-sh.tab.c"
     break;
 
   case 517:
-#line 8010 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 8010 "sf-hitachi-sh.y"
+                {
 			char tmp;
 			char *ep = &tmp;
 
@@ -10614,12 +10704,12 @@ yyreduce:
 				merror(yyengine, "Invalid double immediate data %s.", (yyvsp[0].str));
 			}
 		}
-#line 10618 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 10708 "sf-hitachi-sh.tab.c"
     break;
 
   case 518:
-#line 8024 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 8024 "sf-hitachi-sh.y"
+                {
 			(yyval.rval) = (Rval *) mcalloc(yyengine, 1, sizeof(Rval), "sf.y:rdimm/$$");
 			if ((yyval.rval) == NULL)
 			{
@@ -10628,20 +10718,20 @@ yyreduce:
 
 			(yyval.rval)->dval = (yyvsp[0].dval);
 		}
-#line 10632 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 10722 "sf-hitachi-sh.tab.c"
     break;
 
   case 520:
-#line 8072 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 8072 "sf-hitachi-sh.y"
+                {
 			(yyval.dlist) = (yyvsp[-1].dlist);
 		}
-#line 10640 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 10730 "sf-hitachi-sh.tab.c"
     break;
 
   case 521:
-#line 8078 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 8078 "sf-hitachi-sh.y"
+                {
 			DoubleListItem	*item;
 
 			(yyval.dlist) = (DoubleList *) mcalloc(yyengine, 1, sizeof(DoubleList), "sf.y:dimmlistbody/$$");
@@ -10661,12 +10751,12 @@ yyreduce:
 			(yyval.dlist)->hd = (yyval.dlist)->tl = item;
 			(yyval.dlist)->len = 1;
 		}
-#line 10665 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 10755 "sf-hitachi-sh.tab.c"
     break;
 
   case 522:
-#line 8099 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 8099 "sf-hitachi-sh.y"
+                {
 			DoubleListItem	*item;
 
 			item = (DoubleListItem *)mcalloc(yyengine, 1, sizeof(DoubleListItem), "sf.y:dimmlistbody/item,2");
@@ -10680,12 +10770,12 @@ yyreduce:
 			(yyval.dlist)->tl->next = item;
 			(yyval.dlist)->tl = item;
 		}
-#line 10684 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 10774 "sf-hitachi-sh.tab.c"
     break;
 
   case 523:
-#line 8117 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 8117 "sf-hitachi-sh.y"
+                {
 			/*								*/
 			/*	According to manual, PC of instr two instrs away is	*/
 			/*	used to calculate target addr:				*/
@@ -10705,12 +10795,12 @@ yyreduce:
 				merror(yyengine, "Disp in terms of mem addr was not on word boundary.");
 			}
 		}
-#line 10709 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 10799 "sf-hitachi-sh.tab.c"
     break;
 
   case 524:
-#line 8138 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 8138 "sf-hitachi-sh.y"
+                {
 			char tmp;
 			char *ep = &tmp;
 
@@ -10722,12 +10812,12 @@ yyreduce:
 				merror(yyengine, "Invalid DISP ([%s]). Possibly due to a .comm.", (yyvsp[0].str));
 			}
 		}
-#line 10726 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 10816 "sf-hitachi-sh.tab.c"
     break;
 
   case 525:
-#line 8151 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 8151 "sf-hitachi-sh.y"
+                {
 			char tmp;
 			char *ep = &tmp;
 
@@ -10739,12 +10829,12 @@ yyreduce:
 				merror(yyengine, "Invalid DISP ([%s]). Possibly due to a .comm.", (yyvsp[0].str));
 			}
 		}
-#line 10743 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 10833 "sf-hitachi-sh.tab.c"
     break;
 
   case 526:
-#line 8164 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 8164 "sf-hitachi-sh.y"
+                {
 			char tmp;
 			char *ep = &tmp;
 
@@ -10756,12 +10846,12 @@ yyreduce:
 				merror(yyengine, "Invalid DISP ([%s]). Possibly due to a .comm.", (yyvsp[0].str));
 			}
 		}
-#line 10760 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 10850 "sf-hitachi-sh.tab.c"
     break;
 
   case 527:
-#line 8179 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 8179 "sf-hitachi-sh.y"
+                  {
 			/*								*/
 			/*	To make handling of empty string in T_RUN rule 		*/
 			/*	uniform, we malloc a place holder.			*/
@@ -10770,115 +10860,116 @@ yyreduce:
 			tmp[0] = '\0';
 			(yyval.str) = tmp;
 		}
-#line 10774 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 10864 "sf-hitachi-sh.tab.c"
     break;
 
   case 528:
-#line 8189 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {
+#line 8189 "sf-hitachi-sh.y"
+                {
 			(yyval.str) = (yyvsp[0].str);
 		}
-#line 10782 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 10872 "sf-hitachi-sh.tab.c"
     break;
 
   case 529:
-#line 8195 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {(yyval.uval) = 0;}
-#line 10788 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 8195 "sf-hitachi-sh.y"
+                       {(yyval.uval) = 0;}
+#line 10878 "sf-hitachi-sh.tab.c"
     break;
 
   case 530:
-#line 8196 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {(yyval.uval) = 1;}
-#line 10794 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 8196 "sf-hitachi-sh.y"
+                       {(yyval.uval) = 1;}
+#line 10884 "sf-hitachi-sh.tab.c"
     break;
 
   case 531:
-#line 8197 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {(yyval.uval) = 2;}
-#line 10800 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 8197 "sf-hitachi-sh.y"
+                       {(yyval.uval) = 2;}
+#line 10890 "sf-hitachi-sh.tab.c"
     break;
 
   case 532:
-#line 8198 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {(yyval.uval) = 3;}
-#line 10806 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 8198 "sf-hitachi-sh.y"
+                       {(yyval.uval) = 3;}
+#line 10896 "sf-hitachi-sh.tab.c"
     break;
 
   case 533:
-#line 8199 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {(yyval.uval) = 4;}
-#line 10812 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 8199 "sf-hitachi-sh.y"
+                       {(yyval.uval) = 4;}
+#line 10902 "sf-hitachi-sh.tab.c"
     break;
 
   case 534:
-#line 8200 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {(yyval.uval) = 5;}
-#line 10818 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 8200 "sf-hitachi-sh.y"
+                       {(yyval.uval) = 5;}
+#line 10908 "sf-hitachi-sh.tab.c"
     break;
 
   case 535:
-#line 8201 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {(yyval.uval) = 6;}
-#line 10824 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 8201 "sf-hitachi-sh.y"
+                       {(yyval.uval) = 6;}
+#line 10914 "sf-hitachi-sh.tab.c"
     break;
 
   case 536:
-#line 8202 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {(yyval.uval) = 7;}
-#line 10830 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 8202 "sf-hitachi-sh.y"
+                       {(yyval.uval) = 7;}
+#line 10920 "sf-hitachi-sh.tab.c"
     break;
 
   case 537:
-#line 8203 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {(yyval.uval) = 8;}
-#line 10836 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 8203 "sf-hitachi-sh.y"
+                       {(yyval.uval) = 8;}
+#line 10926 "sf-hitachi-sh.tab.c"
     break;
 
   case 538:
-#line 8204 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {(yyval.uval) = 9;}
-#line 10842 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 8204 "sf-hitachi-sh.y"
+                       {(yyval.uval) = 9;}
+#line 10932 "sf-hitachi-sh.tab.c"
     break;
 
   case 539:
-#line 8205 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {(yyval.uval) = 10;}
-#line 10848 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 8205 "sf-hitachi-sh.y"
+                        {(yyval.uval) = 10;}
+#line 10938 "sf-hitachi-sh.tab.c"
     break;
 
   case 540:
-#line 8206 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {(yyval.uval) = 11;}
-#line 10854 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 8206 "sf-hitachi-sh.y"
+                        {(yyval.uval) = 11;}
+#line 10944 "sf-hitachi-sh.tab.c"
     break;
 
   case 541:
-#line 8207 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {(yyval.uval) = 12;}
-#line 10860 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 8207 "sf-hitachi-sh.y"
+                        {(yyval.uval) = 12;}
+#line 10950 "sf-hitachi-sh.tab.c"
     break;
 
   case 542:
-#line 8208 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {(yyval.uval) = 13;}
-#line 10866 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 8208 "sf-hitachi-sh.y"
+                        {(yyval.uval) = 13;}
+#line 10956 "sf-hitachi-sh.tab.c"
     break;
 
   case 543:
-#line 8209 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {(yyval.uval) = 14;}
-#line 10872 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 8209 "sf-hitachi-sh.y"
+                        {(yyval.uval) = 14;}
+#line 10962 "sf-hitachi-sh.tab.c"
     break;
 
   case 544:
-#line 8210 "sf-hitachi-sh.y" /* yacc.c:1652  */
-    {(yyval.uval) = 15;}
-#line 10878 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 8210 "sf-hitachi-sh.y"
+                        {(yyval.uval) = 15;}
+#line 10968 "sf-hitachi-sh.tab.c"
     break;
 
 
-#line 10882 "sf-hitachi-sh.tab.c" /* yacc.c:1652  */
+#line 10972 "sf-hitachi-sh.tab.c"
+
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -10941,7 +11032,7 @@ yyerrlab:
           {
             if (yymsg != yymsgbuf)
               YYSTACK_FREE (yymsg);
-            yymsg = (char *) YYSTACK_ALLOC (yymsg_alloc);
+            yymsg = YY_CAST (char *, YYSTACK_ALLOC (YY_CAST (YYSIZE_T, yymsg_alloc)));
             if (!yymsg)
               {
                 yymsg = yymsgbuf;
@@ -11096,7 +11187,7 @@ yyreturn:
   while (yyssp != yyss)
     {
       yydestruct ("Cleanup: popping",
-                  yystos[*yyssp], yyvsp);
+                  yystos[+*yyssp], yyvsp);
       YYPOPSTACK (1);
     }
 #ifndef yyoverflow
@@ -11109,7 +11200,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 8212 "sf-hitachi-sh.y" /* yacc.c:1918  */
+#line 8212 "sf-hitachi-sh.y"
 
 
 #include "lex-hitachi-sh.c"
