@@ -15,14 +15,14 @@ int main(void)
 	dev.calib.par_t3 = 3;
 
 	dev.calib.par_p1 = 36338;
-	dev.calib.par_p2 = 55104;
+	dev.calib.par_p2 = -10432;
 	dev.calib.par_p3 = 88;
 	dev.calib.par_p4 = 7194;
-	dev.calib.par_p5 = 65442;
+	dev.calib.par_p5 = -94;
 	dev.calib.par_p6 = 30;
 	dev.calib.par_p7 = 43;
-	dev.calib.par_p8 = 62766;
-	dev.calib.par_p9 = 62990;
+	dev.calib.par_p8 = -2770;
+	dev.calib.par_p9 = -2546;
 	dev.calib.par_p10 = 30;
 
 	uint32_t temp_adc = 527136;

@@ -20,7 +20,7 @@ int main(void)
 	dev.calib.par_h4 = 45;
 	dev.calib.par_h5 = 20;
 	dev.calib.par_h6 = 120;
-	dev.calib.par_h7 = 156;
+	dev.calib.par_h7 = -100;
 
 	uint32_t temp_adc = 527136;
 	uint32_t hum_adc = 18481;
