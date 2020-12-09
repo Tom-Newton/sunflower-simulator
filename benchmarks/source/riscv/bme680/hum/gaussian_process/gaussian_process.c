@@ -2,7 +2,7 @@
 #include <printf.h>
 #include <stdint.h>
 #include <math.h>
-// #include "../../../../superh/port///logmarkers.h"
+#include "../../../../superh/port/logmarkers.h"
 
 float gaussian_kernel(float x[2], float y[2])
 {
@@ -61,9 +61,9 @@ int main(void)
 {
 	float x_star[2] = {12840, 293804};
 
-	//LOGMARK(0);
+	LOGMARK(0);
 	float hum = mean(x_star);
-	//LOGMARK(1);
+	LOGMARK(1);
 
 	printf("Converted hum = %f\n", hum);
 
