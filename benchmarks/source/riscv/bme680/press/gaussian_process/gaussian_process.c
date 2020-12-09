@@ -6,7 +6,9 @@
 
 float gaussian_kernel(float x[2], float y[2])
 {
-	return 172.55812E9 * expf(-((x[0] - y[0]) * (x[0] - y[0]) + (x[1] - y[1]) * (x[1] - y[1])) / 11.25731E12);
+	return expf(12.937089037573198) * expf(12.937089037573198) *
+		   expf(-((x[0] - y[0]) * (x[0] - y[0]) + (x[1] - y[1]) * (x[1] - y[1])) /
+				(2 * expf(14.679445794794997) * expf(14.679445794794997)));
 }
 
 void evaluate_cross_kernel(float x_star[2], float (*cross_kernel)[9])
@@ -31,15 +33,15 @@ void evaluate_cross_kernel(float x_star[2], float (*cross_kernel)[9])
 float mean(float x_star[2])
 {
 	static float parameter_mean[9] = {
-		0.00096469,
-		-0.00290255,
-		0.00210706,
-		-0.00382518,
-		0.01025932,
-		-0.00685208,
-		0.00292186,
-		-0.00748054,
-		0.0048086};
+		0.00096469070550853075,
+		-0.00290255013698725861,
+		0.00210706214568645578,
+		-0.00382518281193711118,
+		0.01025932145469710122,
+		-0.00685207828732359303,
+		0.00292185735953154335,
+		-0.00748053889917343895,
+		0.00480860352554302040};
 
 	float cross_kernel[9];
 	evaluate_cross_kernel(x_star, &cross_kernel);
@@ -60,7 +62,7 @@ int main(void)
 	float press = mean(x_star);
 	LOGMARK(1);
 
-	printf_("Converted press = %f\n", press);
+	printf("Converted press = %f\n", press);
 
 	return 0;
 }
