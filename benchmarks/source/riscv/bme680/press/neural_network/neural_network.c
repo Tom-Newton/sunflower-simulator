@@ -69,7 +69,6 @@ float evaluate_network(float x_star[2])
 
 int main()
 {
-    printf_("start\n");
     float x_star[2] = {0.5, 0.8};
 
     LOGMARK(0);

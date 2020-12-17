@@ -1,5 +1,5 @@
 newnode riscv
-sizemem		900000000
+sizemem		90000000
 srecl		neural_network.sr
 run
 on
