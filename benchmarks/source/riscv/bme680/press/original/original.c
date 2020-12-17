@@ -34,24 +34,24 @@ int main(void)
 	LOGMARK(1);
 	if (roundf(temp) == 33)
 	{
-		printf_("temp_correct\n");
+		printf("temp_correct\n");
 	}
 	else
 	{
-		printf_("temp_wrong\n");
+		printf("temp_wrong\n");
 	}
 
 	if (roundf(press) == 100304)
 	{
-		printf_("press_correct\n");
+		printf("press_correct\n");
 	}
 	else
 	{
-		printf_("press_wrong\n");
+		printf("press_wrong\n");
 	}
 
-	printf_("Converted temp = %f\n", temp);
-	printf_("Converted press = %f\n", press);
+	printf("Converted temp = %f\n", temp);
+	printf("Converted press = %f\n", press);
 
 	return 0;
 }
