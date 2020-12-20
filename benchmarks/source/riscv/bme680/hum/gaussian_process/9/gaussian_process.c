@@ -2,7 +2,7 @@
 #include <printf.h>
 #include <stdint.h>
 #include <math.h>
-#include "../../../../superh/port/logmarkers.h"
+#include "../../../../../superh/port/logmarkers.h"
 
 float gaussian_kernel(float x[2], float y[2])
 {
@@ -14,7 +14,7 @@ float gaussian_kernel(float x[2], float y[2])
 				(2 * expf(12.880708856351463) * expf(12.880708856351463)));
 }
 
-void evaluate_cross_kernel(float x_star[2], float (*cross_kernel)[9])
+void evaluate_cross_kernel(float input[2], float (*cross_kernel)[9])
 {
 	static float train_input_points[9][2] = {
 		{12840.0, 293804.0},
@@ -29,11 +29,11 @@ void evaluate_cross_kernel(float x_star[2], float (*cross_kernel)[9])
 
 	for (int i = 0; i < 9; i++)
 	{
-		(*cross_kernel)[i] = gaussian_kernel(x_star, train_input_points[i]);
+		(*cross_kernel)[i] = gaussian_kernel(input, train_input_points[i]);
 	}
 }
 
-float mean(float x_star[2])
+float mean(float input[2])
 {
 	static float parameter_mean[9] = {
 		0.71952031919512293712,
@@ -47,7 +47,7 @@ float mean(float x_star[2])
 		0.94990312864955228633};
 
 	float cross_kernel[9];
-	evaluate_cross_kernel(x_star, &cross_kernel);
+	evaluate_cross_kernel(input, &cross_kernel);
 
 	float mean = 0;
 	for (int i = 0; i < 9; i++)
@@ -59,13 +59,14 @@ float mean(float x_star[2])
 
 int main(void)
 {
-	float x_star[2] = {12840, 293804};
+	float input[2] = {12840, 293804};
 
 	LOGMARK(0);
-	float hum = mean(x_star);
+	float hum = mean(input);
 	LOGMARK(1);
 
 	printf("Converted hum = %f\n", hum);
+	printf("expected_result = %f\n", 1.0008420199155807);
 
 	return 0;
 }
