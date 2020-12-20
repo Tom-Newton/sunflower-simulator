@@ -1,8 +1,8 @@
-/* A Bison parser, made by GNU Bison 3.5.1.  */
+/* A Bison parser, made by GNU Bison 3.3.2.  */
 
 /* Bison implementation for Yacc-like parsers in C
 
-   Copyright (C) 1984, 1989-1990, 2000-2015, 2018-2020 Free Software Foundation,
+   Copyright (C) 1984, 1989-1990, 2000-2015, 2018-2019 Free Software Foundation,
    Inc.
 
    This program is free software: you can redistribute it and/or modify
@@ -48,7 +48,7 @@
 #define YYBISON 1
 
 /* Bison version.  */
-#define YYBISON_VERSION "3.5.1"
+#define YYBISON_VERSION "3.3.2"
 
 /* Skeleton name.  */
 #define YYSKELETON_NAME "yacc.c"
@@ -69,11 +69,12 @@
 #define yyerror         sf_riscv_error
 #define yydebug         sf_riscv_debug
 #define yynerrs         sf_riscv_nerrs
+
 #define yylval          sf_riscv_lval
 #define yychar          sf_riscv_char
 
 /* First part of user prologue.  */
-#line 39 "sf-riscv.y"
+#line 39 "sf-riscv.y" /* yacc.c:337  */
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -91,17 +92,7 @@
  */
 #define	YYSTACK_USE_ALLOCA	0
 
-#line 95 "sf-riscv.tab.c"
-
-# ifndef YY_CAST
-#  ifdef __cplusplus
-#   define YY_CAST(Type, Val) static_cast<Type> (Val)
-#   define YY_REINTERPRET_CAST(Type, Val) reinterpret_cast<Type> (Val)
-#  else
-#   define YY_CAST(Type, Val) ((Type) (Val))
-#   define YY_REINTERPRET_CAST(Type, Val) ((Type) (Val))
-#  endif
-# endif
+#line 96 "sf-riscv.tab.c" /* yacc.c:337  */
 # ifndef YY_NULLPTR
 #  if defined __cplusplus
 #   if 201103L <= __cplusplus
@@ -422,9 +413,10 @@ extern int sf_riscv_debug;
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
+
 union YYSTYPE
 {
-#line 73 "sf-riscv.y"
+#line 73 "sf-riscv.y" /* yacc.c:352  */
 
 	double		dval;
 	ulong		uval;
@@ -433,9 +425,9 @@ union YYSTYPE
 	Rval		*rval;
 	DoubleList	*dlist;
 
-#line 437 "sf-riscv.tab.c"
-
+#line 429 "sf-riscv.tab.c" /* yacc.c:352  */
 };
+
 typedef union YYSTYPE YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define YYSTYPE_IS_DECLARED 1
@@ -454,75 +446,28 @@ int sf_riscv_parse (void);
 # undef short
 #endif
 
-/* On compilers that do not define __PTRDIFF_MAX__ etc., make sure
-   <limits.h> and (if available) <stdint.h> are included
-   so that the code can choose integer types of a good width.  */
-
-#ifndef __PTRDIFF_MAX__
-# include <limits.h> /* INFRINGES ON USER NAME SPACE */
-# if defined __STDC_VERSION__ && 199901 <= __STDC_VERSION__
-#  include <stdint.h> /* INFRINGES ON USER NAME SPACE */
-#  define YY_STDINT_H
-# endif
+#ifdef YYTYPE_UINT8
+typedef YYTYPE_UINT8 yytype_uint8;
+#else
+typedef unsigned char yytype_uint8;
 #endif
 
-/* Narrow types that promote to a signed type and that can represent a
-   signed or unsigned integer of at least N bits.  In tables they can
-   save space and decrease cache pressure.  Promoting to a signed type
-   helps avoid bugs in integer arithmetic.  */
-
-#ifdef __INT_LEAST8_MAX__
-typedef __INT_LEAST8_TYPE__ yytype_int8;
-#elif defined YY_STDINT_H
-typedef int_least8_t yytype_int8;
+#ifdef YYTYPE_INT8
+typedef YYTYPE_INT8 yytype_int8;
 #else
 typedef signed char yytype_int8;
 #endif
 
-#ifdef __INT_LEAST16_MAX__
-typedef __INT_LEAST16_TYPE__ yytype_int16;
-#elif defined YY_STDINT_H
-typedef int_least16_t yytype_int16;
+#ifdef YYTYPE_UINT16
+typedef YYTYPE_UINT16 yytype_uint16;
+#else
+typedef unsigned short yytype_uint16;
+#endif
+
+#ifdef YYTYPE_INT16
+typedef YYTYPE_INT16 yytype_int16;
 #else
 typedef short yytype_int16;
-#endif
-
-#if defined __UINT_LEAST8_MAX__ && __UINT_LEAST8_MAX__ <= __INT_MAX__
-typedef __UINT_LEAST8_TYPE__ yytype_uint8;
-#elif (!defined __UINT_LEAST8_MAX__ && defined YY_STDINT_H \
-       && UINT_LEAST8_MAX <= INT_MAX)
-typedef uint_least8_t yytype_uint8;
-#elif !defined __UINT_LEAST8_MAX__ && UCHAR_MAX <= INT_MAX
-typedef unsigned char yytype_uint8;
-#else
-typedef short yytype_uint8;
-#endif
-
-#if defined __UINT_LEAST16_MAX__ && __UINT_LEAST16_MAX__ <= __INT_MAX__
-typedef __UINT_LEAST16_TYPE__ yytype_uint16;
-#elif (!defined __UINT_LEAST16_MAX__ && defined YY_STDINT_H \
-       && UINT_LEAST16_MAX <= INT_MAX)
-typedef uint_least16_t yytype_uint16;
-#elif !defined __UINT_LEAST16_MAX__ && USHRT_MAX <= INT_MAX
-typedef unsigned short yytype_uint16;
-#else
-typedef int yytype_uint16;
-#endif
-
-#ifndef YYPTRDIFF_T
-# if defined __PTRDIFF_TYPE__ && defined __PTRDIFF_MAX__
-#  define YYPTRDIFF_T __PTRDIFF_TYPE__
-#  define YYPTRDIFF_MAXIMUM __PTRDIFF_MAX__
-# elif defined PTRDIFF_MAX
-#  ifndef ptrdiff_t
-#   include <stddef.h> /* INFRINGES ON USER NAME SPACE */
-#  endif
-#  define YYPTRDIFF_T ptrdiff_t
-#  define YYPTRDIFF_MAXIMUM PTRDIFF_MAX
-# else
-#  define YYPTRDIFF_T long
-#  define YYPTRDIFF_MAXIMUM LONG_MAX
-# endif
 #endif
 
 #ifndef YYSIZE_T
@@ -530,7 +475,7 @@ typedef int yytype_uint16;
 #  define YYSIZE_T __SIZE_TYPE__
 # elif defined size_t
 #  define YYSIZE_T size_t
-# elif defined __STDC_VERSION__ && 199901 <= __STDC_VERSION__
+# elif ! defined YYSIZE_T
 #  include <stddef.h> /* INFRINGES ON USER NAME SPACE */
 #  define YYSIZE_T size_t
 # else
@@ -538,19 +483,7 @@ typedef int yytype_uint16;
 # endif
 #endif
 
-#define YYSIZE_MAXIMUM                                  \
-  YY_CAST (YYPTRDIFF_T,                                 \
-           (YYPTRDIFF_MAXIMUM < YY_CAST (YYSIZE_T, -1)  \
-            ? YYPTRDIFF_MAXIMUM                         \
-            : YY_CAST (YYSIZE_T, -1)))
-
-#define YYSIZEOF(X) YY_CAST (YYPTRDIFF_T, sizeof (X))
-
-/* Stored state numbers (used for stacks). */
-typedef yytype_int16 yy_state_t;
-
-/* State numbers in computations.  */
-typedef int yy_state_fast_t;
+#define YYSIZE_MAXIMUM ((YYSIZE_T) -1)
 
 #ifndef YY_
 # if defined YYENABLE_NLS && YYENABLE_NLS
@@ -564,20 +497,22 @@ typedef int yy_state_fast_t;
 # endif
 #endif
 
-#ifndef YY_ATTRIBUTE_PURE
-# if defined __GNUC__ && 2 < __GNUC__ + (96 <= __GNUC_MINOR__)
-#  define YY_ATTRIBUTE_PURE __attribute__ ((__pure__))
+#ifndef YY_ATTRIBUTE
+# if (defined __GNUC__                                               \
+      && (2 < __GNUC__ || (__GNUC__ == 2 && 96 <= __GNUC_MINOR__)))  \
+     || defined __SUNPRO_C && 0x5110 <= __SUNPRO_C
+#  define YY_ATTRIBUTE(Spec) __attribute__(Spec)
 # else
-#  define YY_ATTRIBUTE_PURE
+#  define YY_ATTRIBUTE(Spec) /* empty */
 # endif
 #endif
 
+#ifndef YY_ATTRIBUTE_PURE
+# define YY_ATTRIBUTE_PURE   YY_ATTRIBUTE ((__pure__))
+#endif
+
 #ifndef YY_ATTRIBUTE_UNUSED
-# if defined __GNUC__ && 2 < __GNUC__ + (7 <= __GNUC_MINOR__)
-#  define YY_ATTRIBUTE_UNUSED __attribute__ ((__unused__))
-# else
-#  define YY_ATTRIBUTE_UNUSED
-# endif
+# define YY_ATTRIBUTE_UNUSED YY_ATTRIBUTE ((__unused__))
 #endif
 
 /* Suppress unused-variable warnings by "using" E.  */
@@ -589,11 +524,11 @@ typedef int yy_state_fast_t;
 
 #if defined __GNUC__ && ! defined __ICC && 407 <= __GNUC__ * 100 + __GNUC_MINOR__
 /* Suppress an incorrect diagnostic about yylval being uninitialized.  */
-# define YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN                            \
-    _Pragma ("GCC diagnostic push")                                     \
-    _Pragma ("GCC diagnostic ignored \"-Wuninitialized\"")              \
+# define YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN \
+    _Pragma ("GCC diagnostic push") \
+    _Pragma ("GCC diagnostic ignored \"-Wuninitialized\"")\
     _Pragma ("GCC diagnostic ignored \"-Wmaybe-uninitialized\"")
-# define YY_IGNORE_MAYBE_UNINITIALIZED_END      \
+# define YY_IGNORE_MAYBE_UNINITIALIZED_END \
     _Pragma ("GCC diagnostic pop")
 #else
 # define YY_INITIAL_VALUE(Value) Value
@@ -606,20 +541,6 @@ typedef int yy_state_fast_t;
 # define YY_INITIAL_VALUE(Value) /* Nothing. */
 #endif
 
-#if defined __cplusplus && defined __GNUC__ && ! defined __ICC && 6 <= __GNUC__
-# define YY_IGNORE_USELESS_CAST_BEGIN                          \
-    _Pragma ("GCC diagnostic push")                            \
-    _Pragma ("GCC diagnostic ignored \"-Wuseless-cast\"")
-# define YY_IGNORE_USELESS_CAST_END            \
-    _Pragma ("GCC diagnostic pop")
-#endif
-#ifndef YY_IGNORE_USELESS_CAST_BEGIN
-# define YY_IGNORE_USELESS_CAST_BEGIN
-# define YY_IGNORE_USELESS_CAST_END
-#endif
-
-
-#define YY_ASSERT(E) ((void) (0 && (E)))
 
 #if ! defined yyoverflow || YYERROR_VERBOSE
 
@@ -696,17 +617,17 @@ void free (void *); /* INFRINGES ON USER NAME SPACE */
 /* A type that is properly aligned for any stack member.  */
 union yyalloc
 {
-  yy_state_t yyss_alloc;
+  yytype_int16 yyss_alloc;
   YYSTYPE yyvs_alloc;
 };
 
 /* The size of the maximum gap between one aligned stack and the next.  */
-# define YYSTACK_GAP_MAXIMUM (YYSIZEOF (union yyalloc) - 1)
+# define YYSTACK_GAP_MAXIMUM (sizeof (union yyalloc) - 1)
 
 /* The size of an array large to enough to hold all stacks, each with
    N elements.  */
 # define YYSTACK_BYTES(N) \
-     ((N) * (YYSIZEOF (yy_state_t) + YYSIZEOF (YYSTYPE)) \
+     ((N) * (sizeof (yytype_int16) + sizeof (YYSTYPE)) \
       + YYSTACK_GAP_MAXIMUM)
 
 # define YYCOPY_NEEDED 1
@@ -719,11 +640,11 @@ union yyalloc
 # define YYSTACK_RELOCATE(Stack_alloc, Stack)                           \
     do                                                                  \
       {                                                                 \
-        YYPTRDIFF_T yynewbytes;                                         \
+        YYSIZE_T yynewbytes;                                            \
         YYCOPY (&yyptr->Stack_alloc, Stack, yysize);                    \
         Stack = &yyptr->Stack_alloc;                                    \
-        yynewbytes = yystacksize * YYSIZEOF (*Stack) + YYSTACK_GAP_MAXIMUM; \
-        yyptr += yynewbytes / YYSIZEOF (*yyptr);                        \
+        yynewbytes = yystacksize * sizeof (*Stack) + YYSTACK_GAP_MAXIMUM; \
+        yyptr += yynewbytes / sizeof (*yyptr);                          \
       }                                                                 \
     while (0)
 
@@ -735,12 +656,12 @@ union yyalloc
 # ifndef YYCOPY
 #  if defined __GNUC__ && 1 < __GNUC__
 #   define YYCOPY(Dst, Src, Count) \
-      __builtin_memcpy (Dst, Src, YY_CAST (YYSIZE_T, (Count)) * sizeof (*(Src)))
+      __builtin_memcpy (Dst, Src, (Count) * sizeof (*(Src)))
 #  else
 #   define YYCOPY(Dst, Src, Count)              \
       do                                        \
         {                                       \
-          YYPTRDIFF_T yyi;                      \
+          YYSIZE_T yyi;                         \
           for (yyi = 0; yyi < (Count); yyi++)   \
             (Dst)[yyi] = (Src)[yyi];            \
         }                                       \
@@ -766,15 +687,14 @@ union yyalloc
 #define YYUNDEFTOK  2
 #define YYMAXUTOK   539
 
-
 /* YYTRANSLATE(TOKEN-NUM) -- Symbol number corresponding to TOKEN-NUM
    as returned by yylex, with out-of-bounds checking.  */
 #define YYTRANSLATE(YYX)                                                \
-  (0 <= (YYX) && (YYX) <= YYMAXUTOK ? yytranslate[YYX] : YYUNDEFTOK)
+  ((unsigned) (YYX) <= YYMAXUTOK ? yytranslate[YYX] : YYUNDEFTOK)
 
 /* YYTRANSLATE[TOKEN-NUM] -- Symbol number corresponding to TOKEN-NUM
    as returned by yylex.  */
-static const yytype_int16 yytranslate[] =
+static const yytype_uint16 yytranslate[] =
 {
        0,     2,     2,     2,     2,     2,     2,     2,     2,     2,
      284,     2,     2,     2,     2,     2,     2,     2,     2,     2,
@@ -834,7 +754,7 @@ static const yytype_int16 yytranslate[] =
 
 #if YYDEBUG
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
-static const yytype_int16 yyrline[] =
+static const yytype_uint16 yyrline[] =
 {
        0,   444,   444,   445,   448,   449,   450,   451,   452,   455,
      456,   457,   458,   459,   460,   461,   462,   463,   464,   467,
@@ -956,7 +876,7 @@ static const char *const yytname[] =
 # ifdef YYPRINT
 /* YYTOKNUM[NUM] -- (External) token number corresponding to the
    (internal) symbol number NUM (which must be that of a token).  */
-static const yytype_int16 yytoknum[] =
+static const yytype_uint16 yytoknum[] =
 {
        0,   256,   257,   258,   259,   260,   261,   262,   263,   264,
      265,   266,   267,   268,   269,   270,   271,   272,   273,   274,
@@ -991,14 +911,14 @@ static const yytype_int16 yytoknum[] =
 };
 # endif
 
-#define YYPACT_NINF (-665)
+#define YYPACT_NINF -665
 
-#define yypact_value_is_default(Yyn) \
-  ((Yyn) == YYPACT_NINF)
+#define yypact_value_is_default(Yystate) \
+  (!!((Yystate) == (-665)))
 
-#define YYTABLE_NINF (-1)
+#define YYTABLE_NINF -1
 
-#define yytable_value_is_error(Yyn) \
+#define yytable_value_is_error(Yytable_value) \
   0
 
   /* YYPACT[STATE-NUM] -- Index in YYTABLE of the portion describing
@@ -1108,7 +1028,7 @@ static const yytype_int16 yypact[] =
   /* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
      Performed when YYTABLE does not specify something else to do.  Zero
      means the default is an error.  */
-static const yytype_int16 yydefact[] =
+static const yytype_uint16 yydefact[] =
 {
        2,     0,     1,     0,     0,     0,     0,     0,     0,     0,
        0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
@@ -1237,7 +1157,7 @@ static const yytype_int16 yydefgoto[] =
   /* YYTABLE[YYPACT[STATE-NUM]] -- What to do in state STATE-NUM.  If
      positive, shift that token.  If negative, reduce the rule whose
      number is the opposite.  If YYTABLE_NINF, syntax error.  */
-static const yytype_int16 yytable[] =
+static const yytype_uint16 yytable[] =
 {
      262,   263,   264,   265,   682,   268,   363,   270,   454,   455,
      265,   259,   401,   551,   552,   460,   461,   553,   456,   457,
@@ -1693,7 +1613,7 @@ static const yytype_int16 yycheck[] =
 
   /* YYSTOS[STATE-NUM] -- The (internal number of the) accessing
      symbol of state STATE-NUM.  */
-static const yytype_int16 yystos[] =
+static const yytype_uint16 yystos[] =
 {
        0,   294,     0,     3,     5,     6,     7,     8,     9,    10,
       11,    12,    13,    14,    15,    16,    17,    18,    19,    20,
@@ -1796,7 +1716,7 @@ static const yytype_int16 yystos[] =
 };
 
   /* YYR1[YYN] -- Symbol number of symbol that rule YYN derives.  */
-static const yytype_int16 yyr1[] =
+static const yytype_uint16 yyr1[] =
 {
        0,   293,   294,   294,   295,   295,   295,   295,   295,   296,
      296,   296,   296,   296,   296,   296,   296,   296,   296,   297,
@@ -1834,7 +1754,7 @@ static const yytype_int16 yyr1[] =
 };
 
   /* YYR2[YYN] -- Number of symbols on the right hand side of rule YYN.  */
-static const yytype_int8 yyr2[] =
+static const yytype_uint8 yyr2[] =
 {
        0,     2,     0,     2,     1,     2,     1,     1,     1,     1,
        1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
@@ -1954,9 +1874,7 @@ yy_symbol_value_print (FILE *yyo, int yytype, YYSTYPE const * const yyvaluep)
   if (yytype < YYNTOKENS)
     YYPRINT (yyo, yytoknum[yytype], *yyvaluep);
 # endif
-  YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN
   YYUSE (yytype);
-  YY_IGNORE_MAYBE_UNINITIALIZED_END
 }
 
 
@@ -1980,7 +1898,7 @@ yy_symbol_print (FILE *yyo, int yytype, YYSTYPE const * const yyvaluep)
 `------------------------------------------------------------------*/
 
 static void
-yy_stack_print (yy_state_t *yybottom, yy_state_t *yytop)
+yy_stack_print (yytype_int16 *yybottom, yytype_int16 *yytop)
 {
   YYFPRINTF (stderr, "Stack now");
   for (; yybottom <= yytop; yybottom++)
@@ -2003,19 +1921,19 @@ do {                                                            \
 `------------------------------------------------*/
 
 static void
-yy_reduce_print (yy_state_t *yyssp, YYSTYPE *yyvsp, int yyrule)
+yy_reduce_print (yytype_int16 *yyssp, YYSTYPE *yyvsp, int yyrule)
 {
-  int yylno = yyrline[yyrule];
+  unsigned long yylno = yyrline[yyrule];
   int yynrhs = yyr2[yyrule];
   int yyi;
-  YYFPRINTF (stderr, "Reducing stack by rule %d (line %d):\n",
+  YYFPRINTF (stderr, "Reducing stack by rule %d (line %lu):\n",
              yyrule - 1, yylno);
   /* The symbols being reduced.  */
   for (yyi = 0; yyi < yynrhs; yyi++)
     {
       YYFPRINTF (stderr, "   $%d = ", yyi + 1);
       yy_symbol_print (stderr,
-                       yystos[+yyssp[yyi + 1 - yynrhs]],
+                       yystos[yyssp[yyi + 1 - yynrhs]],
                        &yyvsp[(yyi + 1) - (yynrhs)]
                                               );
       YYFPRINTF (stderr, "\n");
@@ -2060,13 +1978,13 @@ int yydebug;
 
 # ifndef yystrlen
 #  if defined __GLIBC__ && defined _STRING_H
-#   define yystrlen(S) (YY_CAST (YYPTRDIFF_T, strlen (S)))
+#   define yystrlen strlen
 #  else
 /* Return the length of YYSTR.  */
-static YYPTRDIFF_T
+static YYSIZE_T
 yystrlen (const char *yystr)
 {
-  YYPTRDIFF_T yylen;
+  YYSIZE_T yylen;
   for (yylen = 0; yystr[yylen]; yylen++)
     continue;
   return yylen;
@@ -2102,12 +2020,12 @@ yystpcpy (char *yydest, const char *yysrc)
    backslash-backslash).  YYSTR is taken from yytname.  If YYRES is
    null, do not copy; instead, return the length of what the result
    would have been.  */
-static YYPTRDIFF_T
+static YYSIZE_T
 yytnamerr (char *yyres, const char *yystr)
 {
   if (*yystr == '"')
     {
-      YYPTRDIFF_T yyn = 0;
+      YYSIZE_T yyn = 0;
       char const *yyp = yystr;
 
       for (;;)
@@ -2138,10 +2056,10 @@ yytnamerr (char *yyres, const char *yystr)
     do_not_strip_quotes: ;
     }
 
-  if (yyres)
-    return yystpcpy (yyres, yystr) - yyres;
-  else
+  if (! yyres)
     return yystrlen (yystr);
+
+  return (YYSIZE_T) (yystpcpy (yyres, yystr) - yyres);
 }
 # endif
 
@@ -2154,19 +2072,19 @@ yytnamerr (char *yyres, const char *yystr)
    *YYMSG_ALLOC to the required number of bytes.  Return 2 if the
    required number of bytes is too large to store.  */
 static int
-yysyntax_error (YYPTRDIFF_T *yymsg_alloc, char **yymsg,
-                yy_state_t *yyssp, int yytoken)
+yysyntax_error (YYSIZE_T *yymsg_alloc, char **yymsg,
+                yytype_int16 *yyssp, int yytoken)
 {
+  YYSIZE_T yysize0 = yytnamerr (YY_NULLPTR, yytname[yytoken]);
+  YYSIZE_T yysize = yysize0;
   enum { YYERROR_VERBOSE_ARGS_MAXIMUM = 5 };
   /* Internationalized format string. */
   const char *yyformat = YY_NULLPTR;
-  /* Arguments of yyformat: reported tokens (one for the "unexpected",
-     one per "expected"). */
+  /* Arguments of yyformat. */
   char const *yyarg[YYERROR_VERBOSE_ARGS_MAXIMUM];
-  /* Actual size of YYARG. */
+  /* Number of reported tokens (one for the "unexpected", one per
+     "expected"). */
   int yycount = 0;
-  /* Cumulated lengths of YYARG.  */
-  YYPTRDIFF_T yysize = 0;
 
   /* There are many possibilities here to consider:
      - If this state is a consistent state with a default action, then
@@ -2193,9 +2111,7 @@ yysyntax_error (YYPTRDIFF_T *yymsg_alloc, char **yymsg,
   */
   if (yytoken != YYEMPTY)
     {
-      int yyn = yypact[+*yyssp];
-      YYPTRDIFF_T yysize0 = yytnamerr (YY_NULLPTR, yytname[yytoken]);
-      yysize = yysize0;
+      int yyn = yypact[*yyssp];
       yyarg[yycount++] = yytname[yytoken];
       if (!yypact_value_is_default (yyn))
         {
@@ -2220,8 +2136,7 @@ yysyntax_error (YYPTRDIFF_T *yymsg_alloc, char **yymsg,
                   }
                 yyarg[yycount++] = yytname[yyx];
                 {
-                  YYPTRDIFF_T yysize1
-                    = yysize + yytnamerr (YY_NULLPTR, yytname[yyx]);
+                  YYSIZE_T yysize1 = yysize + yytnamerr (YY_NULLPTR, yytname[yyx]);
                   if (yysize <= yysize1 && yysize1 <= YYSTACK_ALLOC_MAXIMUM)
                     yysize = yysize1;
                   else
@@ -2248,9 +2163,7 @@ yysyntax_error (YYPTRDIFF_T *yymsg_alloc, char **yymsg,
     }
 
   {
-    /* Don't count the "%s"s in the final size, but reserve room for
-       the terminator.  */
-    YYPTRDIFF_T yysize1 = yysize + (yystrlen (yyformat) - 2 * yycount) + 1;
+    YYSIZE_T yysize1 = yysize + yystrlen (yyformat);
     if (yysize <= yysize1 && yysize1 <= YYSTACK_ALLOC_MAXIMUM)
       yysize = yysize1;
     else
@@ -2280,8 +2193,8 @@ yysyntax_error (YYPTRDIFF_T *yymsg_alloc, char **yymsg,
         }
       else
         {
-          ++yyp;
-          ++yyformat;
+          yyp++;
+          yyformat++;
         }
   }
   return 0;
@@ -2324,7 +2237,7 @@ int yynerrs;
 int
 yyparse (void)
 {
-    yy_state_fast_t yystate;
+    int yystate;
     /* Number of tokens to shift before error messages enabled.  */
     int yyerrstatus;
 
@@ -2336,16 +2249,16 @@ yyparse (void)
        to reallocate them elsewhere.  */
 
     /* The state stack.  */
-    yy_state_t yyssa[YYINITDEPTH];
-    yy_state_t *yyss;
-    yy_state_t *yyssp;
+    yytype_int16 yyssa[YYINITDEPTH];
+    yytype_int16 *yyss;
+    yytype_int16 *yyssp;
 
     /* The semantic value stack.  */
     YYSTYPE yyvsa[YYINITDEPTH];
     YYSTYPE *yyvs;
     YYSTYPE *yyvsp;
 
-    YYPTRDIFF_T yystacksize;
+    YYSIZE_T yystacksize;
 
   int yyn;
   int yyresult;
@@ -2359,7 +2272,7 @@ yyparse (void)
   /* Buffer for error messages, and its allocated size.  */
   char yymsgbuf[128];
   char *yymsg = yymsgbuf;
-  YYPTRDIFF_T yymsg_alloc = sizeof yymsgbuf;
+  YYSIZE_T yymsg_alloc = sizeof yymsgbuf;
 #endif
 
 #define YYPOPSTACK(N)   (yyvsp -= (N), yyssp -= (N))
@@ -2391,14 +2304,10 @@ yynewstate:
 
 
 /*--------------------------------------------------------------------.
-| yysetstate -- set current state (the top of the stack) to yystate.  |
+| yynewstate -- set current state (the top of the stack) to yystate.  |
 `--------------------------------------------------------------------*/
 yysetstate:
-  YYDPRINTF ((stderr, "Entering state %d\n", yystate));
-  YY_ASSERT (0 <= yystate && yystate < YYNSTATES);
-  YY_IGNORE_USELESS_CAST_BEGIN
-  *yyssp = YY_CAST (yy_state_t, yystate);
-  YY_IGNORE_USELESS_CAST_END
+  *yyssp = (yytype_int16) yystate;
 
   if (yyss + yystacksize - 1 <= yyssp)
 #if !defined yyoverflow && !defined YYSTACK_RELOCATE
@@ -2406,23 +2315,23 @@ yysetstate:
 #else
     {
       /* Get the current used size of the three stacks, in elements.  */
-      YYPTRDIFF_T yysize = yyssp - yyss + 1;
+      YYSIZE_T yysize = (YYSIZE_T) (yyssp - yyss + 1);
 
 # if defined yyoverflow
       {
         /* Give user a chance to reallocate the stack.  Use copies of
            these so that the &'s don't force the real ones into
            memory.  */
-        yy_state_t *yyss1 = yyss;
         YYSTYPE *yyvs1 = yyvs;
+        yytype_int16 *yyss1 = yyss;
 
         /* Each stack pointer address is followed by the size of the
            data in use in that stack, in bytes.  This used to be a
            conditional around just the two extra args, but that might
            be undefined if yyoverflow is a macro.  */
         yyoverflow (YY_("memory exhausted"),
-                    &yyss1, yysize * YYSIZEOF (*yyssp),
-                    &yyvs1, yysize * YYSIZEOF (*yyvsp),
+                    &yyss1, yysize * sizeof (*yyssp),
+                    &yyvs1, yysize * sizeof (*yyvsp),
                     &yystacksize);
         yyss = yyss1;
         yyvs = yyvs1;
@@ -2436,10 +2345,9 @@ yysetstate:
         yystacksize = YYMAXDEPTH;
 
       {
-        yy_state_t *yyss1 = yyss;
+        yytype_int16 *yyss1 = yyss;
         union yyalloc *yyptr =
-          YY_CAST (union yyalloc *,
-                   YYSTACK_ALLOC (YY_CAST (YYSIZE_T, YYSTACK_BYTES (yystacksize))));
+          (union yyalloc *) YYSTACK_ALLOC (YYSTACK_BYTES (yystacksize));
         if (! yyptr)
           goto yyexhaustedlab;
         YYSTACK_RELOCATE (yyss_alloc, yyss);
@@ -2453,15 +2361,15 @@ yysetstate:
       yyssp = yyss + yysize - 1;
       yyvsp = yyvs + yysize - 1;
 
-      YY_IGNORE_USELESS_CAST_BEGIN
-      YYDPRINTF ((stderr, "Stack size increased to %ld\n",
-                  YY_CAST (long, yystacksize)));
-      YY_IGNORE_USELESS_CAST_END
+      YYDPRINTF ((stderr, "Stack size increased to %lu\n",
+                  (unsigned long) yystacksize));
 
       if (yyss + yystacksize - 1 <= yyssp)
         YYABORT;
     }
 #endif /* !defined yyoverflow && !defined YYSTACK_RELOCATE */
+
+  YYDPRINTF ((stderr, "Entering state %d\n", yystate));
 
   if (yystate == YYFINAL)
     YYACCEPT;
@@ -2522,13 +2430,15 @@ yybackup:
 
   /* Shift the lookahead token.  */
   YY_SYMBOL_PRINT ("Shifting", yytoken, &yylval, &yylloc);
+
+  /* Discard the shifted token.  */
+  yychar = YYEMPTY;
+
   yystate = yyn;
   YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN
   *++yyvsp = yylval;
   YY_IGNORE_MAYBE_UNINITIALIZED_END
 
-  /* Discard the shifted token.  */
-  yychar = YYEMPTY;
   goto yynewstate;
 
 
@@ -2563,20 +2473,20 @@ yyreduce:
   YY_REDUCE_PRINT (yyn);
   switch (yyn)
     {
-  case 58:
-#line 510 "sf-riscv.y"
-                {
+        case 58:
+#line 510 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				mexit(yyengine, "Exiting as per user's request.", 0);
 			}
 		}
-#line 2575 "sf-riscv.tab.c"
+#line 2485 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 59:
-#line 526 "sf-riscv.y"
-                {	/*
+#line 526 "sf-riscv.y" /* yacc.c:1652  */
+    {	/*
 			 *	Mark given memory as origin of taint
 			 */
 			if (!yyengine->scanning)
@@ -2585,12 +2495,12 @@ yyreduce:
 
 			}
 		}
-#line 2589 "sf-riscv.tab.c"
+#line 2499 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 60:
-#line 539 "sf-riscv.y"
-                {
+#line 539 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			/*
 			 *	Mark given register as an origin of taint
 			 */
@@ -2599,12 +2509,12 @@ yyreduce:
 				m_taintreg(yyengine,yyengine->cp, (yyvsp[-4].uval), (yyvsp[-3].uval), (yyvsp[-2].uval), (yyvsp[-1].uval));
 			}
 		}
-#line 2603 "sf-riscv.tab.c"
+#line 2513 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 61:
-#line 552 "sf-riscv.y"
-                {
+#line 552 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			/*
 			 *	Mark given register as an origin of taint
 			 */
@@ -2613,12 +2523,12 @@ yyreduce:
 				m_taintreg(yyengine,yyengine->cp, (yyvsp[-4].uval), (yyvsp[-3].uval), (yyvsp[-2].uval), (yyvsp[-1].uval));
 			}
 		}
-#line 2617 "sf-riscv.tab.c"
+#line 2527 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 62:
-#line 565 "sf-riscv.y"
-                {
+#line 565 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			/*
 			 *	Give taint of each RISC-V command
 			 */
@@ -2627,12 +2537,12 @@ yyreduce:
 				m_riscvdumptaintdistr(yyengine,yyengine->cp);
 			}
 		}
-#line 2631 "sf-riscv.tab.c"
+#line 2541 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 63:
-#line 575 "sf-riscv.y"
-                {
+#line 575 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			/*
 			 *	Only give the architecture type:
 			 */
@@ -2641,12 +2551,12 @@ yyreduce:
 				m_newnode(yyengine, (yyvsp[-1].str), 0, 0, 0, NULL, 0, 0);
 			}
 		}
-#line 2645 "sf-riscv.tab.c"
+#line 2555 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 64:
-#line 585 "sf-riscv.y"
-                {
+#line 585 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			/*
 			 *	Give the architecture type and the (fixed) x/y/z location
 			 */
@@ -2655,12 +2565,12 @@ yyreduce:
 				m_newnode(yyengine, (yyvsp[-4].str), (yyvsp[-3].rval)->dval, (yyvsp[-3].rval)->dval, (yyvsp[-3].rval)->dval, NULL, 0, 0);
 			}
 		}
-#line 2659 "sf-riscv.tab.c"
+#line 2569 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 65:
-#line 595 "sf-riscv.y"
-                {
+#line 595 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			/*
 			 *	Give the architecture type and the (initial) x/y/z location, and the
 			 *	trajectory file, loop flag, and trajectory rate (the number of picoseconds
@@ -2687,45 +2597,45 @@ yyreduce:
 				//	of state as an rvar
 			}
 		}
-#line 2691 "sf-riscv.tab.c"
+#line 2601 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 66:
-#line 623 "sf-riscv.y"
-                {
+#line 623 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				batt_nodeattach(yyengine, yyengine->cp, (yyvsp[-1].uval));
 			}
 		}
-#line 2702 "sf-riscv.tab.c"
+#line 2612 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 67:
-#line 630 "sf-riscv.y"
-                {
+#line 630 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				batt_printstats(yyengine, yyengine->cp, (yyvsp[-1].uval));
 			}
 		}
-#line 2713 "sf-riscv.tab.c"
+#line 2623 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 68:
-#line 637 "sf-riscv.y"
-                {
+#line 637 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				batt_newbatt(yyengine, (yyvsp[-2].uval), (yyvsp[-1].dval));
 			}
 		}
-#line 2724 "sf-riscv.tab.c"
+#line 2634 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 69:
-#line 644 "sf-riscv.y"
-                {
+#line 644 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				if (SF_DEBUG) mprint(yyengine, NULL, siminfo, 
@@ -2734,12 +2644,12 @@ yyreduce:
 				yyengine->batts[yyengine->curbatt].ileak = (yyvsp[-1].dval);
 			}
 		}
-#line 2738 "sf-riscv.tab.c"
+#line 2648 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 70:
-#line 654 "sf-riscv.y"
-                {
+#line 654 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				if (SF_DEBUG) mprint(yyengine, NULL, siminfo, 
@@ -2748,12 +2658,12 @@ yyreduce:
 				yyengine->batts[yyengine->curbatt].Cf = (yyvsp[-1].dval);
 			}
 		}
-#line 2752 "sf-riscv.tab.c"
+#line 2662 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 71:
-#line 664 "sf-riscv.y"
-                {
+#line 664 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				if (SF_DEBUG) mprint(yyengine, NULL, siminfo, 
@@ -2762,12 +2672,12 @@ yyreduce:
 				yyengine->batts[yyengine->curbatt].Inominal = (yyvsp[-1].dval);
 			}
 		}
-#line 2766 "sf-riscv.tab.c"
+#line 2676 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 72:
-#line 674 "sf-riscv.y"
-                {
+#line 674 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				if (SF_DEBUG) mprint(yyengine, NULL, siminfo, 
@@ -2776,12 +2686,12 @@ yyreduce:
 				yyengine->batts[yyengine->curbatt].Rf = (yyvsp[-1].dval);
 			}
 		}
-#line 2780 "sf-riscv.tab.c"
+#line 2690 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 73:
-#line 684 "sf-riscv.y"
-                {
+#line 684 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				if ((yyvsp[-2].uval) < yyengine->batts[yyengine->curbatt].etaLUTnentries)
@@ -2794,12 +2704,12 @@ yyreduce:
 				}
 			}
 		}
-#line 2798 "sf-riscv.tab.c"
+#line 2708 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 74:
-#line 698 "sf-riscv.y"
-                {
+#line 698 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				double *tmp = (double *)mrealloc(yyengine, yyengine->batts[yyengine->curbatt].etaLUT,
@@ -2816,12 +2726,12 @@ yyreduce:
 				}
 			}
 		}
-#line 2820 "sf-riscv.tab.c"
+#line 2730 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 75:
-#line 716 "sf-riscv.y"
-                {
+#line 716 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				if ((yyvsp[-2].uval) < yyengine->batts[yyengine->curbatt].VbattLUTnentries)
@@ -2834,12 +2744,12 @@ yyreduce:
 				}
 			}
 		}
-#line 2838 "sf-riscv.tab.c"
+#line 2748 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 76:
-#line 730 "sf-riscv.y"
-                {
+#line 730 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				double *tmp = (double *)mrealloc(yyengine, yyengine->batts[yyengine->curbatt].VbattLUT,
@@ -2856,12 +2766,12 @@ yyreduce:
 				}
 			}
 		}
-#line 2860 "sf-riscv.tab.c"
+#line 2770 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 77:
-#line 748 "sf-riscv.y"
-                {
+#line 748 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				if ((yyvsp[-2].uval) < yyengine->batts[yyengine->curbatt].VlostLUTnentries)
@@ -2874,12 +2784,12 @@ yyreduce:
 				}
 			}
 		}
-#line 2878 "sf-riscv.tab.c"
+#line 2788 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 78:
-#line 762 "sf-riscv.y"
-                {
+#line 762 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				double *tmp = (double *)mrealloc(yyengine, yyengine->batts[yyengine->curbatt].VlostLUT,
@@ -2896,12 +2806,12 @@ yyreduce:
 				}
 			}
 		}
-#line 2900 "sf-riscv.tab.c"
+#line 2810 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 79:
-#line 780 "sf-riscv.y"
-                {
+#line 780 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				if ((yyvsp[-1].uval) >= yyengine->nbatts)
@@ -2914,157 +2824,157 @@ yyreduce:
 				}
 			}
 		}
-#line 2918 "sf-riscv.tab.c"
+#line 2828 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 80:
-#line 794 "sf-riscv.y"
-                {
+#line 794 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				m_pcbacktrace(yyengine, yyengine->cp);
 			}
 		}
-#line 2929 "sf-riscv.tab.c"
+#line 2839 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 81:
-#line 801 "sf-riscv.y"
-                {
+#line 801 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				m_setbptglobaltime(yyengine, (yyvsp[-1].uval));
 			}
 		}
-#line 2940 "sf-riscv.tab.c"
+#line 2850 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 82:
-#line 808 "sf-riscv.y"
-                {
+#line 808 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				m_setbptcycles(yyengine, yyengine->cp, (yyvsp[-1].uval));
 			}
 		}
-#line 2951 "sf-riscv.tab.c"
+#line 2861 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 83:
-#line 815 "sf-riscv.y"
-                {
+#line 815 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				m_setbptinstrs(yyengine, yyengine->cp, (yyvsp[-1].uval));
 			}
 		}
-#line 2962 "sf-riscv.tab.c"
+#line 2872 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 84:
-#line 822 "sf-riscv.y"
-                {
+#line 822 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				m_setbptsensorreading(yyengine, yyengine->cp, (yyvsp[-2].uval), (yyvsp[-1].dval));
 			}
 		}
-#line 2973 "sf-riscv.tab.c"
+#line 2883 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 85:
-#line 829 "sf-riscv.y"
-                {
+#line 829 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				m_bptls(yyengine);
 			}
 		}
-#line 2984 "sf-riscv.tab.c"
+#line 2894 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 86:
-#line 836 "sf-riscv.y"
-                {
+#line 836 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				m_bptdel(yyengine, (yyvsp[-1].uval));
 			}
 		}
-#line 2995 "sf-riscv.tab.c"
+#line 2905 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 87:
-#line 843 "sf-riscv.y"
-                {
+#line 843 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				m_setloc(yyengine, yyengine->cp, (yyvsp[-3].dval), (yyvsp[-2].dval), (yyvsp[-1].dval));
 			}
 		}
-#line 3006 "sf-riscv.tab.c"
+#line 2916 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 88:
-#line 850 "sf-riscv.y"
-                {
+#line 850 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				network_setretryalg(yyengine, yyengine->cp, (yyvsp[-2].uval), (yyvsp[-1].str));
 			}
 		}
-#line 3017 "sf-riscv.tab.c"
+#line 2927 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 89:
-#line 857 "sf-riscv.y"
-                {
+#line 857 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				m_randprint(yyengine, (yyvsp[-7].str), (yyvsp[-6].dval), (yyvsp[-5].dval), (yyvsp[-4].dval), (yyvsp[-3].dval), (yyvsp[-2].dval), (yyvsp[-1].dval));
 			}
 		}
-#line 3028 "sf-riscv.tab.c"
+#line 2938 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 90:
-#line 864 "sf-riscv.y"
-                {
+#line 864 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				//m_registerrvar(yyengine->cp, $2, $3, $4, $5, $6, $7,
 				//		$8, $9, $10, $11, $12, $13, $14);
 			}
 		}
-#line 3040 "sf-riscv.tab.c"
+#line 2950 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 91:
-#line 872 "sf-riscv.y"
-                {
+#line 872 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				m_initrandtable(yyengine, (yyvsp[-9].str), (yyvsp[-8].str), (yyvsp[-7].dval), (yyvsp[-6].dval), (yyvsp[-5].dval), (yyvsp[-4].dval), (yyvsp[-3].dval), (yyvsp[-2].dval), (yyvsp[-1].dval));
 			}
 		}
-#line 3051 "sf-riscv.tab.c"
+#line 2961 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 92:
-#line 879 "sf-riscv.y"
-                {
+#line 879 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				//m_defndist($2, $4, $6);
 
 			}
 		}
-#line 3063 "sf-riscv.tab.c"
+#line 2973 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 93:
-#line 887 "sf-riscv.y"
-                {
+#line 887 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				if (yyengine->cp->machinetype == MACHINE_SUPERH)
@@ -3081,12 +2991,12 @@ yyreduce:
 				}
 			}
 		}
-#line 3085 "sf-riscv.tab.c"
+#line 2995 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 94:
-#line 905 "sf-riscv.y"
-                {
+#line 905 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				if (yyengine->cp->machinetype == MACHINE_SUPERH)
@@ -3103,123 +3013,123 @@ yyreduce:
 				}
 			}
 		}
-#line 3107 "sf-riscv.tab.c"
+#line 3017 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 95:
-#line 923 "sf-riscv.y"
-                {
+#line 923 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				yyengine->ignoredeaths = (yyvsp[-1].uval);
 			}
 		}
-#line 3118 "sf-riscv.tab.c"
+#line 3028 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 96:
-#line 930 "sf-riscv.y"
-                {
+#line 930 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->voltscale_alpha = (yyvsp[-1].dval);
 			}
 		}
-#line 3129 "sf-riscv.tab.c"
+#line 3039 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 97:
-#line 937 "sf-riscv.y"
-                {
+#line 937 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->voltscale_K = (yyvsp[-1].dval);
 			}
 		}
-#line 3140 "sf-riscv.tab.c"
+#line 3050 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 98:
-#line 944 "sf-riscv.y"
-                {
+#line 944 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->voltscale_Vt = (yyvsp[-1].dval);
 			}
 		}
-#line 3151 "sf-riscv.tab.c"
+#line 3061 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 99:
-#line 951 "sf-riscv.y"
-                {
+#line 951 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				yyengine->schedtype = SchedRandom;
 			}
 		}
-#line 3162 "sf-riscv.tab.c"
+#line 3072 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 100:
-#line 958 "sf-riscv.y"
-                {
+#line 958 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				yyengine->schedtype = SchedRoundRobin;
 			}
 		}
-#line 3173 "sf-riscv.tab.c"
+#line 3083 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 101:
-#line 965 "sf-riscv.y"
-                {
+#line 965 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				yyengine->quantum = (yyvsp[-1].uval);
 			}
 		}
-#line 3184 "sf-riscv.tab.c"
+#line 3094 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 102:
-#line 972 "sf-riscv.y"
-                {
+#line 972 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				yyengine->baseid = (yyvsp[-1].uval);
 			}
 		}
-#line 3195 "sf-riscv.tab.c"
+#line 3105 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 103:
-#line 979 "sf-riscv.y"
-                {
+#line 979 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				m_renumbernodes(yyengine);
 			}
 		}
-#line 3206 "sf-riscv.tab.c"
+#line 3116 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 104:
-#line 986 "sf-riscv.y"
-                {
+#line 986 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->trip_ustart = musercputimeusecs();
 				yyengine->cp->trip_startclk = yyengine->cp->ICLK;
 			}
 		}
-#line 3218 "sf-riscv.tab.c"
+#line 3128 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 105:
-#line 994 "sf-riscv.y"
-                {
+#line 994 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				int i;
@@ -3231,34 +3141,34 @@ yyreduce:
 				}
 			}
 		}
-#line 3235 "sf-riscv.tab.c"
+#line 3145 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 106:
-#line 1007 "sf-riscv.y"
-                {
+#line 1007 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				network_netseg2file(yyengine, (yyvsp[-2].uval), (yyvsp[-1].str));
 			}
 		}
-#line 3246 "sf-riscv.tab.c"
+#line 3156 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 107:
-#line 1014 "sf-riscv.y"
-                {
+#line 1014 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				network_file2netseg(yyengine, (yyvsp[-2].str), (yyvsp[-1].uval));
 			}
 		}
-#line 3257 "sf-riscv.tab.c"
+#line 3167 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 108:
-#line 1021 "sf-riscv.y"
-                {
+#line 1021 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				int	n = mchdir((yyvsp[-1].str));
@@ -3269,134 +3179,134 @@ yyreduce:
 				}
 			}
 		}
-#line 3273 "sf-riscv.tab.c"
+#line 3183 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 109:
-#line 1033 "sf-riscv.y"
-                {
+#line 1033 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->settimerintrdelay(yyengine, yyengine->cp, (yyvsp[0].dval));
 			}
 		}
-#line 3284 "sf-riscv.tab.c"
+#line 3194 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 110:
-#line 1040 "sf-riscv.y"
-                {
+#line 1040 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				yyengine->phyperiodpsec = (yyvsp[0].dval);
 			}
 		}
-#line 3295 "sf-riscv.tab.c"
+#line 3205 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 111:
-#line 1047 "sf-riscv.y"
-                {
+#line 1047 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				yyengine->battperiodpsec = (yyvsp[0].dval);
 			}
 		}
-#line 3306 "sf-riscv.tab.c"
+#line 3216 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 112:
-#line 1054 "sf-riscv.y"
-                {
+#line 1054 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				yyengine->netperiodpsec = (yyvsp[0].dval);
 			}
 		}
-#line 3317 "sf-riscv.tab.c"
+#line 3227 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 113:
-#line 1061 "sf-riscv.y"
-                {
+#line 1061 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				yyengine->fperiodpsec = (yyvsp[0].dval);
 			}
 		}
-#line 3328 "sf-riscv.tab.c"
+#line 3238 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 114:
-#line 1069 "sf-riscv.y"
-                {
+#line 1069 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->force_avgpwr = (yyvsp[-1].dval);
 				yyengine->cp->force_sleeppwr = (yyvsp[0].dval);
 			}
 		}
-#line 3340 "sf-riscv.tab.c"
+#line 3250 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 115:
-#line 1077 "sf-riscv.y"
-                {
+#line 1077 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				network_netsegpropmodel(yyengine, (yyvsp[-2].uval), (yyvsp[-1].uval), (yyvsp[0].dval));
 			}
 		}
-#line 3351 "sf-riscv.tab.c"
+#line 3261 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 116:
-#line 1084 "sf-riscv.y"
-                {
+#line 1084 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				yyengine->dumpperiodpsec = (yyvsp[0].dval);
 			}
 		}
-#line 3362 "sf-riscv.tab.c"
+#line 3272 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 117:
-#line 1091 "sf-riscv.y"
-                {
+#line 1091 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				m_version(yyengine);
 			}
 		}
-#line 3373 "sf-riscv.tab.c"
+#line 3283 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 118:
-#line 1098 "sf-riscv.y"
-                {
+#line 1098 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				physics_sensorsdbg(yyengine);
 			}
 		}
-#line 3384 "sf-riscv.tab.c"
+#line 3294 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 119:
-#line 1106 "sf-riscv.y"
-                {
+#line 1106 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				physics_sigsubscr(yyengine, yyengine->cp, (yyvsp[-1].uval), (yyvsp[0].uval));
 			}
 		}
-#line 3395 "sf-riscv.tab.c"
+#line 3305 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 120:
-#line 1117 "sf-riscv.y"
-                {
+#line 1117 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				physics_newsigsrc(yyengine, (yyvsp[-33].uval), (yyvsp[-32].str), (yyvsp[-31].dval), (yyvsp[-30].dval), (yyvsp[-29].dval), (yyvsp[-28].dval), (yyvsp[-27].dval), (yyvsp[-26].dval), (yyvsp[-25].dval),
@@ -3405,46 +3315,46 @@ yyreduce:
 					(yyvsp[-4].uval), (yyvsp[-3].dval), (yyvsp[-2].uval), (yyvsp[-1].uval));
 			}
 		}
-#line 3409 "sf-riscv.tab.c"
+#line 3319 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 121:
-#line 1127 "sf-riscv.y"
-                {
+#line 1127 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				mprint(yyengine, NULL, siminfo,
 					"Current directory: %s\n", mgetpwd());
 			}
 		}
-#line 3421 "sf-riscv.tab.c"
+#line 3331 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 122:
-#line 1135 "sf-riscv.y"
-                {
+#line 1135 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				m_parseobjdump(yyengine, yyengine->cp, (yyvsp[-1].str));
 			}
 		}
-#line 3432 "sf-riscv.tab.c"
+#line 3342 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 123:
-#line 1142 "sf-riscv.y"
-                {
+#line 1142 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				m_dumpall(yyengine, (yyvsp[-3].str), M_OWRITE, (yyvsp[-2].str), (yyvsp[-1].str));
 			}
 		}
-#line 3443 "sf-riscv.tab.c"
+#line 3353 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 124:
-#line 1149 "sf-riscv.y"
-                {
+#line 1149 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				if ((yyvsp[-1].uval) >= yyengine->nnodes)
@@ -3457,12 +3367,12 @@ yyreduce:
 				}
 			}
 		}
-#line 3461 "sf-riscv.tab.c"
+#line 3371 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 125:
-#line 1163 "sf-riscv.y"
-                {
+#line 1163 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				if (((yyvsp[-2].uval) > yyengine->nnodes) || ((yyvsp[-1].uval) > yyengine->nnodes))
@@ -3477,166 +3387,166 @@ yyreduce:
 				}
 			}
 		}
-#line 3481 "sf-riscv.tab.c"
+#line 3391 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 126:
-#line 1179 "sf-riscv.y"
-                {
+#line 1179 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->step = yyengine->cp->cyclestep;
 			}
 		}
-#line 3492 "sf-riscv.tab.c"
+#line 3402 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 127:
-#line 1186 "sf-riscv.y"
-                {
+#line 1186 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->step = yyengine->cp->faststep;
 			}
 		}
-#line 3503 "sf-riscv.tab.c"
+#line 3413 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 128:
-#line 1193 "sf-riscv.y"
-                {
+#line 1193 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->cache_init(yyengine, yyengine->cp, (yyvsp[-3].uval), (yyvsp[-2].uval), (yyvsp[-1].uval));
 			}
 		}
-#line 3514 "sf-riscv.tab.c"
+#line 3424 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 129:
-#line 1200 "sf-riscv.y"
-                {
+#line 1200 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->cache_deactivate(yyengine, yyengine->cp);
 			}
 		}
-#line 3525 "sf-riscv.tab.c"
+#line 3435 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 130:
-#line 1207 "sf-riscv.y"
-                {
+#line 1207 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->cache_printstats(yyengine, yyengine->cp);
 			}
 		}
-#line 3536 "sf-riscv.tab.c"
+#line 3446 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 131:
-#line 1214 "sf-riscv.y"
-                {
+#line 1214 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->dumpregs(yyengine, yyengine->cp);
 			}
 		}
-#line 3547 "sf-riscv.tab.c"
+#line 3457 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 132:
-#line 1221 "sf-riscv.y"
-                {
+#line 1221 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->dumphist(yyengine, yyengine->cp, (yyvsp[-1].uval));
 			}
 		}
-#line 3558 "sf-riscv.tab.c"
+#line 3468 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 133:
-#line 1228 "sf-riscv.y"
-                {
+#line 1228 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->dumphistpretty(yyengine, yyengine->cp, (yyvsp[-1].uval));
 			}
 		}
-#line 3569 "sf-riscv.tab.c"
+#line 3479 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 134:
-#line 1235 "sf-riscv.y"
-                {
+#line 1235 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->ldhistrandom(yyengine, yyengine->cp, (yyvsp[-1].uval));
 			}
 		}
-#line 3580 "sf-riscv.tab.c"
+#line 3490 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 135:
-#line 1242 "sf-riscv.y"
-                {
+#line 1242 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->addhist(yyengine, yyengine->cp, (yyvsp[-3].uval), (yyvsp[-2].uval), (yyvsp[-1].uval));
 			}
 		}
-#line 3591 "sf-riscv.tab.c"
+#line 3501 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 136:
-#line 1249 "sf-riscv.y"
-                {
+#line 1249 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->dumpsysregs(yyengine, yyengine->cp);
 			}
 		}
-#line 3602 "sf-riscv.tab.c"
+#line 3512 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 137:
-#line 1256 "sf-riscv.y"
-                {
+#line 1256 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->dumppipe(yyengine, yyengine->cp);
 			}
 		}
-#line 3613 "sf-riscv.tab.c"
+#line 3523 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 138:
-#line 1263 "sf-riscv.y"
-                {
+#line 1263 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->dumpdistribution(yyengine, yyengine->cp);
 			}
 		}
-#line 3624 "sf-riscv.tab.c"
+#line 3534 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 139:
-#line 1270 "sf-riscv.y"
-                {
+#line 1270 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->resetcpu(yyengine, yyengine->cp);
 			}
 		}
-#line 3635 "sf-riscv.tab.c"
+#line 3545 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 140:
-#line 1277 "sf-riscv.y"
-                {
+#line 1277 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				mprint(yyengine, yyengine->cp, nodeinfo,
@@ -3644,122 +3554,122 @@ yyreduce:
 					yyengine->cp->dyncnt, yyengine->cp->nfetched);	
 			}
 		}
-#line 3648 "sf-riscv.tab.c"
+#line 3558 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 141:
-#line 1286 "sf-riscv.y"
-                {
+#line 1286 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				yyengine->nodetach = (yyvsp[-1].uval);
 			}
 		}
-#line 3659 "sf-riscv.tab.c"
+#line 3569 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 142:
-#line 1293 "sf-riscv.y"
-                {
+#line 1293 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				m_addvaluetrace(yyengine, yyengine->cp, (yyvsp[-7].str), (yyvsp[-6].uval), (yyvsp[-5].uval), (yyvsp[-4].uval), (yyvsp[-3].uval), (yyvsp[-2].uval), (yyvsp[-1].uval));
 			}
 		}
-#line 3670 "sf-riscv.tab.c"
+#line 3580 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 143:
-#line 1300 "sf-riscv.y"
-                {
+#line 1300 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				m_delvaluetrace(yyengine, yyengine->cp, (yyvsp[-7].str), (yyvsp[-6].uval), (yyvsp[-5].uval), (yyvsp[-4].uval), (yyvsp[-3].uval), (yyvsp[-2].uval), (yyvsp[-1].uval));
 			}
 		}
-#line 3681 "sf-riscv.tab.c"
+#line 3591 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 144:
-#line 1307 "sf-riscv.y"
-                {
+#line 1307 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				m_readstabs(yyengine, yyengine->cp, (yyvsp[-1].str));
 			}
 		}
-#line 3692 "sf-riscv.tab.c"
+#line 3602 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 145:
-#line 1314 "sf-riscv.y"
-                {
+#line 1314 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				m_valuestats(yyengine, yyengine->cp);
 			}
 		}
-#line 3703 "sf-riscv.tab.c"
+#line 3613 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 146:
-#line 1321 "sf-riscv.y"
-                {
+#line 1321 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				m_numaregion(yyengine, (yyvsp[-10].str), (yyvsp[-9].uval), (yyvsp[-8].uval), (yyvsp[-7].sval), (yyvsp[-6].sval), (yyvsp[-5].sval), (yyvsp[-4].sval), (yyvsp[-3].uval), (yyvsp[-2].uval), (yyvsp[-1].uval));
 			}
 		}
-#line 3714 "sf-riscv.tab.c"
+#line 3624 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 147:
-#line 1328 "sf-riscv.y"
-                {
+#line 1328 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				m_numastats(yyengine, yyengine->cp);
 			}
 		}
-#line 3725 "sf-riscv.tab.c"
+#line 3635 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 148:
-#line 1335 "sf-riscv.y"
-                {
+#line 1335 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				m_numastatsall(yyengine);
 			}
 		}
-#line 3736 "sf-riscv.tab.c"
+#line 3646 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 149:
-#line 1342 "sf-riscv.y"
-                {
+#line 1342 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				m_numasetmapid(yyengine, (yyvsp[-2].uval), (yyvsp[-1].uval));
 			}
 		}
-#line 3747 "sf-riscv.tab.c"
+#line 3657 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 150:
-#line 1349 "sf-riscv.y"
-                {
+#line 1349 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->dumptlb(yyengine, yyengine->cp);
 			}
 		}
-#line 3758 "sf-riscv.tab.c"
+#line 3668 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 151:
-#line 1356 "sf-riscv.y"
-                {
+#line 1356 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				if (yyengine->cp->ICLK > 0)
@@ -3774,24 +3684,24 @@ yyreduce:
 				}
 			}
 		}
-#line 3778 "sf-riscv.tab.c"
+#line 3688 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 152:
-#line 1372 "sf-riscv.y"
-                {
+#line 1372 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				mprint(yyengine, NULL, siminfo,
 					"Simulation random seed = %ld\n", yyengine->randseed);
 			}
 		}
-#line 3790 "sf-riscv.tab.c"
+#line 3700 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 153:
-#line 1380 "sf-riscv.y"
-                {
+#line 1380 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				mprint(yyengine, NULL, siminfo,
@@ -3799,56 +3709,56 @@ yyreduce:
 				yyengine->randseed = mrandominit(yyengine, (yyvsp[-1].uval));
 			}
 		}
-#line 3803 "sf-riscv.tab.c"
+#line 3713 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 154:
-#line 1389 "sf-riscv.y"
-                {
+#line 1389 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->ENABLE_BATT_LOW_INTR = (yyvsp[-1].uval);
 			}
 		}
-#line 3814 "sf-riscv.tab.c"
+#line 3724 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 155:
-#line 1396 "sf-riscv.y"
-                {
+#line 1396 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->battery_alert_frac = (yyvsp[-1].dval);
 			}
 		}
-#line 3825 "sf-riscv.tab.c"
+#line 3735 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 156:
-#line 1403 "sf-riscv.y"
-                {
+#line 1403 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->fail_prob = (yyvsp[-1].dval);
 			}
 		}
-#line 3836 "sf-riscv.tab.c"
+#line 3746 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 157:
-#line 1410 "sf-riscv.y"
-                {
+#line 1410 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->failure_duration_max = (yyvsp[-1].uval);
 			}
 		}
-#line 3847 "sf-riscv.tab.c"
+#line 3757 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 158:
-#line 1417 "sf-riscv.y"
-                {
+#line 1417 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				if ((yyvsp[-2].uval) >= MAX_NETSEGMENTS)
@@ -3861,24 +3771,24 @@ yyreduce:
 				}
 			}
 		}
-#line 3865 "sf-riscv.tab.c"
+#line 3775 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 159:
-#line 1432 "sf-riscv.y"
-                {
+#line 1432 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				network_netnewseg(yyengine, (yyvsp[-13].uval), (yyvsp[-12].uval), (yyvsp[-11].uval), (yyvsp[-10].uval), (yyvsp[-9].uval), (yyvsp[-8].uval),
 					(yyvsp[-7].dval), (yyvsp[-6].dval), (yyvsp[-5].dval), (yyvsp[-4].uval), (yyvsp[-3].dval), (yyvsp[-2].dval), (yyvsp[-1].dval));
 			}
 		}
-#line 3877 "sf-riscv.tab.c"
+#line 3787 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 160:
-#line 1440 "sf-riscv.y"
-                {
+#line 1440 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				if ((yyvsp[-2].uval) >= yyengine->nnetsegs)
@@ -3891,23 +3801,23 @@ yyreduce:
 				}
 			}
 		}
-#line 3895 "sf-riscv.tab.c"
+#line 3805 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 161:
-#line 1454 "sf-riscv.y"
-                {
+#line 1454 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				network_netsegnicattach(yyengine, yyengine->cp, (yyvsp[-2].uval), (yyvsp[-1].uval));
 			}
 		}
-#line 3906 "sf-riscv.tab.c"
+#line 3816 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 162:
-#line 1461 "sf-riscv.y"
-                {
+#line 1461 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				if ((yyvsp[-3].uval) >= MAX_NETSEGMENTS)
@@ -3924,167 +3834,167 @@ yyreduce:
 				}
 			}
 		}
-#line 3928 "sf-riscv.tab.c"
+#line 3838 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 163:
-#line 1479 "sf-riscv.y"
-                {
+#line 1479 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				network_netnodenewifc(yyengine, yyengine->cp, (yyvsp[-11].uval), (yyvsp[-10].dval), (yyvsp[-9].dval), (yyvsp[-8].dval),
 					(yyvsp[-7].dval), (yyvsp[-6].uval), (yyvsp[-5].dval), (yyvsp[-4].dval), (yyvsp[-3].dval), (yyvsp[-2].uval), (yyvsp[-1].uval));
 			}
 		}
-#line 3940 "sf-riscv.tab.c"
+#line 3850 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 164:
-#line 1487 "sf-riscv.y"
-                {
+#line 1487 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				network_netsegdelete(yyengine, (yyvsp[-1].uval));
 			}
 		}
-#line 3951 "sf-riscv.tab.c"
+#line 3861 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 165:
-#line 1494 "sf-riscv.y"
-                {
+#line 1494 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				merror(yyengine, "Command \"NODEFAILPROBFN\" unimplemented.");
 			}
 		}
-#line 3962 "sf-riscv.tab.c"
+#line 3872 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 166:
-#line 1501 "sf-riscv.y"
-                {
+#line 1501 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				merror(yyengine, "Command \"NETSEGFAILPROBFN\" unimplemented.");
 			}
 		}
-#line 3973 "sf-riscv.tab.c"
+#line 3883 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 167:
-#line 1508 "sf-riscv.y"
-                {
+#line 1508 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				m_sizemem(yyengine, yyengine->cp, (yyvsp[-1].uval));
 			}
 		}
-#line 3984 "sf-riscv.tab.c"
+#line 3894 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 168:
-#line 1515 "sf-riscv.y"
-                {
+#line 1515 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				pau_init(yyengine, yyengine->cp, (yyvsp[-1].uval));
 			}
 		}
-#line 3995 "sf-riscv.tab.c"
+#line 3905 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 169:
-#line 1522 "sf-riscv.y"
-                {
+#line 1522 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->split(yyengine, yyengine->cp, (yyvsp[-4].uval), (yyvsp[-3].uval), (yyvsp[-2].uval), (yyvsp[-1].str));
 			}
 		}
-#line 4006 "sf-riscv.tab.c"
+#line 3916 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 170:
-#line 1529 "sf-riscv.y"
-                {
+#line 1529 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				m_dumpmem(yyengine, yyengine->cp, (yyvsp[-2].uval), (yyvsp[-1].uval));
 			}
 		}
-#line 4017 "sf-riscv.tab.c"
+#line 3927 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 171:
-#line 1536 "sf-riscv.y"
-                {
+#line 1536 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->pipelined = 0;
 			}
 		}
-#line 4028 "sf-riscv.tab.c"
+#line 3938 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 172:
-#line 1543 "sf-riscv.y"
-                {
+#line 1543 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->pipelined = 1;
 			}
 		}
-#line 4039 "sf-riscv.tab.c"
+#line 3949 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 173:
-#line 1550 "sf-riscv.y"
-                {
+#line 1550 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->superH->ENABLE_CLK_INTR = (yyvsp[-1].uval);
 			}
 		}
-#line 4050 "sf-riscv.tab.c"
+#line 3960 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 174:
-#line 1557 "sf-riscv.y"
-                {
+#line 1557 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->runnable = 0;
 			}
 		}
-#line 4061 "sf-riscv.tab.c"
+#line 3971 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 175:
-#line 1564 "sf-riscv.y"
-                {
+#line 1564 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				sfatal(yyengine, yyengine->cp, (yyvsp[-1].str));
 			}
 		}
-#line 4072 "sf-riscv.tab.c"
+#line 3982 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 176:
-#line 1571 "sf-riscv.y"
-                {
+#line 1571 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				yyengine->verbose ^= 1;
 			}
 		}
-#line 4083 "sf-riscv.tab.c"
+#line 3993 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 177:
-#line 1578 "sf-riscv.y"
-                {
+#line 1578 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				m_run(yyengine, yyengine->cp, (yyvsp[-1].str));
@@ -4093,136 +4003,136 @@ yyreduce:
 			/*	The 'string' is dynamically allocated, in lex.c		*/
 			free((yyvsp[-1].str));
 		}
-#line 4097 "sf-riscv.tab.c"
+#line 4007 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 178:
-#line 1588 "sf-riscv.y"
-                {
+#line 1588 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->step(yyengine, yyengine->cp, 0);
 			}
 		}
-#line 4108 "sf-riscv.tab.c"
+#line 4018 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 179:
-#line 1595 "sf-riscv.y"
-                {
+#line 1595 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				go(yyengine, yyengine->cp, (yyvsp[-1].uval));
 			}
 		}
-#line 4119 "sf-riscv.tab.c"
+#line 4029 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 180:
-#line 1602 "sf-riscv.y"
-                {
+#line 1602 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				loadcmds(yyengine, (yyvsp[-1].str));
 			}
 		}
-#line 4130 "sf-riscv.tab.c"
+#line 4040 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 181:
-#line 1609 "sf-riscv.y"
-                {	
+#line 1609 "sf-riscv.y" /* yacc.c:1652  */
+    {	
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->PC = (yyvsp[-1].uval);
 			}
 		}
-#line 4141 "sf-riscv.tab.c"
+#line 4051 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 182:
-#line 1616 "sf-riscv.y"
-                {
+#line 1616 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				/*	Scale frequency accordingly for provided Vdd	*/
 				power_scaledelay(yyengine, yyengine->cp, (yyvsp[-1].dval));
 			}
 		}
-#line 4153 "sf-riscv.tab.c"
+#line 4063 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 183:
-#line 1624 "sf-riscv.y"
-                {
+#line 1624 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->mem_r_latency = (yyvsp[-1].uval);
 			}
 		}
-#line 4164 "sf-riscv.tab.c"
+#line 4074 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 184:
-#line 1631 "sf-riscv.y"
-                {
+#line 1631 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->mem_w_latency = (yyvsp[-1].uval);
 			}
 		}
-#line 4175 "sf-riscv.tab.c"
+#line 4085 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 185:
-#line 1638 "sf-riscv.y"
-                {
+#line 1638 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->flash_r_latency = (yyvsp[-1].uval);
 			}
 		}
-#line 4186 "sf-riscv.tab.c"
+#line 4096 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 186:
-#line 1645 "sf-riscv.y"
-                {
+#line 1645 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->flash_w_latency = (yyvsp[-1].uval);
 			}
 		}
-#line 4197 "sf-riscv.tab.c"
+#line 4107 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 187:
-#line 1652 "sf-riscv.y"
-                {
+#line 1652 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				/*	Scale Vdd accordingly for provided frequency	*/
 				power_scalevdd(yyengine, yyengine->cp, (yyvsp[-1].dval));
 			}
 		}
-#line 4209 "sf-riscv.tab.c"
+#line 4119 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 188:
-#line 1660 "sf-riscv.y"
-                {
+#line 1660 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				/*	Set node mass	*/
 				massSetNodeMass(yyengine, yyengine->cp, (yyvsp[-1].dval));
 			}
 		}
-#line 4221 "sf-riscv.tab.c"
+#line 4131 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 189:
-#line 1668 "sf-riscv.y"
-                {
+#line 1668 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				/*	Scale Vdd accordingly for provided frequency	*/
@@ -4232,128 +4142,128 @@ yyreduce:
 											(yyvsp[-5].dval),	(yyvsp[-4].dval),	(yyvsp[-3].dval),	(yyvsp[-2].dval),	(yyvsp[-1].dval),	(yyvsp[0].dval));
 			}
 		}
-#line 4236 "sf-riscv.tab.c"
+#line 4146 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 190:
-#line 1679 "sf-riscv.y"
-                {
+#line 1679 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			yyengine->cp->MEMBASE = (yyvsp[0].uval);
 			yyengine->cp->TAINTMEMBASE = (yyvsp[0].uval);
 		}
-#line 4245 "sf-riscv.tab.c"
+#line 4155 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 191:
-#line 1684 "sf-riscv.y"
-                {
+#line 1684 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			mprint(yyengine, NULL, siminfo, "Memory base address is %d.",yyengine->cp->MEMBASE);
 		}
-#line 4253 "sf-riscv.tab.c"
+#line 4163 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 192:
-#line 1688 "sf-riscv.y"
-                {
+#line 1688 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				help(yyengine);
 			}
 		}
-#line 4264 "sf-riscv.tab.c"
+#line 4174 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 193:
-#line 1695 "sf-riscv.y"
-                {
+#line 1695 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				man(yyengine, (yyvsp[-1].str));
 			}
 		}
-#line 4275 "sf-riscv.tab.c"
+#line 4185 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 194:
-#line 1702 "sf-riscv.y"
-                {
+#line 1702 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->flushpipe(yyengine->cp);
 			}
 		}
-#line 4286 "sf-riscv.tab.c"
+#line 4196 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 195:
-#line 1709 "sf-riscv.y"
-                {
+#line 1709 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->pipeshow = !yyengine->cp->pipeshow;
 			}
 		}
-#line 4297 "sf-riscv.tab.c"
+#line 4207 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 196:
-#line 1716 "sf-riscv.y"
-                {
+#line 1716 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				savemem(yyengine, yyengine->cp, (yyvsp[-3].uval), (yyvsp[-2].uval), (yyvsp[-1].str));
 			}
 		}
-#line 4308 "sf-riscv.tab.c"
+#line 4218 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 197:
-#line 1723 "sf-riscv.y"
-                {
+#line 1723 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				load_srec(yyengine, yyengine->cp, (yyvsp[-1].str));
 			}
 		}
-#line 4319 "sf-riscv.tab.c"
+#line 4229 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 198:
-#line 1730 "sf-riscv.y"
-                {
+#line 1730 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				load_mapfile(yyengine, yyengine->cp, (yyvsp[-1].str));
 			}
 		}
-#line 4330 "sf-riscv.tab.c"
+#line 4240 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 199:
-#line 1737 "sf-riscv.y"
-                {
+#line 1737 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				cont(yyengine, yyengine->cp, (yyvsp[-1].uval));
 			}
 		}
-#line 4341 "sf-riscv.tab.c"
+#line 4251 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 200:
-#line 1744 "sf-riscv.y"
-                {
+#line 1744 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				m_sharebus(yyengine, yyengine->cp, (yyvsp[-1].uval));
 			}
 		}
-#line 4352 "sf-riscv.tab.c"
+#line 4262 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 201:
-#line 1751 "sf-riscv.y"
-                {
+#line 1751 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				mprint(yyengine, NULL, siminfo,
@@ -4362,78 +4272,78 @@ yyreduce:
 					yyengine->cp->CYCLETIME);
 			}
 		}
-#line 4366 "sf-riscv.tab.c"
+#line 4276 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 202:
-#line 1761 "sf-riscv.y"
-                {
+#line 1761 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				power_printstats(yyengine, yyengine->cp);
 			}
 		}
-#line 4377 "sf-riscv.tab.c"
+#line 4287 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 203:
-#line 1768 "sf-riscv.y"
-                {
+#line 1768 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				m_locstats(yyengine, yyengine->cp);
 			}
 		}
-#line 4388 "sf-riscv.tab.c"
+#line 4298 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 204:
-#line 1775 "sf-riscv.y"
-                {
+#line 1775 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				m_listrvars(yyengine);
 			}
 		}
-#line 4399 "sf-riscv.tab.c"
+#line 4309 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 205:
-#line 1783 "sf-riscv.y"
-                {
+#line 1783 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				m_on(yyengine, yyengine->cp);
 			}
 		}
-#line 4410 "sf-riscv.tab.c"
+#line 4320 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 206:
-#line 1790 "sf-riscv.y"
-                {
+#line 1790 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				m_off(yyengine, yyengine->cp);
 			}
 		}
-#line 4421 "sf-riscv.tab.c"
+#line 4331 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 207:
-#line 1797 "sf-riscv.y"
-                {
+#line 1797 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				network_netdebug(yyengine, yyengine->cp);
 			}
 		}
-#line 4432 "sf-riscv.tab.c"
+#line 4342 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 208:
-#line 1804 "sf-riscv.y"
-                {
+#line 1804 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				mprint(yyengine, NULL, siminfo, 
@@ -4441,67 +4351,67 @@ yyreduce:
 				yyengine->cp->trace = (yyvsp[-1].uval);
 			}
 		}
-#line 4445 "sf-riscv.tab.c"
+#line 4355 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 209:
-#line 1813 "sf-riscv.y"
-                {
+#line 1813 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				yyengine->throttlensec = (yyvsp[-1].uval);
 			}
 		}
-#line 4456 "sf-riscv.tab.c"
+#line 4366 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 210:
-#line 1820 "sf-riscv.y"
-                {
+#line 1820 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				yyengine->throttlewin = (yyvsp[-1].uval);
 			}
 		}
-#line 4467 "sf-riscv.tab.c"
+#line 4377 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 211:
-#line 1827 "sf-riscv.y"
-                {
+#line 1827 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->faultthreshold = (yyvsp[-1].uval);
 			}
 		}
-#line 4478 "sf-riscv.tab.c"
+#line 4388 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 212:
-#line 1834 "sf-riscv.y"
-                {
+#line 1834 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				yyengine->cp->ENABLE_TOO_MANY_FAULTS = (yyvsp[-1].uval);
 			}
 		}
-#line 4489 "sf-riscv.tab.c"
+#line 4399 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 213:
-#line 1841 "sf-riscv.y"
-                {
+#line 1841 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				fault_setnodepfun(yyengine, yyengine->cp, (yyvsp[-1].str));
 			}
 		}
-#line 4500 "sf-riscv.tab.c"
+#line 4410 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 214:
-#line 1848 "sf-riscv.y"
-                {
+#line 1848 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				if ((yyvsp[-2].uval) < yyengine->cp->superH->NIC_NUM_IFCS)
@@ -4515,34 +4425,34 @@ yyreduce:
 				}
 			}
 		}
-#line 4519 "sf-riscv.tab.c"
+#line 4429 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 215:
-#line 1863 "sf-riscv.y"
-                {
+#line 1863 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				mmblocksdisplay(yyengine);
 			}
 		}
-#line 4530 "sf-riscv.tab.c"
+#line 4440 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 216:
-#line 1870 "sf-riscv.y"
-                {
+#line 1870 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				pau_printstats(yyengine, yyengine->cp);
 			}
 		}
-#line 4541 "sf-riscv.tab.c"
+#line 4451 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 217:
-#line 1877 "sf-riscv.y"
-                {
+#line 1877 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				// TODO: we should account for the cost of the m_on and m_off
@@ -4552,12 +4462,12 @@ yyreduce:
 				m_on(yyengine, yyengine->cp);
 			}
 		}
-#line 4556 "sf-riscv.tab.c"
+#line 4466 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 218:
-#line 1888 "sf-riscv.y"
-                {
+#line 1888 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				// TODO: we should account for the cost of the m_on and m_off
@@ -4567,23 +4477,23 @@ yyreduce:
 				m_on(yyengine, yyengine->cp);
 			}
 		}
-#line 4571 "sf-riscv.tab.c"
+#line 4481 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 219:
-#line 1899 "sf-riscv.y"
-                {
+#line 1899 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				/*	For now, nothing fun is done with comments	*/
 			}
 		}
-#line 4582 "sf-riscv.tab.c"
+#line 4492 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 220:
-#line 1906 "sf-riscv.y"
-                {
+#line 1906 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				/*								*/
@@ -4593,12 +4503,12 @@ yyreduce:
 				/*								*/
 			}
 		}
-#line 4597 "sf-riscv.tab.c"
+#line 4507 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 221:
-#line 1920 "sf-riscv.y"
-                {
+#line 1920 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			/*							*/
 			/*	Whether yyengine->scanning or not, forcefully align PC 	*/
 			/*							*/
@@ -4621,47 +4531,47 @@ yyreduce:
 				merror(yyengine, ".align for arbitrary alignment not implemented !!!");
 			}
 		}
-#line 4625 "sf-riscv.tab.c"
+#line 4535 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 222:
-#line 1947 "sf-riscv.y"
-                {
+#line 1947 "sf-riscv.y" /* yacc.c:1652  */
+    {
 		}
-#line 4632 "sf-riscv.tab.c"
+#line 4542 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 223:
-#line 1953 "sf-riscv.y"
-                {
+#line 1953 "sf-riscv.y" /* yacc.c:1652  */
+    {
 		}
-#line 4639 "sf-riscv.tab.c"
+#line 4549 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 224:
-#line 1959 "sf-riscv.y"
-                {
+#line 1959 "sf-riscv.y" /* yacc.c:1652  */
+    {
 		}
-#line 4646 "sf-riscv.tab.c"
+#line 4556 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 225:
-#line 1965 "sf-riscv.y"
-                {
+#line 1965 "sf-riscv.y" /* yacc.c:1652  */
+    {
 		}
-#line 4653 "sf-riscv.tab.c"
+#line 4563 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 226:
-#line 1970 "sf-riscv.y"
-                {
+#line 1970 "sf-riscv.y" /* yacc.c:1652  */
+    {
 		}
-#line 4660 "sf-riscv.tab.c"
+#line 4570 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 227:
-#line 1975 "sf-riscv.y"
-                {
+#line 1975 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			/*								*/
 			/*	disp is _relative_ to the current pc, so convert it	*/
 			/*	to absolute address before laying down the value, by	*/
@@ -4684,12 +4594,12 @@ yyreduce:
 				yyengine->cp->PC += 4;
 			}
 		}
-#line 4688 "sf-riscv.tab.c"
+#line 4598 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 228:
-#line 2000 "sf-riscv.y"
-                {
+#line 2000 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			/*						*/
 			/*	My understanding is that the .comm is	*/
 			/*	a global var definition. The address 	*/
@@ -4709,12 +4619,12 @@ yyreduce:
 				}	
 			}
 		}
-#line 4713 "sf-riscv.tab.c"
+#line 4623 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 229:
-#line 2023 "sf-riscv.y"
-                {
+#line 2023 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 4;
@@ -4752,12 +4662,12 @@ yyreduce:
 				yyengine->cp->PC += 4;
 			}
 		}
-#line 4756 "sf-riscv.tab.c"
+#line 4666 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 230:
-#line 2064 "sf-riscv.y"
-                {
+#line 2064 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 4;
@@ -4794,12 +4704,12 @@ yyreduce:
 				yyengine->cp->PC += 4;
 			}
 		}
-#line 4798 "sf-riscv.tab.c"
+#line 4708 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 231:
-#line 2104 "sf-riscv.y"
-                {
+#line 2104 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 4;
@@ -4837,12 +4747,12 @@ yyreduce:
 				yyengine->cp->PC += 4;
 			}
 		}
-#line 4841 "sf-riscv.tab.c"
+#line 4751 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 232:
-#line 2145 "sf-riscv.y"
-                {
+#line 2145 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 4;
@@ -4879,12 +4789,12 @@ yyreduce:
 				yyengine->cp->PC += 4;
 			}
 		}
-#line 4883 "sf-riscv.tab.c"
+#line 4793 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 233:
-#line 2185 "sf-riscv.y"
-                {
+#line 2185 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 4;
@@ -4917,12 +4827,12 @@ yyreduce:
 				yyengine->cp->PC += 4;
 			}
 		}
-#line 4921 "sf-riscv.tab.c"
+#line 4831 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 234:
-#line 2221 "sf-riscv.y"
-                {
+#line 2221 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 4;
@@ -4967,12 +4877,12 @@ yyreduce:
 				yyengine->cp->PC += 4;
 			}
 		}
-#line 4971 "sf-riscv.tab.c"
+#line 4881 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 235:
-#line 2269 "sf-riscv.y"
-                {
+#line 2269 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 4;
@@ -5014,12 +4924,12 @@ yyreduce:
 				yyengine->cp->PC += 4;
 			}
 		}
-#line 5018 "sf-riscv.tab.c"
+#line 4928 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 236:
-#line 2314 "sf-riscv.y"
-                {
+#line 2314 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 4;
@@ -5061,12 +4971,12 @@ yyreduce:
 				yyengine->cp->PC += 4;
 			}
 		}
-#line 5065 "sf-riscv.tab.c"
+#line 4975 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 237:
-#line 2359 "sf-riscv.y"
-                {
+#line 2359 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 4;
@@ -5108,12 +5018,12 @@ yyreduce:
 				yyengine->cp->PC += 4;
 			}
 		}
-#line 5112 "sf-riscv.tab.c"
+#line 5022 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 238:
-#line 2404 "sf-riscv.y"
-                {
+#line 2404 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 4;
@@ -5155,12 +5065,12 @@ yyreduce:
 				yyengine->cp->PC += 4;
 			}
 		}
-#line 5159 "sf-riscv.tab.c"
+#line 5069 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 239:
-#line 2449 "sf-riscv.y"
-                {
+#line 2449 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 4;
@@ -5202,30 +5112,30 @@ yyreduce:
 				yyengine->cp->PC += 4;
 			}
 		}
-#line 5206 "sf-riscv.tab.c"
+#line 5116 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 240:
-#line 2494 "sf-riscv.y"
-                {
+#line 2494 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			mprint(yyengine, NULL, siminfo, 
 					"Not implemented.");
 		}
-#line 5215 "sf-riscv.tab.c"
+#line 5125 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 241:
-#line 2501 "sf-riscv.y"
-                {
+#line 2501 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			mprint(yyengine, NULL, siminfo, 
 					"Not implemented.");
 		}
-#line 5224 "sf-riscv.tab.c"
+#line 5134 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 242:
-#line 2508 "sf-riscv.y"
-                {
+#line 2508 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 4;
@@ -5265,12 +5175,12 @@ yyreduce:
 				yyengine->cp->PC += 4;
 			}
 		}
-#line 5269 "sf-riscv.tab.c"
+#line 5179 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 243:
-#line 2551 "sf-riscv.y"
-                {
+#line 2551 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 4;
@@ -5306,12 +5216,12 @@ yyreduce:
 				yyengine->cp->PC += 4;
 			}
 		}
-#line 5310 "sf-riscv.tab.c"
+#line 5220 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 244:
-#line 2590 "sf-riscv.y"
-                {
+#line 2590 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 4;
@@ -5348,12 +5258,12 @@ yyreduce:
 				yyengine->cp->PC += 4;
 			}
 		}
-#line 5352 "sf-riscv.tab.c"
+#line 5262 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 245:
-#line 2630 "sf-riscv.y"
-                {
+#line 2630 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 4;
@@ -5390,12 +5300,12 @@ yyreduce:
 				yyengine->cp->PC += 4;
 			}
 		}
-#line 5394 "sf-riscv.tab.c"
+#line 5304 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 246:
-#line 2670 "sf-riscv.y"
-                {
+#line 2670 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 4;
@@ -5432,12 +5342,12 @@ yyreduce:
 				yyengine->cp->PC += 4;
 			}
 		}
-#line 5436 "sf-riscv.tab.c"
+#line 5346 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 247:
-#line 2710 "sf-riscv.y"
-                {
+#line 2710 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 4;
@@ -5474,12 +5384,12 @@ yyreduce:
 				yyengine->cp->PC += 4;
 			}
 		}
-#line 5478 "sf-riscv.tab.c"
+#line 5388 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 248:
-#line 2750 "sf-riscv.y"
-                {
+#line 2750 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 4;
@@ -5512,12 +5422,12 @@ yyreduce:
 				yyengine->cp->PC += 4;
 			}
 		}
-#line 5516 "sf-riscv.tab.c"
+#line 5426 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 249:
-#line 2786 "sf-riscv.y"
-                {
+#line 2786 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 4;
@@ -5554,12 +5464,12 @@ yyreduce:
 				yyengine->cp->PC += 4;
 			}
 		}
-#line 5558 "sf-riscv.tab.c"
+#line 5468 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 250:
-#line 2826 "sf-riscv.y"
-                {
+#line 2826 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 4;
@@ -5597,12 +5507,12 @@ yyreduce:
 				yyengine->cp->PC += 4;
 			}
 		}
-#line 5601 "sf-riscv.tab.c"
+#line 5511 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 251:
-#line 2867 "sf-riscv.y"
-                {
+#line 2867 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 4;
@@ -5639,12 +5549,12 @@ yyreduce:
 				yyengine->cp->PC += 4;
 			}
 		}
-#line 5643 "sf-riscv.tab.c"
+#line 5553 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 252:
-#line 2907 "sf-riscv.y"
-                {
+#line 2907 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 4;
@@ -5686,12 +5596,12 @@ yyreduce:
 				yyengine->cp->PC += 4;
 			}
 		}
-#line 5690 "sf-riscv.tab.c"
+#line 5600 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 253:
-#line 2952 "sf-riscv.y"
-                {
+#line 2952 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 4;
@@ -5733,12 +5643,12 @@ yyreduce:
 				yyengine->cp->PC += 4;
 			}
 		}
-#line 5737 "sf-riscv.tab.c"
+#line 5647 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 254:
-#line 2997 "sf-riscv.y"
-                {
+#line 2997 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 4;
@@ -5776,12 +5686,12 @@ yyreduce:
 				yyengine->cp->PC += 4;
 			 }
 		}
-#line 5780 "sf-riscv.tab.c"
+#line 5690 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 255:
-#line 3038 "sf-riscv.y"
-                {
+#line 3038 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 4;
@@ -5819,12 +5729,12 @@ yyreduce:
 				yyengine->cp->PC += 4;
 			 }
 		}
-#line 5823 "sf-riscv.tab.c"
+#line 5733 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 256:
-#line 3079 "sf-riscv.y"
-                {
+#line 3079 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 4;
@@ -5862,12 +5772,12 @@ yyreduce:
 				yyengine->cp->PC += 4;
 			 }
 		}
-#line 5866 "sf-riscv.tab.c"
+#line 5776 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 257:
-#line 3120 "sf-riscv.y"
-                {
+#line 3120 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 4;
@@ -5904,12 +5814,12 @@ yyreduce:
 				yyengine->cp->PC += 4;
 			}
 		}
-#line 5908 "sf-riscv.tab.c"
+#line 5818 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 258:
-#line 3160 "sf-riscv.y"
-                {
+#line 3160 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 4;
@@ -5946,12 +5856,12 @@ yyreduce:
 				yyengine->cp->PC += 4;
 			}
 		}
-#line 5950 "sf-riscv.tab.c"
+#line 5860 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 259:
-#line 3200 "sf-riscv.y"
-                {
+#line 3200 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 4;
@@ -5989,12 +5899,12 @@ yyreduce:
 				yyengine->cp->PC += 4;
 			 }
 		}
-#line 5993 "sf-riscv.tab.c"
+#line 5903 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 260:
-#line 3241 "sf-riscv.y"
-                {
+#line 3241 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 4;
@@ -6032,12 +5942,12 @@ yyreduce:
 				yyengine->cp->PC += 4;
 			 }
 		}
-#line 6036 "sf-riscv.tab.c"
+#line 5946 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 261:
-#line 3282 "sf-riscv.y"
-                {
+#line 3282 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 4;
@@ -6075,12 +5985,12 @@ yyreduce:
 				yyengine->cp->PC += 4;
 			 }
 		}
-#line 6079 "sf-riscv.tab.c"
+#line 5989 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 262:
-#line 3323 "sf-riscv.y"
-                {
+#line 3323 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 4;
@@ -6118,12 +6028,12 @@ yyreduce:
 				yyengine->cp->PC += 4;
 			 }
 		}
-#line 6122 "sf-riscv.tab.c"
+#line 6032 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 263:
-#line 3364 "sf-riscv.y"
-                {
+#line 3364 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 4;
@@ -6161,12 +6071,12 @@ yyreduce:
 				yyengine->cp->PC += 4;
 			 }
 		}
-#line 6165 "sf-riscv.tab.c"
+#line 6075 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 264:
-#line 3405 "sf-riscv.y"
-                {
+#line 3405 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 4;
@@ -6204,12 +6114,12 @@ yyreduce:
 				yyengine->cp->PC += 4;
 			 }
 		}
-#line 6208 "sf-riscv.tab.c"
+#line 6118 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 265:
-#line 3446 "sf-riscv.y"
-                {
+#line 3446 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 4;
@@ -6251,12 +6161,12 @@ yyreduce:
 				yyengine->cp->PC += 4;
 			}
 		}
-#line 6255 "sf-riscv.tab.c"
+#line 6165 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 266:
-#line 3491 "sf-riscv.y"
-                {
+#line 3491 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 4;
@@ -6294,12 +6204,12 @@ yyreduce:
 				yyengine->cp->PC += 4;
 			 }
 		}
-#line 6298 "sf-riscv.tab.c"
+#line 6208 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 267:
-#line 3532 "sf-riscv.y"
-                {
+#line 3532 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (yyengine->scanning)
 			{
 				yyengine->cp->PC += 4;
@@ -6336,23 +6246,23 @@ yyreduce:
 				yyengine->cp->PC += 4;
 			}
 		}
-#line 6340 "sf-riscv.tab.c"
+#line 6250 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 270:
-#line 3589 "sf-riscv.y"
-                {
+#line 3589 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				//$$->value = m_randgen(yyengine->cp, $3, $4, $5, $6, $7);
 			}
 		}
-#line 6351 "sf-riscv.tab.c"
+#line 6261 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 271:
-#line 3598 "sf-riscv.y"
-                {
+#line 3598 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			if (!yyengine->scanning)
 			{
 				//$$->value = m_randgen(yyengine->cp, $3, $4, $5, $6, $7);
@@ -6364,12 +6274,12 @@ yyreduce:
 				(yyval.rval)->rv.p4 = (yyvsp[-1].dval);
 			}
 		}
-#line 6368 "sf-riscv.tab.c"
+#line 6278 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 272:
-#line 4193 "sf-riscv.y"
-                {
+#line 4193 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			char tmp;
 			char *ep = &tmp;
 
@@ -6380,12 +6290,12 @@ yyreduce:
 				merror(yyengine, "Invalid unsigned immediate data %s.", (yyvsp[0].str));
 			}
 		}
-#line 6384 "sf-riscv.tab.c"
+#line 6294 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 273:
-#line 4207 "sf-riscv.y"
-                {
+#line 4207 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			char tmp;
 			char *ep = &tmp;
 
@@ -6396,12 +6306,12 @@ yyreduce:
 				merror(yyengine, "Invalid signed immediate data %s.", (yyvsp[0].str));
 			}
 		}
-#line 6400 "sf-riscv.tab.c"
+#line 6310 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 274:
-#line 4219 "sf-riscv.y"
-                {
+#line 4219 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			char tmp;
 			char *ep = &tmp;
 
@@ -6412,12 +6322,12 @@ yyreduce:
 				merror(yyengine, "Invalid signed immediate data %s.", (yyvsp[0].str));
 			}
 		}
-#line 6416 "sf-riscv.tab.c"
+#line 6326 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 275:
-#line 4231 "sf-riscv.y"
-                {
+#line 4231 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			char tmp;
 			char *ep = &tmp;
 
@@ -6428,12 +6338,12 @@ yyreduce:
 				merror(yyengine, "Invalid signed immediate data %s.", (yyvsp[0].str));
 			}
 		}
-#line 6432 "sf-riscv.tab.c"
+#line 6342 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 276:
-#line 4245 "sf-riscv.y"
-                {
+#line 4245 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			char tmp;
 			char *ep = &tmp;
 
@@ -6444,12 +6354,12 @@ yyreduce:
 				merror(yyengine, "Invalid double immediate data %s.", (yyvsp[0].str));
 			}
 		}
-#line 6448 "sf-riscv.tab.c"
+#line 6358 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 277:
-#line 4257 "sf-riscv.y"
-                {
+#line 4257 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			char tmp;
 			char *ep = &tmp;
 
@@ -6460,12 +6370,12 @@ yyreduce:
 				merror(yyengine, "Invalid double immediate data %s.", (yyvsp[0].str));
 			}
 		}
-#line 6464 "sf-riscv.tab.c"
+#line 6374 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 278:
-#line 4269 "sf-riscv.y"
-                {
+#line 4269 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			char tmp;
 			char *ep = &tmp;
 
@@ -6476,12 +6386,12 @@ yyreduce:
 				merror(yyengine, "Invalid double immediate data %s.", (yyvsp[0].str));
 			}
 		}
-#line 6480 "sf-riscv.tab.c"
+#line 6390 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 279:
-#line 4283 "sf-riscv.y"
-                {
+#line 4283 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			(yyval.rval) = (Rval *) mcalloc(yyengine, 1, sizeof(Rval), "sf.y:rdimm/$$");
 			if ((yyval.rval) == NULL)
 			{
@@ -6490,20 +6400,20 @@ yyreduce:
 
 			(yyval.rval)->dval = (yyvsp[0].dval);
 		}
-#line 6494 "sf-riscv.tab.c"
+#line 6404 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 281:
-#line 4331 "sf-riscv.y"
-                {
+#line 4331 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			(yyval.dlist) = (yyvsp[-1].dlist);
 		}
-#line 6502 "sf-riscv.tab.c"
+#line 6412 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 282:
-#line 4337 "sf-riscv.y"
-                {
+#line 4337 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			DoubleListItem	*item;
 
 			(yyval.dlist) = (DoubleList *) mcalloc(yyengine, 1, sizeof(DoubleList), "sf.y:dimmlistbody/$$");
@@ -6523,12 +6433,12 @@ yyreduce:
 			(yyval.dlist)->hd = (yyval.dlist)->tl = item;
 			(yyval.dlist)->len = 1;
 		}
-#line 6527 "sf-riscv.tab.c"
+#line 6437 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 283:
-#line 4358 "sf-riscv.y"
-                {
+#line 4358 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			DoubleListItem	*item;
 
 			item = (DoubleListItem *)mcalloc(yyengine, 1, sizeof(DoubleListItem), "sf.y:dimmlistbody/item,2");
@@ -6542,12 +6452,12 @@ yyreduce:
 			(yyval.dlist)->tl->next = item;
 			(yyval.dlist)->tl = item;
 		}
-#line 6546 "sf-riscv.tab.c"
+#line 6456 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 284:
-#line 4376 "sf-riscv.y"
-                {
+#line 4376 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			/*								*/
 			/*	According to manual, PC of instr two instrs away is	*/
 			/*	used to calculate target addr:				*/
@@ -6567,12 +6477,12 @@ yyreduce:
 				merror(yyengine, "Disp in terms of mem addr was not on word boundary.");
 			}
 		}
-#line 6571 "sf-riscv.tab.c"
+#line 6481 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 285:
-#line 4397 "sf-riscv.y"
-                {
+#line 4397 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			char tmp;
 			char *ep = &tmp;
 
@@ -6584,12 +6494,12 @@ yyreduce:
 				merror(yyengine, "Invalid DISP ([%s]). Possibly due to a .comm.", (yyvsp[0].str));
 			}
 		}
-#line 6588 "sf-riscv.tab.c"
+#line 6498 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 286:
-#line 4410 "sf-riscv.y"
-                {
+#line 4410 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			char tmp;
 			char *ep = &tmp;
 
@@ -6601,12 +6511,12 @@ yyreduce:
 				merror(yyengine, "Invalid DISP ([%s]). Possibly due to a .comm.", (yyvsp[0].str));
 			}
 		}
-#line 6605 "sf-riscv.tab.c"
+#line 6515 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 287:
-#line 4423 "sf-riscv.y"
-                {
+#line 4423 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			char tmp;
 			char *ep = &tmp;
 
@@ -6618,12 +6528,12 @@ yyreduce:
 				merror(yyengine, "Invalid DISP ([%s]). Possibly due to a .comm.", (yyvsp[0].str));
 			}
 		}
-#line 6622 "sf-riscv.tab.c"
+#line 6532 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 288:
-#line 4438 "sf-riscv.y"
-                  {
+#line 4438 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			/*								*/
 			/*	To make handling of empty string in T_RUN rule 		*/
 			/*	uniform, we malloc a place holder.			*/
@@ -6632,212 +6542,211 @@ yyreduce:
 			tmp[0] = '\0';
 			(yyval.str) = tmp;
 		}
-#line 6636 "sf-riscv.tab.c"
+#line 6546 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 289:
-#line 4448 "sf-riscv.y"
-                {
+#line 4448 "sf-riscv.y" /* yacc.c:1652  */
+    {
 			(yyval.str) = (yyvsp[0].str);
 		}
-#line 6644 "sf-riscv.tab.c"
+#line 6554 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 290:
-#line 4454 "sf-riscv.y"
-                       {(yyval.uval) = 0;}
-#line 6650 "sf-riscv.tab.c"
+#line 4454 "sf-riscv.y" /* yacc.c:1652  */
+    {(yyval.uval) = 0;}
+#line 6560 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 291:
-#line 4455 "sf-riscv.y"
-                       {(yyval.uval) = 1;}
-#line 6656 "sf-riscv.tab.c"
+#line 4455 "sf-riscv.y" /* yacc.c:1652  */
+    {(yyval.uval) = 1;}
+#line 6566 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 292:
-#line 4456 "sf-riscv.y"
-                       {(yyval.uval) = 2;}
-#line 6662 "sf-riscv.tab.c"
+#line 4456 "sf-riscv.y" /* yacc.c:1652  */
+    {(yyval.uval) = 2;}
+#line 6572 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 293:
-#line 4457 "sf-riscv.y"
-                       {(yyval.uval) = 3;}
-#line 6668 "sf-riscv.tab.c"
+#line 4457 "sf-riscv.y" /* yacc.c:1652  */
+    {(yyval.uval) = 3;}
+#line 6578 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 294:
-#line 4458 "sf-riscv.y"
-                       {(yyval.uval) = 4;}
-#line 6674 "sf-riscv.tab.c"
+#line 4458 "sf-riscv.y" /* yacc.c:1652  */
+    {(yyval.uval) = 4;}
+#line 6584 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 295:
-#line 4459 "sf-riscv.y"
-                       {(yyval.uval) = 5;}
-#line 6680 "sf-riscv.tab.c"
+#line 4459 "sf-riscv.y" /* yacc.c:1652  */
+    {(yyval.uval) = 5;}
+#line 6590 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 296:
-#line 4460 "sf-riscv.y"
-                       {(yyval.uval) = 6;}
-#line 6686 "sf-riscv.tab.c"
+#line 4460 "sf-riscv.y" /* yacc.c:1652  */
+    {(yyval.uval) = 6;}
+#line 6596 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 297:
-#line 4461 "sf-riscv.y"
-                       {(yyval.uval) = 7;}
-#line 6692 "sf-riscv.tab.c"
+#line 4461 "sf-riscv.y" /* yacc.c:1652  */
+    {(yyval.uval) = 7;}
+#line 6602 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 298:
-#line 4462 "sf-riscv.y"
-                       {(yyval.uval) = 8;}
-#line 6698 "sf-riscv.tab.c"
+#line 4462 "sf-riscv.y" /* yacc.c:1652  */
+    {(yyval.uval) = 8;}
+#line 6608 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 299:
-#line 4463 "sf-riscv.y"
-                       {(yyval.uval) = 9;}
-#line 6704 "sf-riscv.tab.c"
+#line 4463 "sf-riscv.y" /* yacc.c:1652  */
+    {(yyval.uval) = 9;}
+#line 6614 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 300:
-#line 4464 "sf-riscv.y"
-                        {(yyval.uval) = 10;}
-#line 6710 "sf-riscv.tab.c"
+#line 4464 "sf-riscv.y" /* yacc.c:1652  */
+    {(yyval.uval) = 10;}
+#line 6620 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 301:
-#line 4465 "sf-riscv.y"
-                        {(yyval.uval) = 11;}
-#line 6716 "sf-riscv.tab.c"
+#line 4465 "sf-riscv.y" /* yacc.c:1652  */
+    {(yyval.uval) = 11;}
+#line 6626 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 302:
-#line 4466 "sf-riscv.y"
-                        {(yyval.uval) = 12;}
-#line 6722 "sf-riscv.tab.c"
+#line 4466 "sf-riscv.y" /* yacc.c:1652  */
+    {(yyval.uval) = 12;}
+#line 6632 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 303:
-#line 4467 "sf-riscv.y"
-                        {(yyval.uval) = 13;}
-#line 6728 "sf-riscv.tab.c"
+#line 4467 "sf-riscv.y" /* yacc.c:1652  */
+    {(yyval.uval) = 13;}
+#line 6638 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 304:
-#line 4468 "sf-riscv.y"
-                        {(yyval.uval) = 14;}
-#line 6734 "sf-riscv.tab.c"
+#line 4468 "sf-riscv.y" /* yacc.c:1652  */
+    {(yyval.uval) = 14;}
+#line 6644 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 305:
-#line 4469 "sf-riscv.y"
-                        {(yyval.uval) = 15;}
-#line 6740 "sf-riscv.tab.c"
+#line 4469 "sf-riscv.y" /* yacc.c:1652  */
+    {(yyval.uval) = 15;}
+#line 6650 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 306:
-#line 4470 "sf-riscv.y"
-                        {(yyval.uval) = 16;}
-#line 6746 "sf-riscv.tab.c"
+#line 4470 "sf-riscv.y" /* yacc.c:1652  */
+    {(yyval.uval) = 16;}
+#line 6656 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 307:
-#line 4471 "sf-riscv.y"
-                        {(yyval.uval) = 17;}
-#line 6752 "sf-riscv.tab.c"
+#line 4471 "sf-riscv.y" /* yacc.c:1652  */
+    {(yyval.uval) = 17;}
+#line 6662 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 308:
-#line 4472 "sf-riscv.y"
-                        {(yyval.uval) = 18;}
-#line 6758 "sf-riscv.tab.c"
+#line 4472 "sf-riscv.y" /* yacc.c:1652  */
+    {(yyval.uval) = 18;}
+#line 6668 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 309:
-#line 4473 "sf-riscv.y"
-                        {(yyval.uval) = 19;}
-#line 6764 "sf-riscv.tab.c"
+#line 4473 "sf-riscv.y" /* yacc.c:1652  */
+    {(yyval.uval) = 19;}
+#line 6674 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 310:
-#line 4474 "sf-riscv.y"
-                        {(yyval.uval) = 20;}
-#line 6770 "sf-riscv.tab.c"
+#line 4474 "sf-riscv.y" /* yacc.c:1652  */
+    {(yyval.uval) = 20;}
+#line 6680 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 311:
-#line 4475 "sf-riscv.y"
-                        {(yyval.uval) = 21;}
-#line 6776 "sf-riscv.tab.c"
+#line 4475 "sf-riscv.y" /* yacc.c:1652  */
+    {(yyval.uval) = 21;}
+#line 6686 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 312:
-#line 4476 "sf-riscv.y"
-                        {(yyval.uval) = 22;}
-#line 6782 "sf-riscv.tab.c"
+#line 4476 "sf-riscv.y" /* yacc.c:1652  */
+    {(yyval.uval) = 22;}
+#line 6692 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 313:
-#line 4477 "sf-riscv.y"
-                        {(yyval.uval) = 23;}
-#line 6788 "sf-riscv.tab.c"
+#line 4477 "sf-riscv.y" /* yacc.c:1652  */
+    {(yyval.uval) = 23;}
+#line 6698 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 314:
-#line 4478 "sf-riscv.y"
-                        {(yyval.uval) = 24;}
-#line 6794 "sf-riscv.tab.c"
+#line 4478 "sf-riscv.y" /* yacc.c:1652  */
+    {(yyval.uval) = 24;}
+#line 6704 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 315:
-#line 4479 "sf-riscv.y"
-                        {(yyval.uval) = 25;}
-#line 6800 "sf-riscv.tab.c"
+#line 4479 "sf-riscv.y" /* yacc.c:1652  */
+    {(yyval.uval) = 25;}
+#line 6710 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 316:
-#line 4480 "sf-riscv.y"
-                        {(yyval.uval) = 26;}
-#line 6806 "sf-riscv.tab.c"
+#line 4480 "sf-riscv.y" /* yacc.c:1652  */
+    {(yyval.uval) = 26;}
+#line 6716 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 317:
-#line 4481 "sf-riscv.y"
-                        {(yyval.uval) = 27;}
-#line 6812 "sf-riscv.tab.c"
+#line 4481 "sf-riscv.y" /* yacc.c:1652  */
+    {(yyval.uval) = 27;}
+#line 6722 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 318:
-#line 4482 "sf-riscv.y"
-                        {(yyval.uval) = 28;}
-#line 6818 "sf-riscv.tab.c"
+#line 4482 "sf-riscv.y" /* yacc.c:1652  */
+    {(yyval.uval) = 28;}
+#line 6728 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 319:
-#line 4483 "sf-riscv.y"
-                        {(yyval.uval) = 29;}
-#line 6824 "sf-riscv.tab.c"
+#line 4483 "sf-riscv.y" /* yacc.c:1652  */
+    {(yyval.uval) = 29;}
+#line 6734 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 320:
-#line 4484 "sf-riscv.y"
-                        {(yyval.uval) = 30;}
-#line 6830 "sf-riscv.tab.c"
+#line 4484 "sf-riscv.y" /* yacc.c:1652  */
+    {(yyval.uval) = 30;}
+#line 6740 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
   case 321:
-#line 4485 "sf-riscv.y"
-                        {(yyval.uval) = 31;}
-#line 6836 "sf-riscv.tab.c"
+#line 4485 "sf-riscv.y" /* yacc.c:1652  */
+    {(yyval.uval) = 31;}
+#line 6746 "sf-riscv.tab.c" /* yacc.c:1652  */
     break;
 
 
-#line 6840 "sf-riscv.tab.c"
-
+#line 6750 "sf-riscv.tab.c" /* yacc.c:1652  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -6900,7 +6809,7 @@ yyerrlab:
           {
             if (yymsg != yymsgbuf)
               YYSTACK_FREE (yymsg);
-            yymsg = YY_CAST (char *, YYSTACK_ALLOC (YY_CAST (YYSIZE_T, yymsg_alloc)));
+            yymsg = (char *) YYSTACK_ALLOC (yymsg_alloc);
             if (!yymsg)
               {
                 yymsg = yymsgbuf;
@@ -7055,7 +6964,7 @@ yyreturn:
   while (yyssp != yyss)
     {
       yydestruct ("Cleanup: popping",
-                  yystos[+*yyssp], yyvsp);
+                  yystos[*yyssp], yyvsp);
       YYPOPSTACK (1);
     }
 #ifndef yyoverflow
@@ -7068,7 +6977,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 4521 "sf-riscv.y"
+#line 4521 "sf-riscv.y" /* yacc.c:1918  */
 
 
 #include "lex-riscv.c"
