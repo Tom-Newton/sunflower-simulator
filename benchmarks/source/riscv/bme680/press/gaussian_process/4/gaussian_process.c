@@ -4,8 +4,7 @@
 #include <math.h>
 #include "../../../../../superh/port/logmarkers.h"
 
-#define number_training_points 9
-
+#define number_training_points 4
 
 float gaussian_kernel(float x[2], float y[2])
 {
@@ -17,15 +16,10 @@ float gaussian_kernel(float x[2], float y[2])
 void evaluate_cross_kernel(float input[2], float (*cross_kernel)[number_training_points])
 {
 	static float train_input_points[number_training_points][2] = {
-		{738541.0, 293804.0},
-		{758979.0, 492409.0},
-		{776224.0, 694076.0},
-		{478920.0, 293804.0},
-		{523927.0, 492409.0},
-		{562362.0, 694076.0},
-		{221477.0, 293804.0},
-		{290846.0, 492409.0},
-		{350295.0, 694076.0}};
+		{738541, 293804},
+		{776224, 694076},
+		{221477, 293804},
+		{350295, 694076}};
 
 	for (int i = 0; i < number_training_points; i++)
 	{
@@ -36,15 +30,10 @@ void evaluate_cross_kernel(float input[2], float (*cross_kernel)[number_training
 float mean(float input[2])
 {
 	static float parameter_mean[number_training_points] = {
-		0.00096469070550853075,
-		-0.00290255013698725861,
-		0.00210706214568645578,
-		-0.00382518281193711118,
-		0.01025932145469710122,
-		-0.00685207828732359303,
-		0.00292185735953154335,
-		-0.00748053889917343895,
-		0.00480860352554302040};
+		0.00005876170547401140,
+		-0.00008542129990529571,
+		-0.00006161199882486618,
+		0.00008818416234338824};
 
 	float cross_kernel[number_training_points];
 	evaluate_cross_kernel(input, &cross_kernel);
@@ -66,7 +55,7 @@ int main(void)
 	LOGMARK(1);
 
 	printf("Converted press = %f\n", press);
-	printf("expected_result = %f\n", 30000.082103848457);
+	printf("expected_result = %f\n", 30000.073067557067);
 
 	return 0;
 }
