@@ -4,7 +4,7 @@ include $(TREEROOT)/conf/setup.conf
 TARGET		= riscv
 TARGET-ARCH	= riscv32-elf
 
-PROGRAM		= linear_sigmoid
+PROGRAM		= hard_sigmoid
 
 PORT		= ../port
 LIBOS		= mOS

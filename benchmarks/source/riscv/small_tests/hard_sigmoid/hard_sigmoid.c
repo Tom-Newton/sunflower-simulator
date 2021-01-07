@@ -5,17 +5,17 @@
 #include "../../../superh/port/logmarkers.h"
 
 float relu(float x) {
-	if (x < 0) {
+	if (x < -2.5) {
 		return 0;
-	} else if (x > 1) {
+	} else if (x > 2.5) {
 		return 1;
 	}
-	return x;
+	return x*0.2 + 0.5;
 }
 
 int main(void)
 {
-	float x = 12.2334294;
+	float x = 2.2334294;
 
 	LOGMARK(0);
 	float result = relu(x);
