@@ -9,8 +9,9 @@ int main(void)
 	float x = 12.2334294;
 
 	LOGMARK(0);
-	1/(1 + expf(-x));
+	float result = 1/(1 + expf(-x));
 	LOGMARK(1);
 	
+	printf("result = %f\n", result);
 	return 0;
 }

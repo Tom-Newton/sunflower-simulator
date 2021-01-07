@@ -9,9 +9,9 @@ int main(void)
 	float x = 12.2334294;
 
 	LOGMARK(0);
-	float result = expf(x);
+	float result = tanhf(x);
 	LOGMARK(1);
-	
+
 	printf("result = %f\n", result);
 	return 0;
 }

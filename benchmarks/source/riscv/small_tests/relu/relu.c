@@ -16,8 +16,9 @@ int main(void)
 	float x = 12.2334294;
 
 	LOGMARK(0);
-	relu(x);
+	float result = relu(x);
 	LOGMARK(1);
 	
+	printf("result = %f\n", result);
 	return 0;
 }
