@@ -40,7 +40,7 @@ float mean(float input[2])
 	evaluate_cross_kernel(input, &cross_kernel);
 
 	float mean = 0;
-	for (int i = 0; i < 9; i++)
+	for (int i = 0; i < number_training_points; i++)
 	{
 		mean += cross_kernel[i] * parameter_mean[i];
 	}
