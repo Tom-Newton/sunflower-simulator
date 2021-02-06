@@ -24,14 +24,16 @@ float predict(float input[2], bool reset_states, float initial_label)
 	{
 		float transformed_initial_label = initial_label * 1.2499994367320406e-05 + -0.37499996968700844;
 		state[0] = transformed_initial_label;
-		state[1] = transformed_initial_label;
 	}
 
-	float output_gate[state_size] = {sigmoid(input[0] * -0.85940176248550415039 + input[1] * -0.23951263725757598877 + state[0] * -0.06910761445760726929 + 0.10083637386560440063 + 0.10083637386560440063)};
-	float forget_gate[state_size] = {sigmoid(input[0] * 0.63198220729827880859 + input[1] * -0.06936411559581756592 + state[0] * -0.67112284898757934570 + -0.09291975945234298706 + -0.09291975945234298706)};
+	float output_gate[state_size] = {sigmoid(input[0] * 0.47724983096122741699 + input[1] * -0.31615862250328063965 + state[0] * -0.80062437057495117188 + 0.27962753176689147949)};
+	float forget_gate[state_size] = {sigmoid(input[0] * 7.10969924926757812500 + input[1] * -3.01183509826660156250 + state[0] * 0.08229340612888336182 + 0.79827982187271118164)};
+
 
 	float output = output_gate[0] * state[0] + (1 - output_gate[0]) *
-												   tanhf(input[0] * 0.94886767864227294922 + input[1] * -0.31985044479370117188 + forget_gate[0] * state[0] * 0.70614594221115112305 + -0.01456232741475105286 + -0.01612281613051891327);
+												   tanhf(input[0] * -2.51875472068786621094 + input[1] * 0.35096794366836547852 + forget_gate[0] * state[0] * -1.40747070312500000000 + 2.34080910682678222656);
+	state[0] = output;
+	
 	output = (output - -0.37499996968700844) / 1.2499994367320406e-05;
 	return output;
 }
@@ -48,7 +50,7 @@ int main(void)
 	LOGMARK(2);
 
 	printf("Converted press = %f\n", press);
-	printf("expected_result = %f\n", 62686.876847);
+	printf("expected_result = %f\n", 59491.243903);
 
 	return 0;
 }
