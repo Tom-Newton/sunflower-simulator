@@ -31,6 +31,13 @@ float predict(float input[2], bool reset_states, float initial_label)
 				   (-0.01151726208627223969 + 0.13621032238006591797) * input[1] +
 				   0.42129915952682495117 * ar_state[0] + -0.17284591495990753174 * ar_state[1] +
 				   -0.04121445491909980774 * ma_state[0][0] + 0.04895013570785522461 * ma_state[0][1];
+	
+	ar_state[1] = ar_state[0];
+	ar_state[0] = output;
+
+	ma_state[0][0] = input[0];
+	ma_state[0][1] = input[1];
+
 	output = (output - -0.37499996968700844)/1.2499994367320406e-05;
 	return output;
 }
