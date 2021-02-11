@@ -9,52 +9,40 @@
 #define ma_state_size 1
 #define input_dimension 2
 
-float predict(float input[input_dimension], bool reset_states, float initial_label)
+float predict(float input[2])
 {
-	input[0] = input[0] * 5.969792848188168e-05 + -0.7649692555668318;
-	input[1] = input[1] * 2.4983011552144543e-06 + -0.7340108726066276;
+	input[0] = input[0]*5.969792848188168e-05 + -0.7649692555668318;
+	input[1] = input[1]*2.4983011552144543e-06 + -0.7340108726066276;
 
 	static float ma_state[ma_state_size][input_dimension] = {{0, 0}};
 	static float ar_state[ar_state_size] = {0, 0};
 
-	if (reset_states)
-	{
-		float transformed_initial_label = initial_label * 0.010203688679615065 + -0.010188503536061447;
-		ar_state[0] = transformed_initial_label;
-		ar_state[1] = transformed_initial_label;
-		ma_state[0][0] = 0;
-		ma_state[0][1] = 0;
-	}
-
-	float output = 0.09243402630090713501 + -0.27642777562141418457 +
-				   (0.51061952114105224609 + 0.31642121076583862305) * input[0] +
-				   (-0.07335481792688369751 + 0.22794730961322784424) * input[1] +
-				   0.53241693973541259766 * ar_state[0] + -0.23956160247325897217 * ar_state[1] +
-				   -0.00136420398484915495 * ma_state[0][0] + 0.01269345171749591827 * ma_state[0][1];
-
+	float output = 0.00029661590815521777 + -0.14594134688377380371 +
+				   (-0.00050068146083503962 + 1.03888499736785888672) * input[0] +
+				   (-0.00002736092028499115 + 0.13752995431423187256) * input[1] +
+				   -1.46985054016113281250 * ar_state[0] + -0.95989215373992919922 * ar_state[1] +
+				   0.00032785304938443005 * ma_state[0][0] + -0.00022125121904537082 * ma_state[0][1];
+	
 	ar_state[1] = ar_state[0];
 	ar_state[0] = output;
 
 	ma_state[0][0] = input[0];
 	ma_state[0][1] = input[1];
 
-	output = (output - -0.010188503536061447) / 0.010203688679615065;
+	output = (output - -0.010188503536061447)/0.010203688679615065;
 	return output;
 }
 
 int main(void)
 {
-	float input[input_dimension] = {16347, 543639};
-	float initial_label = 17.999593;
+	float input[2] = {16347, 543639};
 
 	LOGMARK(0);
-	float hum = predict(input, true, initial_label);
+	float hum = predict(input);
 	LOGMARK(1);
-	float hum2 = predict(input, false, initial_label);
-	LOGMARK(2);
 
 	printf("Converted hum = %f\n", hum);
-	printf("expected_result = %f\n", 14.4969);
+	printf("expected_result = %f\n", 16.599521);
 
 	return 0;
 }
