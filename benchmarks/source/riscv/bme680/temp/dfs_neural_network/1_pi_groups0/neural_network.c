@@ -17,8 +17,8 @@ Non-trainable params: 0
 _________________________________________________________________
 */
 
-const float output_neuron_weights[1] = {-1.1539516, };
-const float output_neuron_bias = 0.9016366600990295;
+const float output_neuron_weights[1] = {0.22356577, };
+const float output_neuron_bias = 0.37412458658218384;
 
 
 float relu(float x)
@@ -42,11 +42,10 @@ float neuron(const float *neuron_weights, const float neuron_bias, float *inputV
 
 float evaluate_network(float input[1])
 {
-float input_0[1] = {26372/input[0]};
-input_0[0] = input_0[0]*19.318190900019623 + -0.7340108726066273;
-	float output = neuron(output_neuron_weights, output_neuron_bias, input_0, 1);
-output = (output - 0.32000005950859406)/5563858.142387389;
-output = output*(26372*26372);
+input[0] = input[0]*2.4983011552144543e-06 + -0.7340108726066276;
+	float output = neuron(output_neuron_weights, output_neuron_bias, input, 1);
+output = (output - 0.4615325326488194)/3.2307640746790494;
+output = 1/output;
 return output;
 }
 
@@ -57,6 +56,6 @@ int main()
 	float result = evaluate_network(input);
 	LOGMARK(1);
 	printf("result = %f\n", result);
-	printf("expected_result = %f\n", -40.00001412179845);
+	printf("expected_result = %f\n", -36.96190358043733);
 	return 0;
 }
