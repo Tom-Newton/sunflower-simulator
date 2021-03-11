@@ -5,15 +5,15 @@
 #include "../../../../../superh/port/logmarkers.h"
 
 /* Model Summary:
-Model: "sequential"
+Model: "sequential_1"
 _________________________________________________________________
 Layer (type)                 Output Shape              Param #   
 =================================================================
-dense (Dense)                (None, 3)                 12        
-_________________________________________________________________
 dense_1 (Dense)              (None, 3)                 12        
 _________________________________________________________________
-dense_2 (Dense)              (None, 1)                 4         
+dense_2 (Dense)              (None, 3)                 12        
+_________________________________________________________________
+dense_3 (Dense)              (None, 1)                 4         
 =================================================================
 Total params: 28
 Trainable params: 28
@@ -22,23 +22,23 @@ _________________________________________________________________
 */
 
 const float layer_0_weights[3][3] = {
-{0.739323, 0.47564116, -0.0093633225, },
-{0.046442818, -1.0535619, 0.6514833, },
-{0.09724912, -0.9507764, 0.40036762, },
+{0.7389955, 0.47479048, -0.0106101185, },
+{0.046829533, -1.0529724, 0.65158165, },
+{0.09812839, -0.9500589, 0.40132245, },
 };
-const float layer_0_biases[3] = {-0.09916884, 0.46786025, 0.29914105, };
+const float layer_0_biases[3] = {-0.09948941, 0.4683905, 0.2994018, };
 float layer_0_output[3];
 
 const float layer_1_weights[3][3] = {
-{0.677613, -0.94497603, -0.34696242, },
-{0.3939647, 0.4437438, 1.1787297, },
-{0.4984848, -0.64411247, -0.8723024, },
+{0.67731315, -0.94504815, -0.34806365, },
+{0.39411047, 0.44419214, 1.1797895, },
+{0.49761778, -0.64482445, -0.8720548, },
 };
-const float layer_1_biases[3] = {0.08191981, -0.5649706, 0.4675497, };
+const float layer_1_biases[3] = {0.08112769, -0.5638356, 0.46740067, };
 float layer_1_output[3];
 
-const float output_neuron_weights[3] = {0.88152695, -0.7303256, 0.9477378, };
-const float output_neuron_bias = 0.20965911448001862;
+const float output_neuron_weights[3] = {0.8810319, -0.7289738, 0.9474442, };
+const float output_neuron_bias = 0.2091701328754425;
 
 
 float relu(float x)
@@ -62,10 +62,10 @@ float neuron(const float *neuron_weights, const float neuron_bias, float *inputV
 
 float evaluate_network(float input[3])
 {
-float input_0[3] = {input[1]*1009, input[0]/input[1], 785/input[1]};
-input_0[0] = input_0[0]*2.476017002194702e-09 + -0.7340108726066275;
+float input_0[3] = {input[1], input[0]/input[1], 1/input[1]};
+input_0[0] = input_0[0]*2.4983011552144543e-06 + -0.7340108726066276;
 input_0[1] = input_0[1]*11.819142211288188 + -0.21709761474494596;
-input_0[2] = input_0[2]*648.9927775991307 + -0.7340108726066276;
+input_0[2] = input_0[2]*509459.3304153176 + -0.7340108726066276;
 	for (int neuron_index = 0; neuron_index < 3; neuron_index++)
 	{
 		layer_0_output[neuron_index] = neuron(layer_0_weights[neuron_index], layer_0_biases[neuron_index], input_0, 3);

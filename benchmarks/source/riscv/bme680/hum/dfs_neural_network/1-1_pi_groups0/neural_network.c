@@ -5,13 +5,13 @@
 #include "../../../../../superh/port/logmarkers.h"
 
 /* Model Summary:
-Model: "sequential"
+Model: "sequential_1"
 _________________________________________________________________
 Layer (type)                 Output Shape              Param #   
 =================================================================
-dense (Dense)                (None, 1)                 4         
+dense_1 (Dense)              (None, 1)                 4         
 _________________________________________________________________
-dense_1 (Dense)              (None, 1)                 2         
+dense_2 (Dense)              (None, 1)                 2         
 =================================================================
 Total params: 6
 Trainable params: 6
@@ -20,13 +20,13 @@ _________________________________________________________________
 */
 
 const float layer_0_weights[1][3] = {
-{-0.058560114, 1.4339802, -0.9460043, },
+{-0.058343604, 1.4343889, -0.9459358, },
 };
-const float layer_0_biases[1] = {0.084881626, };
+const float layer_0_biases[1] = {0.08501702, };
 float layer_0_output[1];
 
-const float output_neuron_weights[1] = {1.8542145, };
-const float output_neuron_bias = 0.09647591412067413;
+const float output_neuron_weights[1] = {1.8538741, };
+const float output_neuron_bias = 0.09657273441553116;
 
 
 float relu(float x)
@@ -50,10 +50,10 @@ float neuron(const float *neuron_weights, const float neuron_bias, float *inputV
 
 float evaluate_network(float input[3])
 {
-float input_0[3] = {input[1]*1009, input[0]/input[1], 785/input[1]};
-input_0[0] = input_0[0]*2.476017002194702e-09 + -0.7340108726066275;
+float input_0[3] = {input[1], input[0]/input[1], 1/input[1]};
+input_0[0] = input_0[0]*2.4983011552144543e-06 + -0.7340108726066276;
 input_0[1] = input_0[1]*11.819142211288188 + -0.21709761474494596;
-input_0[2] = input_0[2]*648.9927775991307 + -0.7340108726066276;
+input_0[2] = input_0[2]*509459.3304153176 + -0.7340108726066276;
 	for (int neuron_index = 0; neuron_index < 1; neuron_index++)
 	{
 		layer_0_output[neuron_index] = neuron(layer_0_weights[neuron_index], layer_0_biases[neuron_index], input_0, 3);
@@ -71,6 +71,6 @@ int main()
 	float result = evaluate_network(input);
 	LOGMARK(1);
 	printf("result = %f\n", result);
-	printf("expected_result = %f\n", 10.45288148604983);
+	printf("expected_result = %f\n", 10.462370444212876);
 	return 0;
 }
